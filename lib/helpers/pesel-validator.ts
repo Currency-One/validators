@@ -13,7 +13,7 @@ export const peselValidator = {
     control = 10 - (control === 0 ? 10 : control)
     return parts[10] === control
   },
-  getDateOfBirthFromPesel: (pesel: string): number => {
+  getDateOfBirthFromPesel: (pesel: string): Date => {
     const peselArr = pesel.split('').map((x) => parseInt(x, 10))
 
     let year = 1900 + peselArr[0] * 10 + peselArr[1]
@@ -27,7 +27,7 @@ export const peselValidator = {
     const month = (peselArr[2] % 2) * 10 + peselArr[3]
     const day = peselArr[4] * 10 + peselArr[5]
 
-    return new Date(`${year}-${month}-${day}`).getFullYear()
+    return new Date(`${year}-${month}-${day}`)
   },
   peselNotUnder18: (pesel: string): boolean => {
     if (!pesel) {
@@ -38,7 +38,7 @@ export const peselValidator = {
       return true
     }
     const dateOfBirth = peselValidator.getDateOfBirthFromPesel(pesel)
-    const age = dateOfBirth - new Date().getFullYear()
+    const age = dateOfBirth.getFullYear() - new Date().getFullYear()
     return age <= -18
   },
 }
