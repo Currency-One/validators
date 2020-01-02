@@ -1,6 +1,6 @@
 # Validators
 
-This is javascript package of validators and regexp patterns
+This is typescript package of validators and regexp patterns
 
 ## Installation
 
