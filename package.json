@@ -20,7 +20,8 @@
     "validators",
     "pattern",
     "patterns",
-    "javascript"
+    "javascript",
+    "typescript"
   ],
   "author": "Mikołaj Jarmuła <mikolaj_jarmula@wp.pl>",
   "license": "MIT",
