@@ -581,7 +581,7 @@
 <a name="module_Validators.isDateNotUnder18"></a>
 
 ### Validators.isDateNotUnder18 ⇒ <code>boolean</code>
-<p>Check if person with given birthday is above 18 years</p>
+<p>Check if person with given birthday is above 18 years. Date in format YYYY-MM-DD</p>
 
 **Kind**: static property of [<code>Validators</code>](#module_Validators)  
 
@@ -593,7 +593,7 @@
 
 ### Validators.isExpiryDateValid ⇒ <code>boolean</code>
 <p>Check if given expiration date of id card is valid. Checks if given date is later or equal to today and
-if given date is smaller than current date plus 100 years</p>
+if given date is smaller than current date plus 100 years. Date in format YYYY-MM-DD</p>
 
 **Kind**: static property of [<code>Validators</code>](#module_Validators)  
 
@@ -606,7 +606,7 @@ if given date is smaller than current date plus 100 years</p>
 ### Validators.isReleaseDateValid ⇒ <code>boolean</code>
 <p>Check if given release date of id card is valid. Checks if given date is earlier or equal to today and
 if given date is bigger than current date minus 100 years. You can also pass expiration date and if it's given
-then it is checked if expiration date is later than release date</p>
+then it is checked if expiration date is later than release date. Date in format YYYY-MM-DD</p>
 
 **Kind**: static property of [<code>Validators</code>](#module_Validators)  
 
@@ -618,7 +618,7 @@ then it is checked if expiration date is later than release date</p>
 <a name="module_Validators.isBirthDateValid"></a>
 
 ### Validators.isBirthDateValid ⇒ <code>boolean</code>
-<p>Check if value is valid birth date. Assumes that human cannot be older than 150 years</p>
+<p>Check if value is valid birth date. Assumes that human cannot be older than 150 years. Date in format YYYY-MM-DD</p>
 
 **Kind**: static property of [<code>Validators</code>](#module_Validators)  
 
@@ -629,7 +629,7 @@ then it is checked if expiration date is later than release date</p>
 <a name="module_Validators.isAfterToday"></a>
 
 ### Validators.isAfterToday ⇒ <code>boolean</code>
-<p>Check if given date is after today</p>
+<p>Check if given date is after today. Date in format YYYY-MM-DD</p>
 
 **Kind**: static property of [<code>Validators</code>](#module_Validators)  
 
@@ -640,7 +640,7 @@ then it is checked if expiration date is later than release date</p>
 <a name="module_Validators.isBeforeToday"></a>
 
 ### Validators.isBeforeToday ⇒ <code>boolean</code>
-<p>Check if given date is before today</p>
+<p>Check if given date is before today. Date in format YYYY-MM-DD</p>
 
 **Kind**: static property of [<code>Validators</code>](#module_Validators)  
 

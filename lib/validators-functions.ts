@@ -291,7 +291,7 @@ export const isDateNotUnder18 = (date: string): boolean => (
   new Date(date).getFullYear() - new Date().getFullYear() <= -18
 )
 /**
- * Check if person with given birthday is above 18 years
+ * Check if person with given birthday is above 18 years. Date in format YYYY-MM-DD
  * @param {string} date - value to check.
  * @returns {boolean}
  */
@@ -299,7 +299,7 @@ export const isDateNotUnder18 = (date: string): boolean => (
 export const isExpiryDateValid = (date: string): boolean => idCardValidator.validateExpiryDate(date)
 /**
  * Check if given expiration date of id card is valid. Checks if given date is later or equal to today and
- * if given date is smaller than current date plus 100 years
+ * if given date is smaller than current date plus 100 years. Date in format YYYY-MM-DD
  * @param {string} date - value to check.
  * @returns {boolean}
  */
@@ -310,7 +310,7 @@ export const isReleaseDateValid = (date: string, expiryDate: string): boolean =>
 /**
  * Check if given release date of id card is valid. Checks if given date is earlier or equal to today and
  * if given date is bigger than current date minus 100 years. You can also pass expiration date and if it's given
- * then it is checked if expiration date is later than release date
+ * then it is checked if expiration date is later than release date. Date in format YYYY-MM-DD
  * @param {string} date - value to check.
  * @param {string} expiryDate - acc.
  * @returns {boolean}
@@ -322,21 +322,21 @@ export const isBirthDateValid = (date: string): boolean => {
   return now - yearsToCheck <= 150 && new Date(date) <= new Date()
 }
 /**
- * Check if value is valid birth date. Assumes that human cannot be older than 150 years
+ * Check if value is valid birth date. Assumes that human cannot be older than 150 years. Date in format YYYY-MM-DD
  * @param {string} date - value to check.
  * @returns {boolean}
  */
 
 export const isAfterToday = (date: string): boolean => new Date(date) > new Date()
 /**
- * Check if given date is after today
+ * Check if given date is after today. Date in format YYYY-MM-DD
  * @param {string} date - value to check.
  * @returns {boolean}
  */
 
 export const isBeforeToday = (date: string): boolean => new Date(date) < new Date()
 /**
- * Check if given date is before today
+ * Check if given date is before today. Date in format YYYY-MM-DD
  * @param {string} date - value to check.
  * @returns {boolean}
  */

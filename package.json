@@ -24,6 +24,11 @@
     "typescript"
   ],
   "author": "Mikołaj Jarmuła <mikolaj_jarmula@wp.pl>",
+  "homepage": "https://github.com/Currency-One/validators",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Currency-One/validators.git"
+  },
   "license": "MIT",
   "dependencies": {
     "libphonenumber-js": "^1.7.24"
