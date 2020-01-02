@@ -1,21 +1,25 @@
 {
-  "name": "validators",
+  "name": "@currency-one/validators",
   "version": "1.0.0",
-  "description": "Javascript package of validators",
+  "description": "Javascript package of validators and patterns",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "all": "npm install && npm run lint && npm run test && npm run build && npm run build-docs",
-    "build": "npm run clean && npm run tsc && npm run copy",
+    "all": "npm install && npm run lint && npm run test && npm run build && npm run build:doc",
+    "build": "npm run clean && npm run tsc",
     "tsc": "tsc",
     "lint": "tslint -p . -t codeFrame",
     "test": "jest --coverage",
     "clean": "rimraf ./dist",
-    "publish-package": "npm run all && npm version patch && npm publish"
+    "fix": "npm run lint --fix",
+    "publish-package": "npm run all && npm version patch && npm publish --access public",
+    "build:doc": "jsdoc2md --files ./lib/*.ts --configure ./jsdoc2md.json > ./DOCS.md"
   },
   "keywords": [
     "validator",
     "validators",
+    "pattern",
+    "patterns",
     "javascript"
   ],
   "author": "Mikołaj Jarmuła <mikolaj_jarmula@wp.pl>",
@@ -24,11 +28,22 @@
     "libphonenumber-js": "^1.7.24"
   },
   "devDependencies": {
+    "@babel/cli": "^7.7.7",
+    "@babel/core": "^7.7.7",
+    "@babel/preset-env": "^7.7.7",
+    "@babel/preset-typescript": "^7.7.7",
     "@types/jest": "^24.0.25",
     "jest": "^24.9.0",
+    "jsdoc-babel": "^0.5.0",
+    "jsdoc-to-markdown": "^5.0.3",
+    "mockdate": "^2.0.5",
     "ts-jest": "^24.2.0",
     "tslint": "^5.20.1",
     "typescript": "^3.7.4"
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "test"
   },
   "jest": {
     "preset": "ts-jest",

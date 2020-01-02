@@ -38,13 +38,6 @@ export const ibanValidator = {
     }
     return ibanValidator.iso7064Mod97_10(num) === 1
   },
-  differentCountryCode: (iban, countryCode): boolean => {
-    const currentCountryCode = ibanValidator.getCurrentCountryCode(iban)
-    if (!countryCode || !currentCountryCode) {
-      return false
-    }
-    return currentCountryCode !== countryCode
-  },
   iso7064Mod97_10: (iban) => {
     let remainder = iban
     let block

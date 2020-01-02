@@ -1,17 +1,19 @@
 # Validators
 
-This is javascript package of validators
+This is javascript package of validators and regexp patterns
 
 ## Installation
 
 To install run:
 ```
-npm i validators
+npm i @currency-one/validators
 ```
 or
 
 ```
-yarn add validators
+yarn add @currency-one/validators
 ```
 
-## List of validators
+## Documentation
+
+See [documentation](DOCS.md) for more details

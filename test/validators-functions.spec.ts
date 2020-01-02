@@ -19,25 +19,28 @@ import {
   isMinLength,
   isPesel,
   isPeselNotUnder18,
-  isDateNotUnder18, isExpiryDateValid, isReleaseDateValid, isNotSmaller, isAllKeys, isBirthDateValid, isLanNumber,
-  isSwift, isSwiftCountry
+  isDateNotUnder18,
+  isExpiryDateValid,
+  isReleaseDateValid,
+  isNotSmaller,
+  isAllKeys,
+  isBirthDateValid,
+  isLanNumber,
+  isSwift,
+  isSwiftCountry,
+  isNotEmptyString,
+  isNotEmptyTrimmedString,
+  isNotHigher,
+  isMaxLength,
+  isAfterToday,
+  isBeforeToday, isPropValid,
 } from '../lib'
 import { ibanValidator } from '../lib/helpers/iban-validator'
+import * as MockDate from 'mockdate'
 
 describe('Validators', () => {
   beforeEach(() => {
-    const RealDate = Date
-
-    function mockDate (isoDate) {
-      // @ts-ignore
-      global.Date = class extends RealDate {
-        constructor () {
-          super()
-          return new RealDate(isoDate)
-        }
-      }
-    }
-    mockDate('2017-04-01T12:00:00.001Z')
+    MockDate.set('2017-04-01T00:00:00.000Z')
   })
 
   it('should isValue() find empty values correctly', () => {
@@ -46,6 +49,18 @@ describe('Validators', () => {
     expect(isValue({})).toBeTruthy()
     expect(isValue('')).toBeFalsy()
     expect(isValue(undefined)).toBeFalsy()
+  })
+
+  it('should isNotEmptyString() find empty values correctly', () => {
+    expect(isNotEmptyString('asd')).toBeTruthy()
+    expect(isNotEmptyString('   ')).toBeTruthy()
+    expect(isNotEmptyString('')).toBeFalsy()
+  })
+
+  it('should isNotEmptyString() find empty values correctly', () => {
+    expect(isNotEmptyTrimmedString('asd')).toBeTruthy()
+    expect(isNotEmptyTrimmedString('   ')).toBeFalsy()
+    expect(isNotEmptyTrimmedString('')).toBeFalsy()
   })
 
   it('should isNotEmptyUnless() find empty value correctly', () => {
@@ -119,6 +134,14 @@ describe('Validators', () => {
     expect(isNotHigherOrEqual('10.00', '10.11')).toBeTruthy()
     expect(isNotHigherOrEqual('10', '9')).toBeFalsy()
     expect(isNotHigherOrEqual('10.9', '10.1')).toBeFalsy()
+  })
+
+  it('should isNotHigher() validate number correctly', () => {
+    expect(isNotHigher('10', '11')).toBeTruthy()
+    expect(isNotHigher('10', '10')).toBeFalsy()
+    expect(isNotHigher('10.00', '10.11')).toBeTruthy()
+    expect(isNotHigher('10', '9')).toBeFalsy()
+    expect(isNotHigher('10.9', '10.1')).toBeFalsy()
   })
 
   it('should isEmail() validate email correctly', () => {
@@ -226,6 +249,13 @@ describe('Validators', () => {
     expect(isMinLength('ash5hh54hdss', 7)).toBeTruthy()
   })
 
+  it('should isMaxLength() validate correctly', () => {
+    expect(isMaxLength('void', 7)).toBeTruthy()
+    expect(isMaxLength('asdasasd', 22)).toBeTruthy()
+    expect(isMaxLength('asdss', 2)).toBeFalsy()
+    expect(isMaxLength('ash5hh54hdss', 7)).toBeFalsy()
+  })
+
   it('should isPesel() validate value correctly', () => {
     expect(isPesel('87103009246')).toBeTruthy()
     expect(isPesel('87103009245')).toBeFalsy()
@@ -285,6 +315,7 @@ describe('Validators', () => {
     expect(isReleaseDateValid('1917-04-01', '2017-04-01')).toBeFalsy()
     expect(isReleaseDateValid('2017-04-01', '2017-04-01')).toBeFalsy()
     expect(isReleaseDateValid('2017-04-01', '2017-03-01')).toBeFalsy()
+    expect(isReleaseDateValid('2017-04-01', undefined)).toBeTruthy()
     expect(isReleaseDateValid('2017-04-01', '2017-05-01')).toBeTruthy()
   })
 
@@ -315,6 +346,28 @@ describe('Validators', () => {
     expect(isBirthDateValid('2017-04-01')).toBeTruthy()
     expect(isBirthDateValid('1867-04-01')).toBeTruthy()
     expect(isBirthDateValid('2000-03-15')).toBeTruthy()
+  })
+
+  it('should isAfterToday() validate value correctly', () => {
+    expect(isAfterToday('3016-05-23')).toBeTruthy()
+    expect(isAfterToday('9999-03-15')).toBeTruthy()
+    expect(isAfterToday('2017-04-02')).toBeTruthy()
+    expect(isAfterToday('1000-01-01')).toBeFalsy()
+    expect(isAfterToday('0000-12-21')).toBeFalsy()
+    expect(isAfterToday('2017-04-01')).toBeFalsy()
+    expect(isAfterToday('1867-04-01')).toBeFalsy()
+    expect(isAfterToday('2000-03-15')).toBeFalsy()
+  })
+
+  it('should isBeforeToday() validate value correctly', () => {
+    expect(isBeforeToday('3016-05-23')).toBeFalsy()
+    expect(isBeforeToday('9999-03-15')).toBeFalsy()
+    expect(isBeforeToday('2017-04-01')).toBeFalsy()
+    expect(isBeforeToday('2017-03-31')).toBeTruthy()
+    expect(isBeforeToday('1000-01-01')).toBeTruthy()
+    expect(isBeforeToday('0000-12-21')).toBeTruthy()
+    expect(isBeforeToday('1867-04-01')).toBeTruthy()
+    expect(isBeforeToday('2000-03-15')).toBeTruthy()
   })
 
   it('should isLanNumber() validate value correctly', () => {
@@ -353,5 +406,11 @@ describe('Validators', () => {
     expect(isSwiftCountry('____CN____', 'PL')).toBeFalsy()
     expect(isSwiftCountry('____HK____', 'PL')).toBeFalsy()
     expect(isSwiftCountry('____MO____', 'PL')).toBeFalsy()
+  })
+
+  it('should isPropValid() validate value correctly', () => {
+    expect(isPropValid({valid: undefined})).toBeFalsy()
+    expect(isPropValid({valid: false, testing: 'test'})).toBeFalsy()
+    expect(isPropValid({valid: true, test: 'test'})).toBeTruthy()
   })
 })
