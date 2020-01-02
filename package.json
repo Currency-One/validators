@@ -1,0 +1,44 @@
+{
+  "name": "validators",
+  "version": "1.0.0",
+  "description": "Javascript package of validators",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "all": "npm install && npm run lint && npm run test && npm run build && npm run build-docs",
+    "build": "npm run clean && npm run tsc && npm run copy",
+    "tsc": "tsc",
+    "lint": "tslint -p . -t codeFrame",
+    "test": "jest --coverage",
+    "clean": "rimraf ./dist",
+    "publish-package": "npm run all && npm version patch && npm publish"
+  },
+  "keywords": [
+    "validator",
+    "validators",
+    "javascript"
+  ],
+  "author": "Mikołaj Jarmuła <mikolaj_jarmula@wp.pl>",
+  "license": "MIT",
+  "dependencies": {
+    "libphonenumber-js": "^1.7.24"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.25",
+    "jest": "^24.9.0",
+    "ts-jest": "^24.2.0",
+    "tslint": "^5.20.1",
+    "typescript": "^3.7.4"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "jsdom",
+    "collectCoverageFrom": [
+      "lib/**/*.ts",
+      "!**/node_modules/**"
+    ],
+    "moduleNameMapper": {
+      "libphonenumber-js/metadata.full.json.js": "<rootDir>/__mocks__/libphonenumber-mock.ts"
+    }
+  }
+}
