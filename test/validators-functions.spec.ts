@@ -1,39 +1,39 @@
 import {
-  isEmail,
-  isLatin,
-  isNotEmptyUnless,
-  isNotHigherOrEqual,
-  isPostalCode,
-  isSelected,
-  isValidBankTitle,
-  isValidPassword,
-  isValue,
-  isNotSmallerOrEqual,
-  isSameAs,
-  isOtherThan,
-  isNip,
-  isPhone,
-  isMobilePhone,
-  isIban,
-  isValidDate,
-  isMinLength,
-  isPesel,
-  isPeselNotUnder18,
-  isDateNotUnder18,
-  isExpiryDateValid,
-  isReleaseDateValid,
-  isNotSmaller,
-  isAllKeys,
-  isBirthDateValid,
-  isLanNumber,
-  isSwift,
-  isSwiftCountry,
-  isNotEmptyString,
-  isNotEmptyTrimmedString,
-  isNotHigher,
-  isMaxLength,
-  isAfterToday,
-  isBeforeToday, isPropValid,
+  isEmailValidator,
+  isLatinValidator,
+  isNotEmptyUnlessValidator,
+  isNotHigherOrEqualValidator,
+  isPostalCodeValidator,
+  isSelectedValidator,
+  isValidBankTitleValidator,
+  isPasswordValidator,
+  isValueValidator,
+  isNotSmallerOrEqualValidator,
+  isSameAsValidator,
+  isOtherThanValidator,
+  isNipValidator,
+  isPhoneValidator,
+  isMobilePhoneValidator,
+  isIbanValidator,
+  isDateValidator,
+  isMinLengthValidator,
+  isPeselValidator,
+  isPeselNotUnder18Validator,
+  isDateNotUnder18Validator,
+  isExpiryDateValidator,
+  isReleaseDateValidator,
+  isNotSmallerValidator,
+  isAllKeysValidator,
+  isBirthDateValidator,
+  isLanNumberValidator,
+  isSwiftValidator,
+  isSwiftCountryValidator,
+  isNotEmptyStringValidator,
+  isNotEmptyTrimmedStringValidator,
+  isNotHigherValidator,
+  isMaxLengthValidator,
+  isAfterTodayValidator,
+  isBeforeTodayValidator, isPropValidator,
 } from '../lib'
 import { ibanValidator } from '../lib/helpers/iban-validator'
 import * as MockDate from 'mockdate'
@@ -43,256 +43,256 @@ describe('Validators', () => {
     MockDate.set('2017-04-01T00:00:00.000Z')
   })
 
-  it('should isValue() find empty values correctly', () => {
-    expect(isValue('asd')).toBeTruthy()
-    expect(isValue([])).toBeTruthy()
-    expect(isValue({})).toBeTruthy()
-    expect(isValue('')).toBeFalsy()
-    expect(isValue(undefined)).toBeFalsy()
+  it('should isValueValidator() find empty values correctly', () => {
+    expect(isValueValidator('asd')).toBeTruthy()
+    expect(isValueValidator([])).toBeTruthy()
+    expect(isValueValidator({})).toBeTruthy()
+    expect(isValueValidator('')).toBeFalsy()
+    expect(isValueValidator(undefined)).toBeFalsy()
   })
 
-  it('should isNotEmptyString() find empty values correctly', () => {
-    expect(isNotEmptyString('asd')).toBeTruthy()
-    expect(isNotEmptyString('   ')).toBeTruthy()
-    expect(isNotEmptyString('')).toBeFalsy()
+  it('should isNotEmptyStringValidator() find empty values correctly', () => {
+    expect(isNotEmptyStringValidator('asd')).toBeTruthy()
+    expect(isNotEmptyStringValidator('   ')).toBeTruthy()
+    expect(isNotEmptyStringValidator('')).toBeFalsy()
   })
 
-  it('should isNotEmptyString() find empty values correctly', () => {
-    expect(isNotEmptyTrimmedString('asd')).toBeTruthy()
-    expect(isNotEmptyTrimmedString('   ')).toBeFalsy()
-    expect(isNotEmptyTrimmedString('')).toBeFalsy()
+  it('should isNotEmptyStringValidator() find empty values correctly', () => {
+    expect(isNotEmptyTrimmedStringValidator('asd')).toBeTruthy()
+    expect(isNotEmptyTrimmedStringValidator('   ')).toBeFalsy()
+    expect(isNotEmptyTrimmedStringValidator('')).toBeFalsy()
   })
 
-  it('should isNotEmptyUnless() find empty value correctly', () => {
-    expect(isNotEmptyUnless('2010-10-12', false)).toBeTruthy()
-    expect(isNotEmptyUnless('', false)).toBeFalsy()
-    expect(isNotEmptyUnless('2010-10-12', true)).toBeTruthy()
-    expect(isNotEmptyUnless('', true)).toBeTruthy()
+  it('should isNotEmptyUnlessValidator() find empty value correctly', () => {
+    expect(isNotEmptyUnlessValidator('2010-10-12', false)).toBeTruthy()
+    expect(isNotEmptyUnlessValidator('', false)).toBeFalsy()
+    expect(isNotEmptyUnlessValidator('2010-10-12', true)).toBeTruthy()
+    expect(isNotEmptyUnlessValidator('', true)).toBeTruthy()
   })
 
-  it('should isLatin() find not latin values correctly', () => {
-    expect(isLatin('asd')).toBeTruthy()
-    expect(isLatin('Привіт')).toBeFalsy()
+  it('should isLatinValidator() find not latin values correctly', () => {
+    expect(isLatinValidator('asd')).toBeTruthy()
+    expect(isLatinValidator('Привіт')).toBeFalsy()
   })
 
-  it('should isSelected() validate element correctly', () => {
-    expect(isSelected('1')).toBeTruthy()
-    expect(isSelected('')).toBeFalsy()
-    expect(isSelected(undefined)).toBeFalsy()
-    expect(isSelected(null)).toBeFalsy()
-    expect(isSelected(false)).toBeTruthy()
-    expect(isSelected('?')).toBeFalsy()
-    expect(isSelected('? string: ?')).toBeFalsy()
-    expect(isSelected('? boolean: ?')).toBeFalsy()
-    expect(isSelected('? undefined:undefined ?')).toBeFalsy()
+  it('should isSelectedValidator() validate element correctly', () => {
+    expect(isSelectedValidator('1')).toBeTruthy()
+    expect(isSelectedValidator('')).toBeFalsy()
+    expect(isSelectedValidator(undefined)).toBeFalsy()
+    expect(isSelectedValidator(null)).toBeFalsy()
+    expect(isSelectedValidator(false)).toBeTruthy()
+    expect(isSelectedValidator('?')).toBeFalsy()
+    expect(isSelectedValidator('? string: ?')).toBeFalsy()
+    expect(isSelectedValidator('? boolean: ?')).toBeFalsy()
+    expect(isSelectedValidator('? undefined:undefined ?')).toBeFalsy()
   })
 
-  it('should isValidBankTitle() validate value correctly', () => {
-    expect(isValidBankTitle('aAa')).toBeTruthy()
-    expect(isValidBankTitle('aa22')).toBeTruthy()
-    expect(isValidBankTitle('2222')).toBeTruthy()
-    expect(isValidBankTitle('22AA')).toBeTruthy()
-    expect(isValidBankTitle('.,/()- ')).toBeTruthy()
-    expect(isValidBankTitle('$%&.,/()- !@#')).toBeFalsy()
-    expect(isValidBankTitle('!@#$%^&*()_&*%$@#')).toBeFalsy()
-    expect(isValidBankTitle('ęóąśłżźćń')).toBeTruthy()
-    expect(isValidBankTitle('Γεώργιος Αποστολίδης')).toBeFalsy()
+  it('should isValidBankTitleValidator() validate value correctly', () => {
+    expect(isValidBankTitleValidator('aAa')).toBeTruthy()
+    expect(isValidBankTitleValidator('aa22')).toBeTruthy()
+    expect(isValidBankTitleValidator('2222')).toBeTruthy()
+    expect(isValidBankTitleValidator('22AA')).toBeTruthy()
+    expect(isValidBankTitleValidator('.,/()- ')).toBeTruthy()
+    expect(isValidBankTitleValidator('$%&.,/()- !@#')).toBeFalsy()
+    expect(isValidBankTitleValidator('!@#$%^&*()_&*%$@#')).toBeFalsy()
+    expect(isValidBankTitleValidator('ęóąśłżźćń')).toBeTruthy()
+    expect(isValidBankTitleValidator('Γεώργιος Αποστολίδης')).toBeFalsy()
   })
 
-  it('should isPostalCode() validate postal code correctly', () => {
-    expect(isPostalCode('60-600', 'PL')).toBeTruthy()
-    expect(isPostalCode('60600', 'PL')).toBeTruthy()
-    expect(isPostalCode('606001', 'PL')).toBeFalsy()
-    expect(isPostalCode('124 56', 'PL')).toBeFalsy()
-    expect(isPostalCode('12456', 'PL')).toBeTruthy()
-    expect(isPostalCode('12-456', 'PL')).toBeTruthy()
-    expect(isPostalCode('125644', 'PL')).toBeFalsy()
-    expect(isPostalCode('aaaaa', 'PL')).toBeFalsy()
-    expect(isPostalCode('124 56')).toBeTruthy()
-    expect(isPostalCode('12456')).toBeTruthy()
-    expect(isPostalCode('12-456')).toBeTruthy()
-    expect(isPostalCode('125644')).toBeTruthy()
-    expect(isPostalCode('aaaaa')).toBeTruthy()
-    expect(isPostalCode('00-000', 'PL')).toBeFalsy()
-    expect(isPostalCode('00000', 'PL')).toBeFalsy()
-    expect(isPostalCode('123456', 'CN')).toBeTruthy()
-    expect(isPostalCode('1', 'CN')).toBeTruthy()
-    expect(isPostalCode('01-123', 'CN')).toBeFalsy()
-    expect(isPostalCode('A12345', 'CN')).toBeFalsy()
-    expect(isPostalCode('1234567', 'CN')).toBeFalsy()
+  it('should isPostalCodeValidator() validate postal code correctly', () => {
+    expect(isPostalCodeValidator('60-600', 'PL')).toBeTruthy()
+    expect(isPostalCodeValidator('60600', 'PL')).toBeTruthy()
+    expect(isPostalCodeValidator('606001', 'PL')).toBeFalsy()
+    expect(isPostalCodeValidator('124 56', 'PL')).toBeFalsy()
+    expect(isPostalCodeValidator('12456', 'PL')).toBeTruthy()
+    expect(isPostalCodeValidator('12-456', 'PL')).toBeTruthy()
+    expect(isPostalCodeValidator('125644', 'PL')).toBeFalsy()
+    expect(isPostalCodeValidator('aaaaa', 'PL')).toBeFalsy()
+    expect(isPostalCodeValidator('124 56')).toBeTruthy()
+    expect(isPostalCodeValidator('12456')).toBeTruthy()
+    expect(isPostalCodeValidator('12-456')).toBeTruthy()
+    expect(isPostalCodeValidator('125644')).toBeTruthy()
+    expect(isPostalCodeValidator('aaaaa')).toBeTruthy()
+    expect(isPostalCodeValidator('00-000', 'PL')).toBeFalsy()
+    expect(isPostalCodeValidator('00000', 'PL')).toBeFalsy()
+    expect(isPostalCodeValidator('123456', 'CN')).toBeTruthy()
+    expect(isPostalCodeValidator('1', 'CN')).toBeTruthy()
+    expect(isPostalCodeValidator('01-123', 'CN')).toBeFalsy()
+    expect(isPostalCodeValidator('A12345', 'CN')).toBeFalsy()
+    expect(isPostalCodeValidator('1234567', 'CN')).toBeFalsy()
   })
 
-  it('should isValidPassword() validate password correctly', () => {
-    expect(isValidPassword('asdfghjk')).toBeTruthy()
-    expect(isValidPassword('asdfghj')).toBeFalsy()
-    expect(isValidPassword('')).toBeFalsy()
+  it('should isPasswordValidator() validate password correctly', () => {
+    expect(isPasswordValidator('asdfghjk')).toBeTruthy()
+    expect(isPasswordValidator('asdfghj')).toBeFalsy()
+    expect(isPasswordValidator('')).toBeFalsy()
   })
 
-  it('should isNotHigherOrEqual() validate number correctly', () => {
-    expect(isNotHigherOrEqual('10', '11')).toBeTruthy()
-    expect(isNotHigherOrEqual('10', '10')).toBeTruthy()
-    expect(isNotHigherOrEqual('10.00', '10.11')).toBeTruthy()
-    expect(isNotHigherOrEqual('10', '9')).toBeFalsy()
-    expect(isNotHigherOrEqual('10.9', '10.1')).toBeFalsy()
+  it('should isNotHigherOrEqualValidator() validate number correctly', () => {
+    expect(isNotHigherOrEqualValidator('10', '11')).toBeTruthy()
+    expect(isNotHigherOrEqualValidator('10', '10')).toBeTruthy()
+    expect(isNotHigherOrEqualValidator('10.00', '10.11')).toBeTruthy()
+    expect(isNotHigherOrEqualValidator('10', '9')).toBeFalsy()
+    expect(isNotHigherOrEqualValidator('10.9', '10.1')).toBeFalsy()
   })
 
-  it('should isNotHigher() validate number correctly', () => {
-    expect(isNotHigher('10', '11')).toBeTruthy()
-    expect(isNotHigher('10', '10')).toBeFalsy()
-    expect(isNotHigher('10.00', '10.11')).toBeTruthy()
-    expect(isNotHigher('10', '9')).toBeFalsy()
-    expect(isNotHigher('10.9', '10.1')).toBeFalsy()
+  it('should isNotHigherValidator() validate number correctly', () => {
+    expect(isNotHigherValidator('10', '11')).toBeTruthy()
+    expect(isNotHigherValidator('10', '10')).toBeFalsy()
+    expect(isNotHigherValidator('10.00', '10.11')).toBeTruthy()
+    expect(isNotHigherValidator('10', '9')).toBeFalsy()
+    expect(isNotHigherValidator('10.9', '10.1')).toBeFalsy()
   })
 
-  it('should isEmail() validate email correctly', () => {
-    expect(isEmail('test@email.com')).toBeTruthy()
-    expect(isEmail('test@email.pl')).toBeTruthy()
-    expect(isEmail('test@email.info')).toBeTruthy()
-    expect(isEmail('test+1@email.com')).toBeTruthy()
-    expect(isEmail('tESt+1@email.com')).toBeTruthy()
-    expect(isEmail('email@111.222.333.44444')).toBeTruthy()
-    expect(isEmail('email@')).toBeFalsy()
-    expect(isEmail('@email.com')).toBeFalsy()
-    expect(isEmail('ania.asd@.gmail.com')).toBeFalsy()
-    expect(isEmail('test,@email.pl')).toBeFalsy()
-    expect(isEmail('testemail.pl')).toBeFalsy()
-    expect(isEmail('aaa@aaa')).toBeFalsy()
-    expect(isEmail('plainaddress')).toBeFalsy()
-    expect(isEmail('email.domain.com')).toBeFalsy()
-    expect(isEmail('#@%^%#$@#$@#.com')).toBeFalsy()
-    expect(isEmail('email@domain.com (JoeSmith)')).toBeFalsy()
-    expect(isEmail('email@domain@domain.com')).toBeFalsy()
-    expect(isEmail('あいうえお@domain.com')).toBeFalsy()
-    expect(isEmail('email@-domain.com')).toBeFalsy()
-    expect(isEmail('email@domain..com')).toBeFalsy()
-    expect(isEmail('a@urząd.mf.gov.pl')).toBeFalsy()
-    expect(isEmail('.email@domain.com')).toBeFalsy()
-    expect(isEmail('email.@domain.com')).toBeFalsy()
-    expect(isEmail('email..email@domain.com')).toBeFalsy()
+  it('should isEmailValidator() validate email correctly', () => {
+    expect(isEmailValidator('test@email.com')).toBeTruthy()
+    expect(isEmailValidator('test@email.pl')).toBeTruthy()
+    expect(isEmailValidator('test@email.info')).toBeTruthy()
+    expect(isEmailValidator('test+1@email.com')).toBeTruthy()
+    expect(isEmailValidator('tESt+1@email.com')).toBeTruthy()
+    expect(isEmailValidator('email@111.222.333.44444')).toBeTruthy()
+    expect(isEmailValidator('email@')).toBeFalsy()
+    expect(isEmailValidator('@email.com')).toBeFalsy()
+    expect(isEmailValidator('ania.asd@.gmail.com')).toBeFalsy()
+    expect(isEmailValidator('test,@email.pl')).toBeFalsy()
+    expect(isEmailValidator('testemail.pl')).toBeFalsy()
+    expect(isEmailValidator('aaa@aaa')).toBeFalsy()
+    expect(isEmailValidator('plainaddress')).toBeFalsy()
+    expect(isEmailValidator('email.domain.com')).toBeFalsy()
+    expect(isEmailValidator('#@%^%#$@#$@#.com')).toBeFalsy()
+    expect(isEmailValidator('email@domain.com (JoeSmith)')).toBeFalsy()
+    expect(isEmailValidator('email@domain@domain.com')).toBeFalsy()
+    expect(isEmailValidator('あいうえお@domain.com')).toBeFalsy()
+    expect(isEmailValidator('email@-domain.com')).toBeFalsy()
+    expect(isEmailValidator('email@domain..com')).toBeFalsy()
+    expect(isEmailValidator('a@urząd.mf.gov.pl')).toBeFalsy()
+    expect(isEmailValidator('.email@domain.com')).toBeFalsy()
+    expect(isEmailValidator('email.@domain.com')).toBeFalsy()
+    expect(isEmailValidator('email..email@domain.com')).toBeFalsy()
   })
 
-  it('should isNotSmallerOrEqual() validate value correctly', () => {
-    expect(isNotSmallerOrEqual('10', '9')).toBeTruthy()
-    expect(isNotSmallerOrEqual('10.5', '10.4')).toBeTruthy()
-    expect(isNotSmallerOrEqual('10', '11')).toBeFalsy()
-    expect(isNotSmallerOrEqual('10', '10')).toBeFalsy()
-    expect(isNotSmallerOrEqual('10.5', '10.6')).toBeFalsy()
-    expect(isNotSmallerOrEqual('10.5', '10.5')).toBeFalsy()
+  it('should isNotSmallerOrEqualValidator() validate value correctly', () => {
+    expect(isNotSmallerOrEqualValidator('10', '9')).toBeTruthy()
+    expect(isNotSmallerOrEqualValidator('10.5', '10.4')).toBeTruthy()
+    expect(isNotSmallerOrEqualValidator('10', '11')).toBeFalsy()
+    expect(isNotSmallerOrEqualValidator('10', '10')).toBeFalsy()
+    expect(isNotSmallerOrEqualValidator('10.5', '10.6')).toBeFalsy()
+    expect(isNotSmallerOrEqualValidator('10.5', '10.5')).toBeFalsy()
   })
 
-  it('should isSameAs() validate value correctly', () => {
-    expect(isSameAs('10', '10')).toBeTruthy()
-    expect(isSameAs('', '')).toBeTruthy()
-    expect(isSameAs('11', '10')).toBeFalsy()
-    expect(isSameAs('', undefined)).toBeFalsy()
+  it('should isSameAsValidator() validate value correctly', () => {
+    expect(isSameAsValidator('10', '10')).toBeTruthy()
+    expect(isSameAsValidator('', '')).toBeTruthy()
+    expect(isSameAsValidator('11', '10')).toBeFalsy()
+    expect(isSameAsValidator('', undefined)).toBeFalsy()
   })
 
-  it('should isOtherThan() validate value correctly', () => {
-    expect(isOtherThan('10', '10')).toBeFalsy()
-    expect(isOtherThan('', '')).toBeFalsy()
-    expect(isOtherThan('11', '10')).toBeTruthy()
-    expect(isOtherThan('', undefined)).toBeTruthy()
+  it('should isOtherThanValidator() validate value correctly', () => {
+    expect(isOtherThanValidator('10', '10')).toBeFalsy()
+    expect(isOtherThanValidator('', '')).toBeFalsy()
+    expect(isOtherThanValidator('11', '10')).toBeTruthy()
+    expect(isOtherThanValidator('', undefined)).toBeTruthy()
   })
 
-  it('should isNip() validate value correctly', () => {
-    expect(isNip('6677059645')).toBeTruthy()
-    expect(isNip('1696690974')).toBeTruthy()
-    expect(isNip('527-25-25-995')).toBeTruthy()
-    expect(isNip('PL298-42-58-365')).toBeTruthy()
-    expect(isNip('12345671')).toBeFalsy()
-    expect(isNip('')).toBeFalsy()
-    expect(isNip('void')).toBeFalsy()
+  it('should isNipValidator() validate value correctly', () => {
+    expect(isNipValidator('6677059645')).toBeTruthy()
+    expect(isNipValidator('1696690974')).toBeTruthy()
+    expect(isNipValidator('527-25-25-995')).toBeTruthy()
+    expect(isNipValidator('PL298-42-58-365')).toBeTruthy()
+    expect(isNipValidator('12345671')).toBeFalsy()
+    expect(isNipValidator('')).toBeFalsy()
+    expect(isNipValidator('void')).toBeFalsy()
   })
 
-  it('should isPhone() validate value correctly', () => {
-    expect(isPhone('500500500', 'PL')).toBeTruthy()
-    expect(isPhone('221101010', 'PL')).toBeTruthy()
-    expect(isPhone('12345', 'PL')).toBeFalsy()
+  it('should isPhoneValidator() validate value correctly', () => {
+    expect(isPhoneValidator('500500500', 'PL')).toBeTruthy()
+    expect(isPhoneValidator('221101010', 'PL')).toBeTruthy()
+    expect(isPhoneValidator('12345', 'PL')).toBeFalsy()
   })
 
-  it('should isMobilePhone() validate value correctly', () => {
-    expect(isMobilePhone('500500500', 'PL')).toBeTruthy()
-    expect(isMobilePhone('60000000', 'DK')).toBeTruthy()
-    expect(isMobilePhone('221101010', 'PL')).toBeFalsy()
+  it('should isMobilePhoneValidator() validate value correctly', () => {
+    expect(isMobilePhoneValidator('500500500', 'PL')).toBeTruthy()
+    expect(isMobilePhoneValidator('60000000', 'DK')).toBeTruthy()
+    expect(isMobilePhoneValidator('221101010', 'PL')).toBeFalsy()
   })
 
-  it('should isIban() validate value correctly', () => {
-    expect(isIban('CZ 52 2554 3385 1391 1493 6948')).toBeTruthy()
-    expect(isIban('CZ5225543385139114936948')).toBeTruthy()
-    expect(isIban('005225543385139114936948')).toBeFalsy()
-    expect(isIban('asdasdsad')).toBeFalsy()
-    expect(isIban('')).toBeFalsy()
-    expect(isIban('void')).toBeFalsy()
-    expect(isIban('LV72NDEA0000084513319')).toBeTruthy()
-    expect(isIban('LV72NDEA0000084513319', 'LV')).toBeTruthy()
-    expect(isIban('72NDEA0000084513319', 'LV')).toBeTruthy()
-    expect(isIban('LV72NDEA0000084513319', 'PL')).toBeFalsy()
+  it('should isIbanValidator() validate value correctly', () => {
+    expect(isIbanValidator('CZ 52 2554 3385 1391 1493 6948')).toBeTruthy()
+    expect(isIbanValidator('CZ5225543385139114936948')).toBeTruthy()
+    expect(isIbanValidator('005225543385139114936948')).toBeFalsy()
+    expect(isIbanValidator('asdasdsad')).toBeFalsy()
+    expect(isIbanValidator('')).toBeFalsy()
+    expect(isIbanValidator('void')).toBeFalsy()
+    expect(isIbanValidator('LV72NDEA0000084513319')).toBeTruthy()
+    expect(isIbanValidator('LV72NDEA0000084513319', 'LV')).toBeTruthy()
+    expect(isIbanValidator('72NDEA0000084513319', 'LV')).toBeTruthy()
+    expect(isIbanValidator('LV72NDEA0000084513319', 'PL')).toBeFalsy()
   })
 
-  it('should isValidDate() validate value correctly', () => {
-    expect(isValidDate('2015-05-01')).toBeTruthy()
-    expect(isValidDate('1920-11-01')).toBeTruthy()
-    expect(isValidDate('1966-06-12')).toBeTruthy()
-    expect(isValidDate('2012-02-29')).toBeTruthy()
-    expect(isValidDate('1970-06-6')).toBeFalsy()
-    expect(isValidDate('1970-6-6')).toBeFalsy()
-    expect(isValidDate('70-06-06')).toBeFalsy()
-    expect(isValidDate('2020-06-31')).toBeFalsy()
-    expect(isValidDate('2013-02-29')).toBeFalsy()
-    expect(isValidDate('2020-20-20')).toBeFalsy()
+  it('should isDateValidator() validate value correctly', () => {
+    expect(isDateValidator('2015-05-01')).toBeTruthy()
+    expect(isDateValidator('1920-11-01')).toBeTruthy()
+    expect(isDateValidator('1966-06-12')).toBeTruthy()
+    expect(isDateValidator('2012-02-29')).toBeTruthy()
+    expect(isDateValidator('1970-06-6')).toBeFalsy()
+    expect(isDateValidator('1970-6-6')).toBeFalsy()
+    expect(isDateValidator('70-06-06')).toBeFalsy()
+    expect(isDateValidator('2020-06-31')).toBeFalsy()
+    expect(isDateValidator('2013-02-29')).toBeFalsy()
+    expect(isDateValidator('2020-20-20')).toBeFalsy()
   })
 
-  it('should isMinLength() validate correctly', () => {
-    expect(isMinLength('void', 7)).toBeFalsy()
-    expect(isMinLength('asdasasd', 22)).toBeFalsy()
-    expect(isMinLength('asdss', 2)).toBeTruthy()
-    expect(isMinLength('ash5hh54hdss', 7)).toBeTruthy()
+  it('should isMinLengthValidator() validate correctly', () => {
+    expect(isMinLengthValidator('void', 7)).toBeFalsy()
+    expect(isMinLengthValidator('asdasasd', 22)).toBeFalsy()
+    expect(isMinLengthValidator('asdss', 2)).toBeTruthy()
+    expect(isMinLengthValidator('ash5hh54hdss', 7)).toBeTruthy()
   })
 
-  it('should isMaxLength() validate correctly', () => {
-    expect(isMaxLength('void', 7)).toBeTruthy()
-    expect(isMaxLength('asdasasd', 22)).toBeTruthy()
-    expect(isMaxLength('asdss', 2)).toBeFalsy()
-    expect(isMaxLength('ash5hh54hdss', 7)).toBeFalsy()
+  it('should isMaxLengthValidator() validate correctly', () => {
+    expect(isMaxLengthValidator('void', 7)).toBeTruthy()
+    expect(isMaxLengthValidator('asdasasd', 22)).toBeTruthy()
+    expect(isMaxLengthValidator('asdss', 2)).toBeFalsy()
+    expect(isMaxLengthValidator('ash5hh54hdss', 7)).toBeFalsy()
   })
 
-  it('should isPesel() validate value correctly', () => {
-    expect(isPesel('87103009246')).toBeTruthy()
-    expect(isPesel('87103009245')).toBeFalsy()
-    expect(isPesel('92112716180')).toBeTruthy()
-    expect(isPesel('33011901514')).toBeTruthy()
-    expect(isPesel('69101711057')).toBeTruthy()
-    expect(isPesel('69101711052')).toBeFalsy()
+  it('should isPeselValidator() validate value correctly', () => {
+    expect(isPeselValidator('87103009246')).toBeTruthy()
+    expect(isPeselValidator('87103009245')).toBeFalsy()
+    expect(isPeselValidator('92112716180')).toBeTruthy()
+    expect(isPeselValidator('33011901514')).toBeTruthy()
+    expect(isPeselValidator('69101711057')).toBeTruthy()
+    expect(isPeselValidator('69101711052')).toBeFalsy()
   })
 
-  it('should isPesel() pass when value is masked', () => {
-    expect(isPesel('***********')).toBeTruthy()
-    expect(isPesel('**********')).toBeFalsy()
-    expect(isPesel('************')).toBeFalsy()
+  it('should isPeselValidator() pass when value is masked', () => {
+    expect(isPeselValidator('***********')).toBeTruthy()
+    expect(isPeselValidator('**********')).toBeFalsy()
+    expect(isPeselValidator('************')).toBeFalsy()
   })
 
-  it('should isPeselNotUnder18() validate value correctly', () => {
-    expect(isPeselNotUnder18('87103009246')).toBeTruthy()
-    expect(isPeselNotUnder18('87103009245')).toBeTruthy()
-    expect(isPeselNotUnder18('92112716180')).toBeTruthy()
-    expect(isPeselNotUnder18('33011901514')).toBeTruthy()
-    expect(isPeselNotUnder18('69101711057')).toBeTruthy()
-    expect(isPeselNotUnder18('69101711052')).toBeTruthy()
-    expect(isPeselNotUnder18('05281917360')).toBeFalsy()
-    expect(isPeselNotUnder18('03280305315')).toBeFalsy()
+  it('should isPeselNotUnder18Validator() validate value correctly', () => {
+    expect(isPeselNotUnder18Validator('87103009246')).toBeTruthy()
+    expect(isPeselNotUnder18Validator('87103009245')).toBeTruthy()
+    expect(isPeselNotUnder18Validator('92112716180')).toBeTruthy()
+    expect(isPeselNotUnder18Validator('33011901514')).toBeTruthy()
+    expect(isPeselNotUnder18Validator('69101711057')).toBeTruthy()
+    expect(isPeselNotUnder18Validator('69101711052')).toBeTruthy()
+    expect(isPeselNotUnder18Validator('05281917360')).toBeFalsy()
+    expect(isPeselNotUnder18Validator('03280305315')).toBeFalsy()
   })
 
-  it('should isPeselNotUnder18() pass when value is masked', () => {
-    expect(isPeselNotUnder18('***********')).toBeTruthy()
-    expect(isPeselNotUnder18('**********')).toBeFalsy()
-    expect(isPeselNotUnder18('************')).toBeFalsy()
+  it('should isPeselNotUnder18Validator() pass when value is masked', () => {
+    expect(isPeselNotUnder18Validator('***********')).toBeTruthy()
+    expect(isPeselNotUnder18Validator('**********')).toBeFalsy()
+    expect(isPeselNotUnder18Validator('************')).toBeFalsy()
   })
 
-  it('should isDateNotUnder18() validate value correctly', () => {
-    expect(isDateNotUnder18('2015-01-01')).toBeFalsy()
-    expect(isDateNotUnder18('2012-10-10')).toBeFalsy()
-    expect(isDateNotUnder18('1986-01-01')).toBeTruthy()
-    expect(isDateNotUnder18('1950-10-10')).toBeTruthy()
+  it('should isDateNotUnder18Validator() validate value correctly', () => {
+    expect(isDateNotUnder18Validator('2015-01-01')).toBeFalsy()
+    expect(isDateNotUnder18Validator('2012-10-10')).toBeFalsy()
+    expect(isDateNotUnder18Validator('1986-01-01')).toBeTruthy()
+    expect(isDateNotUnder18Validator('1950-10-10')).toBeTruthy()
   })
 
   it('should getCompleteIban() return complete IBAN number', () => {
@@ -302,115 +302,115 @@ describe('Validators', () => {
     expect(ibanValidator.getCompleteIban('LV72NDEA0000084513319', 'PL')).toEqual('LV72NDEA0000084513319')
   })
 
-  it('should isExpiryDateValid() validate id_card_expiry_date correctly', () => {
-    expect(isExpiryDateValid('2001-01-01')).toBeFalsy()
-    expect(isExpiryDateValid('2301-01-01')).toBeFalsy()
-    expect(isExpiryDateValid('2017-04-01')).toBeTruthy()
-    expect(isExpiryDateValid('2021-01-01')).toBeTruthy()
+  it('should isExpiryDateValidator() validate id_card_expiry_date correctly', () => {
+    expect(isExpiryDateValidator('2001-01-01')).toBeFalsy()
+    expect(isExpiryDateValidator('2301-01-01')).toBeFalsy()
+    expect(isExpiryDateValidator('2017-04-01')).toBeTruthy()
+    expect(isExpiryDateValidator('2021-01-01')).toBeTruthy()
   })
 
-  it('should isReleaseDateValid() validate id_card_release_date correctly', () => {
-    expect(isReleaseDateValid('3017-04-01', undefined)).toBeFalsy()
-    expect(isReleaseDateValid('1017-04-01', undefined)).toBeFalsy()
-    expect(isReleaseDateValid('1917-04-01', '2017-04-01')).toBeFalsy()
-    expect(isReleaseDateValid('2017-04-01', '2017-04-01')).toBeFalsy()
-    expect(isReleaseDateValid('2017-04-01', '2017-03-01')).toBeFalsy()
-    expect(isReleaseDateValid('2017-04-01', undefined)).toBeTruthy()
-    expect(isReleaseDateValid('2017-04-01', '2017-05-01')).toBeTruthy()
+  it('should isReleaseDateValidator() validate id_card_release_date correctly', () => {
+    expect(isReleaseDateValidator('3017-04-01', undefined)).toBeFalsy()
+    expect(isReleaseDateValidator('1017-04-01', undefined)).toBeFalsy()
+    expect(isReleaseDateValidator('1917-04-01', '2017-04-01')).toBeFalsy()
+    expect(isReleaseDateValidator('2017-04-01', '2017-04-01')).toBeFalsy()
+    expect(isReleaseDateValidator('2017-04-01', '2017-03-01')).toBeFalsy()
+    expect(isReleaseDateValidator('2017-04-01', undefined)).toBeTruthy()
+    expect(isReleaseDateValidator('2017-04-01', '2017-05-01')).toBeTruthy()
   })
 
-  it('should isNotSmaller() validate value correctly', () => {
-    expect(isNotSmaller('100.00 PLN', '10')).toBeTruthy()
-    expect(isNotSmaller('154', '1')).toBeTruthy()
-    expect(isNotSmaller('1', '10')).toBeFalsy()
-    expect(isNotSmaller('5 CHF', '10')).toBeFalsy()
-    expect(isNotSmaller('100.00 EUR', '10')).toBeTruthy()
-    expect(isNotSmaller('154', '1')).toBeTruthy()
-    expect(isNotSmaller('1', '5')).toBeFalsy()
-    expect(isNotSmaller('3 GBP', '5')).toBeFalsy()
+  it('should isNotSmallerValidator() validate value correctly', () => {
+    expect(isNotSmallerValidator('100.00 PLN', '10')).toBeTruthy()
+    expect(isNotSmallerValidator('154', '1')).toBeTruthy()
+    expect(isNotSmallerValidator('1', '10')).toBeFalsy()
+    expect(isNotSmallerValidator('5 CHF', '10')).toBeFalsy()
+    expect(isNotSmallerValidator('100.00 EUR', '10')).toBeTruthy()
+    expect(isNotSmallerValidator('154', '1')).toBeTruthy()
+    expect(isNotSmallerValidator('1', '5')).toBeFalsy()
+    expect(isNotSmallerValidator('3 GBP', '5')).toBeFalsy()
   })
 
-  it('should isAllKeys() validate value correctly', () => {
+  it('should isAllKeysValidator() validate value correctly', () => {
     const expectedKeys = ['a', 'b']
     const validObject = {a: '1', b: '2'}
     const invalidObject = {a: '1'}
-    expect(isAllKeys(validObject, expectedKeys)).toBeTruthy()
-    expect(isAllKeys(invalidObject, expectedKeys)).toBeFalsy()
+    expect(isAllKeysValidator(validObject, expectedKeys)).toBeTruthy()
+    expect(isAllKeysValidator(invalidObject, expectedKeys)).toBeFalsy()
   })
 
-  it('should isBirthDateValid() validate value correctly', () => {
-    expect(isBirthDateValid('1000-01-01')).toBeFalsy()
-    expect(isBirthDateValid('3016-05-23')).toBeFalsy()
-    expect(isBirthDateValid('0000-12-21')).toBeFalsy()
-    expect(isBirthDateValid('9999-03-15')).toBeFalsy()
-    expect(isBirthDateValid('2017-04-01')).toBeTruthy()
-    expect(isBirthDateValid('1867-04-01')).toBeTruthy()
-    expect(isBirthDateValid('2000-03-15')).toBeTruthy()
+  it('should isBirthDateValidator() validate value correctly', () => {
+    expect(isBirthDateValidator('1000-01-01')).toBeFalsy()
+    expect(isBirthDateValidator('3016-05-23')).toBeFalsy()
+    expect(isBirthDateValidator('0000-12-21')).toBeFalsy()
+    expect(isBirthDateValidator('9999-03-15')).toBeFalsy()
+    expect(isBirthDateValidator('2017-04-01')).toBeTruthy()
+    expect(isBirthDateValidator('1867-04-01')).toBeTruthy()
+    expect(isBirthDateValidator('2000-03-15')).toBeTruthy()
   })
 
-  it('should isAfterToday() validate value correctly', () => {
-    expect(isAfterToday('3016-05-23')).toBeTruthy()
-    expect(isAfterToday('9999-03-15')).toBeTruthy()
-    expect(isAfterToday('2017-04-02')).toBeTruthy()
-    expect(isAfterToday('1000-01-01')).toBeFalsy()
-    expect(isAfterToday('0000-12-21')).toBeFalsy()
-    expect(isAfterToday('2017-04-01')).toBeFalsy()
-    expect(isAfterToday('1867-04-01')).toBeFalsy()
-    expect(isAfterToday('2000-03-15')).toBeFalsy()
+  it('should isAfterTodayValidator() validate value correctly', () => {
+    expect(isAfterTodayValidator('3016-05-23')).toBeTruthy()
+    expect(isAfterTodayValidator('9999-03-15')).toBeTruthy()
+    expect(isAfterTodayValidator('2017-04-02')).toBeTruthy()
+    expect(isAfterTodayValidator('1000-01-01')).toBeFalsy()
+    expect(isAfterTodayValidator('0000-12-21')).toBeFalsy()
+    expect(isAfterTodayValidator('2017-04-01')).toBeFalsy()
+    expect(isAfterTodayValidator('1867-04-01')).toBeFalsy()
+    expect(isAfterTodayValidator('2000-03-15')).toBeFalsy()
   })
 
-  it('should isBeforeToday() validate value correctly', () => {
-    expect(isBeforeToday('3016-05-23')).toBeFalsy()
-    expect(isBeforeToday('9999-03-15')).toBeFalsy()
-    expect(isBeforeToday('2017-04-01')).toBeFalsy()
-    expect(isBeforeToday('2017-03-31')).toBeTruthy()
-    expect(isBeforeToday('1000-01-01')).toBeTruthy()
-    expect(isBeforeToday('0000-12-21')).toBeTruthy()
-    expect(isBeforeToday('1867-04-01')).toBeTruthy()
-    expect(isBeforeToday('2000-03-15')).toBeTruthy()
+  it('should isBeforeTodayValidator() validate value correctly', () => {
+    expect(isBeforeTodayValidator('3016-05-23')).toBeFalsy()
+    expect(isBeforeTodayValidator('9999-03-15')).toBeFalsy()
+    expect(isBeforeTodayValidator('2017-04-01')).toBeFalsy()
+    expect(isBeforeTodayValidator('2017-03-31')).toBeTruthy()
+    expect(isBeforeTodayValidator('1000-01-01')).toBeTruthy()
+    expect(isBeforeTodayValidator('0000-12-21')).toBeTruthy()
+    expect(isBeforeTodayValidator('1867-04-01')).toBeTruthy()
+    expect(isBeforeTodayValidator('2000-03-15')).toBeTruthy()
   })
 
-  it('should isLanNumber() validate value correctly', () => {
-    expect(isLanNumber('TEST12345678341')).toBeTruthy()
-    expect(isLanNumber('test12345678341')).toBeTruthy()
-    expect(isLanNumber('TEST1234 5678341')).toBeTruthy()
-    expect(isLanNumber('1'.repeat(12))).toBeTruthy()
-    expect(isLanNumber('1'.repeat(22))).toBeTruthy()
-    expect(isLanNumber('1')).toBeTruthy()
-    expect(isLanNumber('1'.repeat(23))).toBeFalsy()
-    expect(isLanNumber('TEST12345678341;')).toBeFalsy()
-    expect(isLanNumber('TEST12345678341Ą')).toBeFalsy()
-    expect(isLanNumber('')).toBeFalsy()
-    expect(isLanNumber(' ')).toBeFalsy()
-    expect(isLanNumber(';')).toBeFalsy()
+  it('should isLanNumberValidator() validate value correctly', () => {
+    expect(isLanNumberValidator('TEST12345678341')).toBeTruthy()
+    expect(isLanNumberValidator('test12345678341')).toBeTruthy()
+    expect(isLanNumberValidator('TEST1234 5678341')).toBeTruthy()
+    expect(isLanNumberValidator('1'.repeat(12))).toBeTruthy()
+    expect(isLanNumberValidator('1'.repeat(22))).toBeTruthy()
+    expect(isLanNumberValidator('1')).toBeTruthy()
+    expect(isLanNumberValidator('1'.repeat(23))).toBeFalsy()
+    expect(isLanNumberValidator('TEST12345678341;')).toBeFalsy()
+    expect(isLanNumberValidator('TEST12345678341Ą')).toBeFalsy()
+    expect(isLanNumberValidator('')).toBeFalsy()
+    expect(isLanNumberValidator(' ')).toBeFalsy()
+    expect(isLanNumberValidator(';')).toBeFalsy()
   })
 
-  it('should isSwift() validate value correctly', () => {
-    expect(isSwift('TEST0123')).toBeTruthy()
-    expect(isSwift('TEST0123456')).toBeTruthy()
-    expect(isSwift('test01234')).toBeTruthy()
-    expect(isSwift('A'.repeat(7))).toBeFalsy()
-    expect(isSwift('A'.repeat(12))).toBeFalsy()
-    expect(isSwift('TEST0123;')).toBeFalsy()
-    expect(isSwift('TEST0123.')).toBeFalsy()
-    expect(isSwift('TEST0123Ą')).toBeFalsy()
+  it('should isSwiftValidator() validate value correctly', () => {
+    expect(isSwiftValidator('TEST0123')).toBeTruthy()
+    expect(isSwiftValidator('TEST0123456')).toBeTruthy()
+    expect(isSwiftValidator('test01234')).toBeTruthy()
+    expect(isSwiftValidator('A'.repeat(7))).toBeFalsy()
+    expect(isSwiftValidator('A'.repeat(12))).toBeFalsy()
+    expect(isSwiftValidator('TEST0123;')).toBeFalsy()
+    expect(isSwiftValidator('TEST0123.')).toBeFalsy()
+    expect(isSwiftValidator('TEST0123Ą')).toBeFalsy()
   })
 
-  it('should isSwiftCountry() validate value correctly', () => {
-    expect(isSwiftCountry('____PL____', 'PL')).toBeTruthy()
-    expect(isSwiftCountry('____PL____', 'DE')).toBeFalsy()
-    expect(isSwiftCountry('____PL____', undefined)).toBeTruthy()
-    expect(isSwiftCountry('____CN____', 'CN')).toBeTruthy()
-    expect(isSwiftCountry('____HK____', 'CN')).toBeTruthy()
-    expect(isSwiftCountry('____MO____', 'CN')).toBeTruthy()
-    expect(isSwiftCountry('____CN____', 'PL')).toBeFalsy()
-    expect(isSwiftCountry('____HK____', 'PL')).toBeFalsy()
-    expect(isSwiftCountry('____MO____', 'PL')).toBeFalsy()
+  it('should isSwiftCountryValidator() validate value correctly', () => {
+    expect(isSwiftCountryValidator('____PL____', 'PL')).toBeTruthy()
+    expect(isSwiftCountryValidator('____PL____', 'DE')).toBeFalsy()
+    expect(isSwiftCountryValidator('____PL____', undefined)).toBeTruthy()
+    expect(isSwiftCountryValidator('____CN____', 'CN')).toBeTruthy()
+    expect(isSwiftCountryValidator('____HK____', 'CN')).toBeTruthy()
+    expect(isSwiftCountryValidator('____MO____', 'CN')).toBeTruthy()
+    expect(isSwiftCountryValidator('____CN____', 'PL')).toBeFalsy()
+    expect(isSwiftCountryValidator('____HK____', 'PL')).toBeFalsy()
+    expect(isSwiftCountryValidator('____MO____', 'PL')).toBeFalsy()
   })
 
-  it('should isPropValid() validate value correctly', () => {
-    expect(isPropValid({valid: undefined})).toBeFalsy()
-    expect(isPropValid({valid: false, testing: 'test'})).toBeFalsy()
-    expect(isPropValid({valid: true, test: 'test'})).toBeTruthy()
+  it('should isPropValidator() validate value correctly', () => {
+    expect(isPropValidator({valid: undefined})).toBeFalsy()
+    expect(isPropValidator({valid: false, testing: 'test'})).toBeFalsy()
+    expect(isPropValidator({valid: true, test: 'test'})).toBeTruthy()
   })
 })

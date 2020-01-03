@@ -7,28 +7,28 @@ import { ibanValidator } from './helpers/iban-validator'
 import { idCardValidator } from './helpers/id-card-validator'
 import { peselValidator } from './helpers/pesel-validator'
 
-export const isValue = (value: any): boolean => !!value
+export const isValueValidator = (value: any): boolean => !!value
 /**
  * Check if any proper value was given
  * @param {any} value - value to check.
  * @returns {boolean}
  */
 
-export const isNotNull = (value: any): boolean => value !== null
+export const isNotNullValidator = (value: any): boolean => value !== null
 /**
  * Check if value is not null
  * @param {any} value - value to check.
  * @returns {boolean}
  */
 
-export const isNotUndefined = (value: any): boolean => value !== undefined
+export const isNotUndefinedValidator = (value: any): boolean => value !== undefined
 /**
  * Check if value is not undefined
  * @param {any} value - value to check.
  * @returns {boolean}
  */
 
-export const isNotEmptyUnless = (value: string, canBeEmpty: boolean): boolean => canBeEmpty ? true : !!value
+export const isNotEmptyUnlessValidator = (value: string, canBeEmpty: boolean): boolean => canBeEmpty ? true : !!value
 /**
  * Check if value was given.
  * @param {string} value - value to check.
@@ -36,23 +36,23 @@ export const isNotEmptyUnless = (value: string, canBeEmpty: boolean): boolean =>
  * @returns {boolean}
  */
 
-export const isNotEmptyString = (value: string): boolean => value !== ''
+export const isNotEmptyStringValidator = (value: string): boolean => value !== ''
 /**
  * Check if value is not empty string
  * @param {any} value - value to check.
  * @returns {boolean}
  */
 
-export const isNotEmptyTrimmedString = (value: string): boolean => value.trim() !== ''
+export const isNotEmptyTrimmedStringValidator = (value: string): boolean => value.trim() !== ''
 /**
  * Check if value is not empty string after trim
  * @param {string} value - value to check.
  * @returns {boolean}
  */
 
-export const isSelected = (value: string | boolean): boolean => (
-  isNotNull(value)
-  && isNotUndefined(value)
+export const isSelectedValidator = (value: string | boolean): boolean => (
+  isNotNullValidator(value)
+  && isNotUndefinedValidator(value)
   && value !== ''
   && value !== '?'
   && value !== '? string: ?'
@@ -65,7 +65,7 @@ export const isSelected = (value: string | boolean): boolean => (
  * @returns {boolean}
  */
 
-export const isValidBankTitle = (value: string): boolean => (
+export const isValidBankTitleValidator = (value: string): boolean => (
   !!value.match(/^[A-Za-z0-9\.\ \,\/\(\)\:\-ąćęłńóśźżĄĆĘŁŃÓŚŹŻ]*$/)
 )
 /**
@@ -74,7 +74,7 @@ export const isValidBankTitle = (value: string): boolean => (
  * @returns {boolean}
  */
 
-export const isNip = (value: string): boolean => {
+export const isNipValidator = (value: string): boolean => {
   const weights = [6, 5, 7, 2, 3, 4, 5, 6, 7]
   const nip = value.replace(/[\s-]|PL/g, '')
   const zip = (rows) => rows[0].map((_, c) => rows.map((row) => row[c]))
@@ -92,7 +92,7 @@ export const isNip = (value: string): boolean => {
  * @returns {boolean}
  */
 
-export const isPostalCode = (value: string, country?: string): boolean => (
+export const isPostalCodeValidator = (value: string, country?: string): boolean => (
   country === 'PL' ? !!value.match(/^\d{2}\-?\d{3}$/) && value !== '00-000' && value !== '00000'
     : country === 'CN'
       ? !!value.match(/^[0-9]{1,6}$/)
@@ -105,14 +105,14 @@ export const isPostalCode = (value: string, country?: string): boolean => (
  * @returns {boolean}
  */
 
-export const isValidPassword = (value: string): boolean => !!value.match(/^.{8,}$/)
+export const isPasswordValidator = (value: string): boolean => !!value.match(/^.{8,}$/)
 /**
  * Check if value is valid password with 8 signs
  * @param {string} value - value to check.
  * @returns {boolean}
  */
 
-export const isNotSmaller = (value: string, minValue: string): boolean => (
+export const isNotSmallerValidator = (value: string, minValue: string): boolean => (
   value && parseFloat(value) >= parseFloat(minValue)
 )
 /**
@@ -122,7 +122,7 @@ export const isNotSmaller = (value: string, minValue: string): boolean => (
  * @returns {boolean}
  */
 
-export const isNotSmallerOrEqual = (value: string, minValue: string): boolean => (
+export const isNotSmallerOrEqualValidator = (value: string, minValue: string): boolean => (
   value && parseFloat(value) > parseFloat(minValue)
 )
 /**
@@ -132,7 +132,7 @@ export const isNotSmallerOrEqual = (value: string, minValue: string): boolean =>
  * @returns {boolean}
  */
 
-export const isNotHigher = (value: string, maxValue: string): boolean => (
+export const isNotHigherValidator = (value: string, maxValue: string): boolean => (
   value && parseFloat(value) < parseFloat(maxValue)
 )
 /**
@@ -142,7 +142,7 @@ export const isNotHigher = (value: string, maxValue: string): boolean => (
  * @returns {boolean}
  */
 
-export const isNotHigherOrEqual = (value: string, maxValue: string): boolean => (
+export const isNotHigherOrEqualValidator = (value: string, maxValue: string): boolean => (
   value && parseFloat(value) <= parseFloat(maxValue)
 )
 /**
@@ -152,7 +152,7 @@ export const isNotHigherOrEqual = (value: string, maxValue: string): boolean => 
  * @returns {boolean}
  */
 
-export const isEmail = (value: string): boolean => (
+export const isEmailValidator = (value: string): boolean => (
   // https://www.w3.org/TR/html5/forms.html#valid-e-mail-address
   value
     ? !!value.match(/^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/i)
@@ -164,7 +164,7 @@ export const isEmail = (value: string): boolean => (
  * @returns {boolean}
  */
 
-export const isMinLength = (value: string, minLength: number): boolean => value && value.length >= minLength
+export const isMinLengthValidator = (value: string, minLength: number): boolean => value && value.length >= minLength
 /**
  * Check if value has smaller or equal length than given minimal length
  * @param {string} value - value to check.
@@ -172,7 +172,7 @@ export const isMinLength = (value: string, minLength: number): boolean => value 
  * @returns {boolean}
  */
 
-export const isMaxLength = (value: string, maxLength: number): boolean => value && value.length <= maxLength
+export const isMaxLengthValidator = (value: string, maxLength: number): boolean => value && value.length <= maxLength
 /**
  * Check if value has bigger or equal length than given maximal length
  * @param {string} value - value to check.
@@ -180,7 +180,7 @@ export const isMaxLength = (value: string, maxLength: number): boolean => value 
  * @returns {boolean}
  */
 
-export const isPhone = (value: string, countryCode: CountryCode): boolean => {
+export const isPhoneValidator = (value: string, countryCode: CountryCode): boolean => {
   try {
     return value.length > 1 && phoneUtils.parsePhoneNumber(value, countryCode).isValid()
   } catch (e) {
@@ -194,7 +194,7 @@ export const isPhone = (value: string, countryCode: CountryCode): boolean => {
  * @returns {boolean}
  */
 
-export const isMobilePhone = (value: string, countryCode: CountryCode): boolean => {
+export const isMobilePhoneValidator = (value: string, countryCode: CountryCode): boolean => {
   const countryNumber = phoneUtils.getCountryCallingCode(countryCode)
   const phoneNumberType = phoneUtils.parsePhoneNumber(`+${countryNumber}${value}`).getType()
   return (
@@ -208,7 +208,7 @@ export const isMobilePhone = (value: string, countryCode: CountryCode): boolean 
  * @returns {boolean}
  */
 
-export const isSameAs = (value: string, otherValue: string): boolean => value === otherValue
+export const isSameAsValidator = (value: string, otherValue: string): boolean => value === otherValue
 /**
  * Check if value is equal to other value
  * @param {string} value - value to check.
@@ -216,7 +216,7 @@ export const isSameAs = (value: string, otherValue: string): boolean => value ==
  * @returns {boolean}
  */
 
-export const isOtherThan = (value: string, otherValue: string): boolean => value !== otherValue
+export const isOtherThanValidator = (value: string, otherValue: string): boolean => value !== otherValue
 /**
  * Check if value is not equal to other value
  * @param {string} value - value to check.
@@ -224,7 +224,9 @@ export const isOtherThan = (value: string, otherValue: string): boolean => value
  * @returns {boolean}
  */
 
-export const isIban = (value: string, countryCode?: string): boolean => ibanValidator.checkIban(value, countryCode)
+export const isIbanValidator = (value: string, countryCode?: string): boolean => (
+  ibanValidator.checkIban(value, countryCode)
+)
 /**
  * Check if value is valid iban number
  * @param {string} value - value to check.
@@ -232,21 +234,21 @@ export const isIban = (value: string, countryCode?: string): boolean => ibanVali
  * @returns {boolean}
  */
 
-export const isLanNumber = (value: string): boolean => !!value.replace(/ /g, '').match(/^[A-Za-z0-9]{1,22}$/)
+export const isLanNumberValidator = (value: string): boolean => !!value.replace(/ /g, '').match(/^[A-Za-z0-9]{1,22}$/)
 /**
  * Check if value is valid non-iban account number
  * @param {string} value - value to check.
  * @returns {boolean}
  */
 
-export const isSwift = (value: string): boolean => !!value.match(/^[A-Za-z0-9]{8,11}$/)
+export const isSwiftValidator = (value: string): boolean => !!value.match(/^[A-Za-z0-9]{8,11}$/)
 /**
  * Check if value is valid swift number
  * @param {string} value - value to check.
  * @returns {boolean}
  */
 
-export const isSwiftCountry = (swift: string, country: string): boolean => {
+export const isSwiftCountryValidator = (swift: string, country: string): boolean => {
   const swiftCountry = swift.substr(4, 2)
   return !country ? true
     : country === 'CN' ? ['CN', 'HK', 'MO'].includes(swiftCountry)
@@ -259,21 +261,21 @@ export const isSwiftCountry = (swift: string, country: string): boolean => {
  * @returns {boolean}
  */
 
-export const isPesel = (value: string): boolean => peselValidator.validatePesel(value)
+export const isPeselValidator = (value: string): boolean => peselValidator.validatePesel(value)
 /**
  * Check if value is valid pesel number. Also accepts *********** as anonymized pesel
  * @param {string} value - value to check.
  * @returns {boolean}
  */
 
-export const isPeselNotUnder18 = (value: string) => peselValidator.peselNotUnder18(value)
+export const isPeselNotUnder18Validator = (value: string) => peselValidator.peselNotUnder18(value)
 /**
  * Check if person with given pesel is above 18 years
  * @param {string} value - value to check.
  * @returns {boolean}
  */
 
-export const isValidDate = (value: string): boolean => {
+export const isDateValidator = (value: string): boolean => {
   const [year, month, day] = value.split('-')
   const date = new Date(value)
   return date.getFullYear() === parseFloat(year)
@@ -287,7 +289,7 @@ export const isValidDate = (value: string): boolean => {
  * @returns {boolean}
  */
 
-export const isDateNotUnder18 = (date: string): boolean => (
+export const isDateNotUnder18Validator = (date: string): boolean => (
   new Date(date).getFullYear() - new Date().getFullYear() <= -18
 )
 /**
@@ -296,7 +298,7 @@ export const isDateNotUnder18 = (date: string): boolean => (
  * @returns {boolean}
  */
 
-export const isExpiryDateValid = (date: string): boolean => idCardValidator.validateExpiryDate(date)
+export const isExpiryDateValidator = (date: string): boolean => idCardValidator.validateExpiryDate(date)
 /**
  * Check if given expiration date of id card is valid. Checks if given date is later or equal to today and
  * if given date is smaller than current date plus 100 years. Date in format YYYY-MM-DD
@@ -304,7 +306,7 @@ export const isExpiryDateValid = (date: string): boolean => idCardValidator.vali
  * @returns {boolean}
  */
 
-export const isReleaseDateValid = (date: string, expiryDate: string): boolean => (
+export const isReleaseDateValidator = (date: string, expiryDate: string): boolean => (
   idCardValidator.validateReleaseDate(date, expiryDate)
 )
 /**
@@ -316,7 +318,7 @@ export const isReleaseDateValid = (date: string, expiryDate: string): boolean =>
  * @returns {boolean}
  */
 
-export const isBirthDateValid = (date: string): boolean => {
+export const isBirthDateValidator = (date: string): boolean => {
   const now = new Date().getFullYear()
   const yearsToCheck = new Date(date).getFullYear()
   return now - yearsToCheck <= 150 && new Date(date) <= new Date()
@@ -327,28 +329,28 @@ export const isBirthDateValid = (date: string): boolean => {
  * @returns {boolean}
  */
 
-export const isAfterToday = (date: string): boolean => new Date(date) > new Date()
+export const isAfterTodayValidator = (date: string): boolean => new Date(date) > new Date()
 /**
  * Check if given date is after today. Date in format YYYY-MM-DD
  * @param {string} date - value to check.
  * @returns {boolean}
  */
 
-export const isBeforeToday = (date: string): boolean => new Date(date) < new Date()
+export const isBeforeTodayValidator = (date: string): boolean => new Date(date) < new Date()
 /**
  * Check if given date is before today. Date in format YYYY-MM-DD
  * @param {string} date - value to check.
  * @returns {boolean}
  */
 
-export const isPropValid = (validObject: {valid: boolean, [key: string]: any}): boolean => !!validObject.valid
+export const isPropValidator = (validObject: {valid: boolean, [key: string]: any}): boolean => !!validObject.valid
 /**
  * Check if given object has property valid and if it is equal to true
  * @param {{valid: boolean}} value - value to check.
  * @returns {boolean}
  */
 
-export const isAllKeys = (object: object, expectedKeys: string[]): boolean => (
+export const isAllKeysValidator = (object: object, expectedKeys: string[]): boolean => (
   expectedKeys.every((val) => Object.keys(object).includes(val))
 )
 /**
@@ -358,7 +360,7 @@ export const isAllKeys = (object: object, expectedKeys: string[]): boolean => (
  * @returns {boolean}
  */
 
-export const isLatin = (value: string): boolean => !value.match(/[а-яА-ЯЁё]/ig)
+export const isLatinValidator = (value: string): boolean => !value.match(/[а-яА-ЯЁё]/ig)
 /**
  * Check if value has not any cyrillic letters
  * @param {string} value - value to check.

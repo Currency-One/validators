@@ -206,48 +206,48 @@
 ## Validators
 
 * [Validators](#module_Validators)
-    * [.isValue](#module_Validators.isValue) ⇒ <code>boolean</code>
-    * [.isNotNull](#module_Validators.isNotNull) ⇒ <code>boolean</code>
-    * [.isNotUndefined](#module_Validators.isNotUndefined) ⇒ <code>boolean</code>
-    * [.isNotEmptyUnless](#module_Validators.isNotEmptyUnless) ⇒ <code>boolean</code>
-    * [.isNotEmptyString](#module_Validators.isNotEmptyString) ⇒ <code>boolean</code>
-    * [.isNotEmptyTrimmedString](#module_Validators.isNotEmptyTrimmedString) ⇒ <code>boolean</code>
-    * [.isSelected](#module_Validators.isSelected) ⇒ <code>boolean</code>
-    * [.isValidBankTitle](#module_Validators.isValidBankTitle) ⇒ <code>boolean</code>
-    * [.isNip](#module_Validators.isNip) ⇒ <code>boolean</code>
-    * [.isPostalCode](#module_Validators.isPostalCode) ⇒ <code>boolean</code>
-    * [.isValidPassword](#module_Validators.isValidPassword) ⇒ <code>boolean</code>
-    * [.isNotSmaller](#module_Validators.isNotSmaller) ⇒ <code>boolean</code>
-    * [.isNotSmallerOrEqual](#module_Validators.isNotSmallerOrEqual) ⇒ <code>boolean</code>
-    * [.isNotHigher](#module_Validators.isNotHigher) ⇒ <code>boolean</code>
-    * [.isNotHigherOrEqual](#module_Validators.isNotHigherOrEqual) ⇒ <code>boolean</code>
-    * [.isEmail](#module_Validators.isEmail) ⇒ <code>boolean</code>
-    * [.isMinLength](#module_Validators.isMinLength) ⇒ <code>boolean</code>
-    * [.isMaxLength](#module_Validators.isMaxLength) ⇒ <code>boolean</code>
-    * [.isPhone](#module_Validators.isPhone) ⇒ <code>boolean</code>
-    * [.isMobilePhone](#module_Validators.isMobilePhone) ⇒ <code>boolean</code>
-    * [.isSameAs](#module_Validators.isSameAs) ⇒ <code>boolean</code>
-    * [.isOtherThan](#module_Validators.isOtherThan) ⇒ <code>boolean</code>
-    * [.isIban](#module_Validators.isIban) ⇒ <code>boolean</code>
-    * [.isLanNumber](#module_Validators.isLanNumber) ⇒ <code>boolean</code>
-    * [.isSwift](#module_Validators.isSwift) ⇒ <code>boolean</code>
-    * [.isSwiftCountry](#module_Validators.isSwiftCountry) ⇒ <code>boolean</code>
-    * [.isPesel](#module_Validators.isPesel) ⇒ <code>boolean</code>
-    * [.isPeselNotUnder18](#module_Validators.isPeselNotUnder18) ⇒ <code>boolean</code>
-    * [.isValidDate](#module_Validators.isValidDate) ⇒ <code>boolean</code>
-    * [.isDateNotUnder18](#module_Validators.isDateNotUnder18) ⇒ <code>boolean</code>
-    * [.isExpiryDateValid](#module_Validators.isExpiryDateValid) ⇒ <code>boolean</code>
-    * [.isReleaseDateValid](#module_Validators.isReleaseDateValid) ⇒ <code>boolean</code>
-    * [.isBirthDateValid](#module_Validators.isBirthDateValid) ⇒ <code>boolean</code>
-    * [.isAfterToday](#module_Validators.isAfterToday) ⇒ <code>boolean</code>
-    * [.isBeforeToday](#module_Validators.isBeforeToday) ⇒ <code>boolean</code>
-    * [.isPropValid](#module_Validators.isPropValid) ⇒ <code>boolean</code>
-    * [.isAllKeys](#module_Validators.isAllKeys) ⇒ <code>boolean</code>
-    * [.isLatin](#module_Validators.isLatin) ⇒ <code>boolean</code>
+    * [.isValueValidator](#module_Validators.isValueValidator) ⇒ <code>boolean</code>
+    * [.isNotNullValidator](#module_Validators.isNotNullValidator) ⇒ <code>boolean</code>
+    * [.isNotUndefinedValidator](#module_Validators.isNotUndefinedValidator) ⇒ <code>boolean</code>
+    * [.isNotEmptyUnlessValidator](#module_Validators.isNotEmptyUnlessValidator) ⇒ <code>boolean</code>
+    * [.isNotEmptyStringValidator](#module_Validators.isNotEmptyStringValidator) ⇒ <code>boolean</code>
+    * [.isNotEmptyTrimmedStringValidator](#module_Validators.isNotEmptyTrimmedStringValidator) ⇒ <code>boolean</code>
+    * [.isSelectedValidator](#module_Validators.isSelectedValidator) ⇒ <code>boolean</code>
+    * [.isValidBankTitleValidator](#module_Validators.isValidBankTitleValidator) ⇒ <code>boolean</code>
+    * [.isNipValidator](#module_Validators.isNipValidator) ⇒ <code>boolean</code>
+    * [.isPostalCodeValidator](#module_Validators.isPostalCodeValidator) ⇒ <code>boolean</code>
+    * [.isPasswordValidator](#module_Validators.isPasswordValidator) ⇒ <code>boolean</code>
+    * [.isNotSmallerValidator](#module_Validators.isNotSmallerValidator) ⇒ <code>boolean</code>
+    * [.isNotSmallerOrEqualValidator](#module_Validators.isNotSmallerOrEqualValidator) ⇒ <code>boolean</code>
+    * [.isNotHigherValidator](#module_Validators.isNotHigherValidator) ⇒ <code>boolean</code>
+    * [.isNotHigherOrEqualValidator](#module_Validators.isNotHigherOrEqualValidator) ⇒ <code>boolean</code>
+    * [.isEmailValidator](#module_Validators.isEmailValidator) ⇒ <code>boolean</code>
+    * [.isMinLengthValidator](#module_Validators.isMinLengthValidator) ⇒ <code>boolean</code>
+    * [.isMaxLengthValidator](#module_Validators.isMaxLengthValidator) ⇒ <code>boolean</code>
+    * [.isPhoneValidator](#module_Validators.isPhoneValidator) ⇒ <code>boolean</code>
+    * [.isMobilePhoneValidator](#module_Validators.isMobilePhoneValidator) ⇒ <code>boolean</code>
+    * [.isSameAsValidator](#module_Validators.isSameAsValidator) ⇒ <code>boolean</code>
+    * [.isOtherThanValidator](#module_Validators.isOtherThanValidator) ⇒ <code>boolean</code>
+    * [.isIbanValidator](#module_Validators.isIbanValidator) ⇒ <code>boolean</code>
+    * [.isLanNumberValidator](#module_Validators.isLanNumberValidator) ⇒ <code>boolean</code>
+    * [.isSwiftValidator](#module_Validators.isSwiftValidator) ⇒ <code>boolean</code>
+    * [.isSwiftCountryValidator](#module_Validators.isSwiftCountryValidator) ⇒ <code>boolean</code>
+    * [.isPeselValidator](#module_Validators.isPeselValidator) ⇒ <code>boolean</code>
+    * [.isPeselNotUnder18Validator](#module_Validators.isPeselNotUnder18Validator) ⇒ <code>boolean</code>
+    * [.isDateValidator](#module_Validators.isDateValidator) ⇒ <code>boolean</code>
+    * [.isDateNotUnder18Validator](#module_Validators.isDateNotUnder18Validator) ⇒ <code>boolean</code>
+    * [.isExpiryDateValidator](#module_Validators.isExpiryDateValidator) ⇒ <code>boolean</code>
+    * [.isReleaseDateValidator](#module_Validators.isReleaseDateValidator) ⇒ <code>boolean</code>
+    * [.isBirthDateValidator](#module_Validators.isBirthDateValidator) ⇒ <code>boolean</code>
+    * [.isAfterTodayValidator](#module_Validators.isAfterTodayValidator) ⇒ <code>boolean</code>
+    * [.isBeforeTodayValidator](#module_Validators.isBeforeTodayValidator) ⇒ <code>boolean</code>
+    * [.isPropValidator](#module_Validators.isPropValidator) ⇒ <code>boolean</code>
+    * [.isAllKeysValidator](#module_Validators.isAllKeysValidator) ⇒ <code>boolean</code>
+    * [.isLatinValidator](#module_Validators.isLatinValidator) ⇒ <code>boolean</code>
 
-<a name="module_Validators.isValue"></a>
+<a name="module_Validators.isValueValidator"></a>
 
-### Validators.isValue ⇒ <code>boolean</code>
+### Validators.isValueValidator ⇒ <code>boolean</code>
 <p>Check if any proper value was given</p>
 
 **Kind**: static property of [<code>Validators</code>](#module_Validators)  
@@ -256,9 +256,9 @@
 | --- | --- | --- |
 | value | <code>any</code> | <p>value to check.</p> |
 
-<a name="module_Validators.isNotNull"></a>
+<a name="module_Validators.isNotNullValidator"></a>
 
-### Validators.isNotNull ⇒ <code>boolean</code>
+### Validators.isNotNullValidator ⇒ <code>boolean</code>
 <p>Check if value is not null</p>
 
 **Kind**: static property of [<code>Validators</code>](#module_Validators)  
@@ -267,9 +267,9 @@
 | --- | --- | --- |
 | value | <code>any</code> | <p>value to check.</p> |
 
-<a name="module_Validators.isNotUndefined"></a>
+<a name="module_Validators.isNotUndefinedValidator"></a>
 
-### Validators.isNotUndefined ⇒ <code>boolean</code>
+### Validators.isNotUndefinedValidator ⇒ <code>boolean</code>
 <p>Check if value is not undefined</p>
 
 **Kind**: static property of [<code>Validators</code>](#module_Validators)  
@@ -278,9 +278,9 @@
 | --- | --- | --- |
 | value | <code>any</code> | <p>value to check.</p> |
 
-<a name="module_Validators.isNotEmptyUnless"></a>
+<a name="module_Validators.isNotEmptyUnlessValidator"></a>
 
-### Validators.isNotEmptyUnless ⇒ <code>boolean</code>
+### Validators.isNotEmptyUnlessValidator ⇒ <code>boolean</code>
 <p>Check if value was given.</p>
 
 **Kind**: static property of [<code>Validators</code>](#module_Validators)  
@@ -290,9 +290,9 @@
 | value | <code>string</code> | <p>value to check.</p> |
 | canBeEmpty | <code>boolean</code> | <p>if true validation is ignored</p> |
 
-<a name="module_Validators.isNotEmptyString"></a>
+<a name="module_Validators.isNotEmptyStringValidator"></a>
 
-### Validators.isNotEmptyString ⇒ <code>boolean</code>
+### Validators.isNotEmptyStringValidator ⇒ <code>boolean</code>
 <p>Check if value is not empty string</p>
 
 **Kind**: static property of [<code>Validators</code>](#module_Validators)  
@@ -301,9 +301,9 @@
 | --- | --- | --- |
 | value | <code>any</code> | <p>value to check.</p> |
 
-<a name="module_Validators.isNotEmptyTrimmedString"></a>
+<a name="module_Validators.isNotEmptyTrimmedStringValidator"></a>
 
-### Validators.isNotEmptyTrimmedString ⇒ <code>boolean</code>
+### Validators.isNotEmptyTrimmedStringValidator ⇒ <code>boolean</code>
 <p>Check if value is not empty string after trim</p>
 
 **Kind**: static property of [<code>Validators</code>](#module_Validators)  
@@ -312,9 +312,9 @@
 | --- | --- | --- |
 | value | <code>string</code> | <p>value to check.</p> |
 
-<a name="module_Validators.isSelected"></a>
+<a name="module_Validators.isSelectedValidator"></a>
 
-### Validators.isSelected ⇒ <code>boolean</code>
+### Validators.isSelectedValidator ⇒ <code>boolean</code>
 <p>Check if any option was chosen. Created for select2 library</p>
 
 **Kind**: static property of [<code>Validators</code>](#module_Validators)  
@@ -323,9 +323,9 @@
 | --- | --- | --- |
 | value | <code>string</code> \| <code>boolean</code> | <p>value to check.</p> |
 
-<a name="module_Validators.isValidBankTitle"></a>
+<a name="module_Validators.isValidBankTitleValidator"></a>
 
-### Validators.isValidBankTitle ⇒ <code>boolean</code>
+### Validators.isValidBankTitleValidator ⇒ <code>boolean</code>
 <p>Check if value is valid bank title</p>
 
 **Kind**: static property of [<code>Validators</code>](#module_Validators)  
@@ -334,9 +334,9 @@
 | --- | --- | --- |
 | value | <code>string</code> | <p>value to check.</p> |
 
-<a name="module_Validators.isNip"></a>
+<a name="module_Validators.isNipValidator"></a>
 
-### Validators.isNip ⇒ <code>boolean</code>
+### Validators.isNipValidator ⇒ <code>boolean</code>
 <p>Check if value is valid nip number</p>
 
 **Kind**: static property of [<code>Validators</code>](#module_Validators)  
@@ -345,9 +345,9 @@
 | --- | --- | --- |
 | value | <code>string</code> | <p>value to check.</p> |
 
-<a name="module_Validators.isPostalCode"></a>
+<a name="module_Validators.isPostalCodeValidator"></a>
 
-### Validators.isPostalCode ⇒ <code>boolean</code>
+### Validators.isPostalCodeValidator ⇒ <code>boolean</code>
 <p>Check if value is valid polish or chinese postal code</p>
 
 **Kind**: static property of [<code>Validators</code>](#module_Validators)  
@@ -357,9 +357,9 @@
 | value | <code>string</code> | <p>value to check.</p> |
 | country | <code>string</code> | <p>country of postal code.</p> |
 
-<a name="module_Validators.isValidPassword"></a>
+<a name="module_Validators.isPasswordValidator"></a>
 
-### Validators.isValidPassword ⇒ <code>boolean</code>
+### Validators.isPasswordValidator ⇒ <code>boolean</code>
 <p>Check if value is valid password with 8 signs</p>
 
 **Kind**: static property of [<code>Validators</code>](#module_Validators)  
@@ -368,9 +368,9 @@
 | --- | --- | --- |
 | value | <code>string</code> | <p>value to check.</p> |
 
-<a name="module_Validators.isNotSmaller"></a>
+<a name="module_Validators.isNotSmallerValidator"></a>
 
-### Validators.isNotSmaller ⇒ <code>boolean</code>
+### Validators.isNotSmallerValidator ⇒ <code>boolean</code>
 <p>Check if value is smaller than given minimal value</p>
 
 **Kind**: static property of [<code>Validators</code>](#module_Validators)  
@@ -380,9 +380,9 @@
 | value | <code>string</code> | <p>value to check.</p> |
 | minValue | <code>string</code> | <p>minimal value.</p> |
 
-<a name="module_Validators.isNotSmallerOrEqual"></a>
+<a name="module_Validators.isNotSmallerOrEqualValidator"></a>
 
-### Validators.isNotSmallerOrEqual ⇒ <code>boolean</code>
+### Validators.isNotSmallerOrEqualValidator ⇒ <code>boolean</code>
 <p>Check if value is smaller or equal than given minimal value</p>
 
 **Kind**: static property of [<code>Validators</code>](#module_Validators)  
@@ -392,9 +392,9 @@
 | value | <code>string</code> | <p>value to check.</p> |
 | minValue | <code>string</code> | <p>minimal value.</p> |
 
-<a name="module_Validators.isNotHigher"></a>
+<a name="module_Validators.isNotHigherValidator"></a>
 
-### Validators.isNotHigher ⇒ <code>boolean</code>
+### Validators.isNotHigherValidator ⇒ <code>boolean</code>
 <p>Check if value is higher than given maximal value</p>
 
 **Kind**: static property of [<code>Validators</code>](#module_Validators)  
@@ -404,9 +404,9 @@
 | value | <code>string</code> | <p>value to check.</p> |
 | maxValue | <code>string</code> | <p>maximal value.</p> |
 
-<a name="module_Validators.isNotHigherOrEqual"></a>
+<a name="module_Validators.isNotHigherOrEqualValidator"></a>
 
-### Validators.isNotHigherOrEqual ⇒ <code>boolean</code>
+### Validators.isNotHigherOrEqualValidator ⇒ <code>boolean</code>
 <p>Check if value is higher or equal than given maximal value</p>
 
 **Kind**: static property of [<code>Validators</code>](#module_Validators)  
@@ -416,9 +416,9 @@
 | value | <code>string</code> | <p>value to check.</p> |
 | maxValue | <code>string</code> | <p>maximal value.</p> |
 
-<a name="module_Validators.isEmail"></a>
+<a name="module_Validators.isEmailValidator"></a>
 
-### Validators.isEmail ⇒ <code>boolean</code>
+### Validators.isEmailValidator ⇒ <code>boolean</code>
 <p>Check if value is valid email. Based on w3.org</p>
 
 **Kind**: static property of [<code>Validators</code>](#module_Validators)  
@@ -427,9 +427,9 @@
 | --- | --- | --- |
 | value | <code>string</code> | <p>value to check.</p> |
 
-<a name="module_Validators.isMinLength"></a>
+<a name="module_Validators.isMinLengthValidator"></a>
 
-### Validators.isMinLength ⇒ <code>boolean</code>
+### Validators.isMinLengthValidator ⇒ <code>boolean</code>
 <p>Check if value has smaller or equal length than given minimal length</p>
 
 **Kind**: static property of [<code>Validators</code>](#module_Validators)  
@@ -439,9 +439,9 @@
 | value | <code>string</code> | <p>value to check.</p> |
 | minLength | <code>string</code> | <p>minimal length.</p> |
 
-<a name="module_Validators.isMaxLength"></a>
+<a name="module_Validators.isMaxLengthValidator"></a>
 
-### Validators.isMaxLength ⇒ <code>boolean</code>
+### Validators.isMaxLengthValidator ⇒ <code>boolean</code>
 <p>Check if value has bigger or equal length than given maximal length</p>
 
 **Kind**: static property of [<code>Validators</code>](#module_Validators)  
@@ -451,9 +451,9 @@
 | value | <code>string</code> | <p>value to check.</p> |
 | maxLength | <code>string</code> | <p>maximal length.</p> |
 
-<a name="module_Validators.isPhone"></a>
+<a name="module_Validators.isPhoneValidator"></a>
 
-### Validators.isPhone ⇒ <code>boolean</code>
+### Validators.isPhoneValidator ⇒ <code>boolean</code>
 <p>Check if value is valid phone number. Based on google libphonenumber</p>
 
 **Kind**: static property of [<code>Validators</code>](#module_Validators)  
@@ -463,9 +463,9 @@
 | value | <code>string</code> | <p>value to check.</p> |
 | countryCode | <code>CountryCode</code> | <p>country code.</p> |
 
-<a name="module_Validators.isMobilePhone"></a>
+<a name="module_Validators.isMobilePhoneValidator"></a>
 
-### Validators.isMobilePhone ⇒ <code>boolean</code>
+### Validators.isMobilePhoneValidator ⇒ <code>boolean</code>
 <p>Check if value is valid mobile phone number. Based on google libphonenumber</p>
 
 **Kind**: static property of [<code>Validators</code>](#module_Validators)  
@@ -475,9 +475,9 @@
 | value | <code>string</code> | <p>value to check.</p> |
 | countryCode | <code>CountryCode</code> | <p>country code.</p> |
 
-<a name="module_Validators.isSameAs"></a>
+<a name="module_Validators.isSameAsValidator"></a>
 
-### Validators.isSameAs ⇒ <code>boolean</code>
+### Validators.isSameAsValidator ⇒ <code>boolean</code>
 <p>Check if value is equal to other value</p>
 
 **Kind**: static property of [<code>Validators</code>](#module_Validators)  
@@ -487,9 +487,9 @@
 | value | <code>string</code> | <p>value to check.</p> |
 | otherValue | <code>string</code> | <p>other value to check.</p> |
 
-<a name="module_Validators.isOtherThan"></a>
+<a name="module_Validators.isOtherThanValidator"></a>
 
-### Validators.isOtherThan ⇒ <code>boolean</code>
+### Validators.isOtherThanValidator ⇒ <code>boolean</code>
 <p>Check if value is not equal to other value</p>
 
 **Kind**: static property of [<code>Validators</code>](#module_Validators)  
@@ -499,9 +499,9 @@
 | value | <code>string</code> | <p>value to check.</p> |
 | otherValue | <code>string</code> | <p>other value to check.</p> |
 
-<a name="module_Validators.isIban"></a>
+<a name="module_Validators.isIbanValidator"></a>
 
-### Validators.isIban ⇒ <code>boolean</code>
+### Validators.isIbanValidator ⇒ <code>boolean</code>
 <p>Check if value is valid iban number</p>
 
 **Kind**: static property of [<code>Validators</code>](#module_Validators)  
@@ -511,9 +511,9 @@
 | value | <code>string</code> | <p>value to check.</p> |
 | countryCode | <code>CountryCode</code> | <p>country code.</p> |
 
-<a name="module_Validators.isLanNumber"></a>
+<a name="module_Validators.isLanNumberValidator"></a>
 
-### Validators.isLanNumber ⇒ <code>boolean</code>
+### Validators.isLanNumberValidator ⇒ <code>boolean</code>
 <p>Check if value is valid non-iban account number</p>
 
 **Kind**: static property of [<code>Validators</code>](#module_Validators)  
@@ -522,9 +522,9 @@
 | --- | --- | --- |
 | value | <code>string</code> | <p>value to check.</p> |
 
-<a name="module_Validators.isSwift"></a>
+<a name="module_Validators.isSwiftValidator"></a>
 
-### Validators.isSwift ⇒ <code>boolean</code>
+### Validators.isSwiftValidator ⇒ <code>boolean</code>
 <p>Check if value is valid swift number</p>
 
 **Kind**: static property of [<code>Validators</code>](#module_Validators)  
@@ -533,9 +533,9 @@
 | --- | --- | --- |
 | value | <code>string</code> | <p>value to check.</p> |
 
-<a name="module_Validators.isSwiftCountry"></a>
+<a name="module_Validators.isSwiftCountryValidator"></a>
 
-### Validators.isSwiftCountry ⇒ <code>boolean</code>
+### Validators.isSwiftCountryValidator ⇒ <code>boolean</code>
 <p>Check if given country is equal to country taken from swift</p>
 
 **Kind**: static property of [<code>Validators</code>](#module_Validators)  
@@ -545,9 +545,9 @@
 | swift | <code>string</code> | <p>swift to check.</p> |
 | country | <code>string</code> | <p>country to compare.</p> |
 
-<a name="module_Validators.isPesel"></a>
+<a name="module_Validators.isPeselValidator"></a>
 
-### Validators.isPesel ⇒ <code>boolean</code>
+### Validators.isPeselValidator ⇒ <code>boolean</code>
 <p>Check if value is valid pesel number. Also accepts *********** as anonymized pesel</p>
 
 **Kind**: static property of [<code>Validators</code>](#module_Validators)  
@@ -556,9 +556,9 @@
 | --- | --- | --- |
 | value | <code>string</code> | <p>value to check.</p> |
 
-<a name="module_Validators.isPeselNotUnder18"></a>
+<a name="module_Validators.isPeselNotUnder18Validator"></a>
 
-### Validators.isPeselNotUnder18 ⇒ <code>boolean</code>
+### Validators.isPeselNotUnder18Validator ⇒ <code>boolean</code>
 <p>Check if person with given pesel is above 18 years</p>
 
 **Kind**: static property of [<code>Validators</code>](#module_Validators)  
@@ -567,9 +567,9 @@
 | --- | --- | --- |
 | value | <code>string</code> | <p>value to check.</p> |
 
-<a name="module_Validators.isValidDate"></a>
+<a name="module_Validators.isDateValidator"></a>
 
-### Validators.isValidDate ⇒ <code>boolean</code>
+### Validators.isDateValidator ⇒ <code>boolean</code>
 <p>Check if value is valid date in format YYYY-MM-DD. Validates also correct number of days per month</p>
 
 **Kind**: static property of [<code>Validators</code>](#module_Validators)  
@@ -578,9 +578,9 @@
 | --- | --- | --- |
 | value | <code>string</code> | <p>value to check.</p> |
 
-<a name="module_Validators.isDateNotUnder18"></a>
+<a name="module_Validators.isDateNotUnder18Validator"></a>
 
-### Validators.isDateNotUnder18 ⇒ <code>boolean</code>
+### Validators.isDateNotUnder18Validator ⇒ <code>boolean</code>
 <p>Check if person with given birthday is above 18 years. Date in format YYYY-MM-DD</p>
 
 **Kind**: static property of [<code>Validators</code>](#module_Validators)  
@@ -589,9 +589,9 @@
 | --- | --- | --- |
 | date | <code>string</code> | <p>value to check.</p> |
 
-<a name="module_Validators.isExpiryDateValid"></a>
+<a name="module_Validators.isExpiryDateValidator"></a>
 
-### Validators.isExpiryDateValid ⇒ <code>boolean</code>
+### Validators.isExpiryDateValidator ⇒ <code>boolean</code>
 <p>Check if given expiration date of id card is valid. Checks if given date is later or equal to today and
 if given date is smaller than current date plus 100 years. Date in format YYYY-MM-DD</p>
 
@@ -601,9 +601,9 @@ if given date is smaller than current date plus 100 years. Date in format YYYY-M
 | --- | --- | --- |
 | date | <code>string</code> | <p>value to check.</p> |
 
-<a name="module_Validators.isReleaseDateValid"></a>
+<a name="module_Validators.isReleaseDateValidator"></a>
 
-### Validators.isReleaseDateValid ⇒ <code>boolean</code>
+### Validators.isReleaseDateValidator ⇒ <code>boolean</code>
 <p>Check if given release date of id card is valid. Checks if given date is earlier or equal to today and
 if given date is bigger than current date minus 100 years. You can also pass expiration date and if it's given
 then it is checked if expiration date is later than release date. Date in format YYYY-MM-DD</p>
@@ -615,9 +615,9 @@ then it is checked if expiration date is later than release date. Date in format
 | date | <code>string</code> | <p>value to check.</p> |
 | expiryDate | <code>string</code> | <p>acc.</p> |
 
-<a name="module_Validators.isBirthDateValid"></a>
+<a name="module_Validators.isBirthDateValidator"></a>
 
-### Validators.isBirthDateValid ⇒ <code>boolean</code>
+### Validators.isBirthDateValidator ⇒ <code>boolean</code>
 <p>Check if value is valid birth date. Assumes that human cannot be older than 150 years. Date in format YYYY-MM-DD</p>
 
 **Kind**: static property of [<code>Validators</code>](#module_Validators)  
@@ -626,9 +626,9 @@ then it is checked if expiration date is later than release date. Date in format
 | --- | --- | --- |
 | date | <code>string</code> | <p>value to check.</p> |
 
-<a name="module_Validators.isAfterToday"></a>
+<a name="module_Validators.isAfterTodayValidator"></a>
 
-### Validators.isAfterToday ⇒ <code>boolean</code>
+### Validators.isAfterTodayValidator ⇒ <code>boolean</code>
 <p>Check if given date is after today. Date in format YYYY-MM-DD</p>
 
 **Kind**: static property of [<code>Validators</code>](#module_Validators)  
@@ -637,9 +637,9 @@ then it is checked if expiration date is later than release date. Date in format
 | --- | --- | --- |
 | date | <code>string</code> | <p>value to check.</p> |
 
-<a name="module_Validators.isBeforeToday"></a>
+<a name="module_Validators.isBeforeTodayValidator"></a>
 
-### Validators.isBeforeToday ⇒ <code>boolean</code>
+### Validators.isBeforeTodayValidator ⇒ <code>boolean</code>
 <p>Check if given date is before today. Date in format YYYY-MM-DD</p>
 
 **Kind**: static property of [<code>Validators</code>](#module_Validators)  
@@ -648,9 +648,9 @@ then it is checked if expiration date is later than release date. Date in format
 | --- | --- | --- |
 | date | <code>string</code> | <p>value to check.</p> |
 
-<a name="module_Validators.isPropValid"></a>
+<a name="module_Validators.isPropValidator"></a>
 
-### Validators.isPropValid ⇒ <code>boolean</code>
+### Validators.isPropValidator ⇒ <code>boolean</code>
 <p>Check if given object has property valid and if it is equal to true</p>
 
 **Kind**: static property of [<code>Validators</code>](#module_Validators)  
@@ -659,9 +659,9 @@ then it is checked if expiration date is later than release date. Date in format
 | --- | --- | --- |
 | value | <code>Object</code> | <p>value to check.</p> |
 
-<a name="module_Validators.isAllKeys"></a>
+<a name="module_Validators.isAllKeysValidator"></a>
 
-### Validators.isAllKeys ⇒ <code>boolean</code>
+### Validators.isAllKeysValidator ⇒ <code>boolean</code>
 <p>Check if given object has all keys</p>
 
 **Kind**: static property of [<code>Validators</code>](#module_Validators)  
@@ -671,9 +671,9 @@ then it is checked if expiration date is later than release date. Date in format
 | object | <code>object</code> | <p>value to check.</p> |
 | expectedKeys | <code>Array.&lt;string&gt;</code> | <p>array of expected keys.</p> |
 
-<a name="module_Validators.isLatin"></a>
+<a name="module_Validators.isLatinValidator"></a>
 
-### Validators.isLatin ⇒ <code>boolean</code>
+### Validators.isLatinValidator ⇒ <code>boolean</code>
 <p>Check if value has not any cyrillic letters</p>
 
 **Kind**: static property of [<code>Validators</code>](#module_Validators)  
