@@ -12,24 +12,24 @@
 ## Patterns
 
 * [Patterns](#module_Patterns)
-    * [.accountNumberPattern](#module_Patterns.accountNumberPattern) ⇒ <code>boolean</code>
-    * [.accountTypeOtherPattern](#module_Patterns.accountTypeOtherPattern) ⇒ <code>boolean</code>
-    * [.alphaNumericPattern](#module_Patterns.alphaNumericPattern) ⇒ <code>boolean</code>
-    * [.cityPattern](#module_Patterns.cityPattern) ⇒ <code>boolean</code>
-    * [.genericTextPattern](#module_Patterns.genericTextPattern) ⇒ <code>boolean</code>
-    * [.lastNamePattern](#module_Patterns.lastNamePattern) ⇒ <code>boolean</code>
-    * [.namePattern](#module_Patterns.namePattern) ⇒ <code>boolean</code>
-    * [.nipPattern](#module_Patterns.nipPattern) ⇒ <code>boolean</code>
-    * [.numericPattern](#module_Patterns.numericPattern) ⇒ <code>boolean</code>
-    * [.passwordPattern](#module_Patterns.passwordPattern) ⇒ <code>boolean</code>
-    * [.bankAccountNamePattern](#module_Patterns.bankAccountNamePattern) ⇒ <code>boolean</code>
-    * [.charsCompanyPattern](#module_Patterns.charsCompanyPattern) ⇒ <code>boolean</code>
-    * [.postalCodePattern](#module_Patterns.postalCodePattern) ⇒ <code>boolean</code>
-    * [.streetPattern](#module_Patterns.streetPattern) ⇒ <code>boolean</code>
+    * [.isAccountNumberPattern](#module_Patterns.isAccountNumberPattern) ⇒ <code>boolean</code>
+    * [.isAccountTypeOtherPattern](#module_Patterns.isAccountTypeOtherPattern) ⇒ <code>boolean</code>
+    * [.isAlphaNumericPattern](#module_Patterns.isAlphaNumericPattern) ⇒ <code>boolean</code>
+    * [.isCityPattern](#module_Patterns.isCityPattern) ⇒ <code>boolean</code>
+    * [.isGenericTextPattern](#module_Patterns.isGenericTextPattern) ⇒ <code>boolean</code>
+    * [.isLastNamePattern](#module_Patterns.isLastNamePattern) ⇒ <code>boolean</code>
+    * [.isNamePattern](#module_Patterns.isNamePattern) ⇒ <code>boolean</code>
+    * [.isNipPattern](#module_Patterns.isNipPattern) ⇒ <code>boolean</code>
+    * [.isNumericPattern](#module_Patterns.isNumericPattern) ⇒ <code>boolean</code>
+    * [.isPasswordPattern](#module_Patterns.isPasswordPattern) ⇒ <code>boolean</code>
+    * [.isBankAccountNamePattern](#module_Patterns.isBankAccountNamePattern) ⇒ <code>boolean</code>
+    * [.isCharsCompanyPattern](#module_Patterns.isCharsCompanyPattern) ⇒ <code>boolean</code>
+    * [.isPostalCodePattern](#module_Patterns.isPostalCodePattern) ⇒ <code>boolean</code>
+    * [.isStreetPattern](#module_Patterns.isStreetPattern) ⇒ <code>boolean</code>
 
-<a name="module_Patterns.accountNumberPattern"></a>
+<a name="module_Patterns.isAccountNumberPattern"></a>
 
-### Patterns.accountNumberPattern ⇒ <code>boolean</code>
+### Patterns.isAccountNumberPattern ⇒ <code>boolean</code>
 <p>Check if value match account number pattern</p>
 <pre> /^[a-zA-Z0-9\\s]*$/ </pre>
 
@@ -39,9 +39,9 @@
 | --- | --- | --- |
 | value | <code>string</code> | <p>value to check.</p> |
 
-<a name="module_Patterns.accountTypeOtherPattern"></a>
+<a name="module_Patterns.isAccountTypeOtherPattern"></a>
 
-### Patterns.accountTypeOtherPattern ⇒ <code>boolean</code>
+### Patterns.isAccountTypeOtherPattern ⇒ <code>boolean</code>
 <p>Check if value match account type pattern</p>
 <pre> /^[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ. ]*$/ </pre>
 
@@ -51,9 +51,9 @@
 | --- | --- | --- |
 | value | <code>string</code> | <p>value to check.</p> |
 
-<a name="module_Patterns.alphaNumericPattern"></a>
+<a name="module_Patterns.isAlphaNumericPattern"></a>
 
-### Patterns.alphaNumericPattern ⇒ <code>boolean</code>
+### Patterns.isAlphaNumericPattern ⇒ <code>boolean</code>
 <p>Check if value match alpha numeric pattern</p>
 <pre> /^[a-zA-Z0-9]*$/ </pre>
 
@@ -63,9 +63,9 @@
 | --- | --- | --- |
 | value | <code>string</code> | <p>value to check.</p> |
 
-<a name="module_Patterns.cityPattern"></a>
+<a name="module_Patterns.isCityPattern"></a>
 
-### Patterns.cityPattern ⇒ <code>boolean</code>
+### Patterns.isCityPattern ⇒ <code>boolean</code>
 <p>Check if value match city pattern</p>
 <pre> /^([a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$/ </pre>
 
@@ -75,9 +75,9 @@
 | --- | --- | --- |
 | value | <code>string</code> | <p>value to check.</p> |
 
-<a name="module_Patterns.genericTextPattern"></a>
+<a name="module_Patterns.isGenericTextPattern"></a>
 
-### Patterns.genericTextPattern ⇒ <code>boolean</code>
+### Patterns.isGenericTextPattern ⇒ <code>boolean</code>
 <p>Check if value match generic text pattern</p>
 <pre> /^[0-9a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ\s\,\.\-\+\(\)\!\?\:
 
@@ -88,9 +88,9 @@
 | --- | --- | --- |
 | value | <code>string</code> | <p>value to check.</p> |
 
-<a name="module_Patterns.lastNamePattern"></a>
+<a name="module_Patterns.isLastNamePattern"></a>
 
-### Patterns.lastNamePattern ⇒ <code>boolean</code>
+### Patterns.isLastNamePattern ⇒ <code>boolean</code>
 <p>Check if value match last name pattern</p>
 <pre> /^[a-zA-Z\u00C0-\u017F\-\s\']*$/ </pre>
 
@@ -100,9 +100,9 @@
 | --- | --- | --- |
 | value | <code>string</code> | <p>value to check.</p> |
 
-<a name="module_Patterns.namePattern"></a>
+<a name="module_Patterns.isNamePattern"></a>
 
-### Patterns.namePattern ⇒ <code>boolean</code>
+### Patterns.isNamePattern ⇒ <code>boolean</code>
 <p>Check if value match name pattern</p>
 <pre> /^[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ ]*$/ </pre>
 
@@ -112,9 +112,9 @@
 | --- | --- | --- |
 | value | <code>string</code> | <p>value to check.</p> |
 
-<a name="module_Patterns.nipPattern"></a>
+<a name="module_Patterns.isNipPattern"></a>
 
-### Patterns.nipPattern ⇒ <code>boolean</code>
+### Patterns.isNipPattern ⇒ <code>boolean</code>
 <p>Check if value match nip pattern</p>
 <pre> /^[a-zA-Z0-9\s\-]*$/ </pre>
 
@@ -124,9 +124,9 @@
 | --- | --- | --- |
 | value | <code>string</code> | <p>value to check.</p> |
 
-<a name="module_Patterns.numericPattern"></a>
+<a name="module_Patterns.isNumericPattern"></a>
 
-### Patterns.numericPattern ⇒ <code>boolean</code>
+### Patterns.isNumericPattern ⇒ <code>boolean</code>
 <p>Check if value match numeric pattern</p>
 <pre> /^[0-9]*$/ </pre>
 
@@ -136,9 +136,9 @@
 | --- | --- | --- |
 | value | <code>string</code> | <p>value to check.</p> |
 
-<a name="module_Patterns.passwordPattern"></a>
+<a name="module_Patterns.isPasswordPattern"></a>
 
-### Patterns.passwordPattern ⇒ <code>boolean</code>
+### Patterns.isPasswordPattern ⇒ <code>boolean</code>
 <p>Check if value match password pattern</p>
 <pre> /^[0-9a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ\s\-\+\_\\!
 
@@ -149,9 +149,9 @@
 | --- | --- | --- |
 | value | <code>string</code> | <p>value to check.</p> |
 
-<a name="module_Patterns.bankAccountNamePattern"></a>
+<a name="module_Patterns.isBankAccountNamePattern"></a>
 
-### Patterns.bankAccountNamePattern ⇒ <code>boolean</code>
+### Patterns.isBankAccountNamePattern ⇒ <code>boolean</code>
 <p>Check if value match bank account name pattern</p>
 <pre>
   /^[0-9a-zA-Z\u00C0-\u017F\xad\xa0\u201c\u201d\u201e\u201f\u2013\_\;\'
@@ -163,9 +163,9 @@
 | --- | --- | --- |
 | value | <code>string</code> | <p>value to check.</p> |
 
-<a name="module_Patterns.charsCompanyPattern"></a>
+<a name="module_Patterns.isCharsCompanyPattern"></a>
 
-### Patterns.charsCompanyPattern ⇒ <code>boolean</code>
+### Patterns.isCharsCompanyPattern ⇒ <code>boolean</code>
 <p>Check if value match company name pattern</p>
 <pre>
   /^[a-zA-Z0-9\u00C0-\u017F\xad\xa0\u201c\u201d\u201e\u201f\u2013\_\;
@@ -177,9 +177,9 @@
 | --- | --- | --- |
 | value | <code>string</code> | <p>value to check.</p> |
 
-<a name="module_Patterns.postalCodePattern"></a>
+<a name="module_Patterns.isPostalCodePattern"></a>
 
-### Patterns.postalCodePattern ⇒ <code>boolean</code>
+### Patterns.isPostalCodePattern ⇒ <code>boolean</code>
 <p>Check if value match postal code pattern</p>
 <pre> /^[a-zA-Z0-9 \-]*$/ </pre>
 
@@ -189,9 +189,9 @@
 | --- | --- | --- |
 | value | <code>string</code> | <p>value to check.</p> |
 
-<a name="module_Patterns.streetPattern"></a>
+<a name="module_Patterns.isStreetPattern"></a>
 
-### Patterns.streetPattern ⇒ <code>boolean</code>
+### Patterns.isStreetPattern ⇒ <code>boolean</code>
 <p>Check if value match street name pattern</p>
 <pre> /^[0-9a-zA-Z\u00C0-\u017F\-\s\.,\/]*$/ </pre>
 

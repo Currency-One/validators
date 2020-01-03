@@ -1,6 +1,6 @@
 /** @module Patterns */
 
-export const accountNumberPattern = (value: string): boolean => {
+export const isAccountNumberPattern = (value: string): boolean => {
   const pattern = '^[a-zA-Z0-9\\s]*$'
   return !!value.match(pattern)
 }
@@ -11,7 +11,7 @@ export const accountNumberPattern = (value: string): boolean => {
  * @returns {boolean}
  */
 
-export const accountTypeOtherPattern = (value: string): boolean => {
+export const isAccountTypeOtherPattern = (value: string): boolean => {
   const pattern = '^[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ. ]*$'
   return !!value.match(pattern)
 }
@@ -22,7 +22,7 @@ export const accountTypeOtherPattern = (value: string): boolean => {
  * @returns {boolean}
  */
 
-export const alphaNumericPattern = (value: string): boolean => {
+export const isAlphaNumericPattern = (value: string): boolean => {
   const pattern = '^[a-zA-Z0-9]*$'
   return !!value.match(pattern)
 }
@@ -33,7 +33,7 @@ export const alphaNumericPattern = (value: string): boolean => {
  * @returns {boolean}
  */
 
-export const cityPattern = (value: string): boolean => {
+export const isCityPattern = (value: string): boolean => {
   const pattern = '^([a-zA-Z\u0080-\u024F]+(?:. |-| |\'))*[a-zA-Z\u0080-\u024F]*$'
   return !!value.match(pattern)
 }
@@ -44,7 +44,7 @@ export const cityPattern = (value: string): boolean => {
  * @returns {boolean}
  */
 
-export const genericTextPattern = (value: string): boolean => {
+export const isGenericTextPattern = (value: string): boolean => {
   const pattern = '^[0-9a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ\\s\\,\\.\\-\\+\\(\\)\\!\\?\\:\\@\\n]*$'
   return !!value.match(pattern)
 }
@@ -55,7 +55,7 @@ export const genericTextPattern = (value: string): boolean => {
  * @returns {boolean}
  */
 
-export const lastNamePattern = (value: string): boolean => {
+export const isLastNamePattern = (value: string): boolean => {
   const pattern = '^[a-zA-Z\\u00C0-\\u017F\\-\\s\\\']*$'
   return !!value.match(pattern)
 }
@@ -66,7 +66,7 @@ export const lastNamePattern = (value: string): boolean => {
  * @returns {boolean}
  */
 
-export const namePattern = (value: string): boolean => {
+export const isNamePattern = (value: string): boolean => {
   const pattern = '^[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ ]*$'
   return !!value.match(pattern)
 }
@@ -77,7 +77,7 @@ export const namePattern = (value: string): boolean => {
  * @returns {boolean}
  */
 
-export const nipPattern = (value: string): boolean => {
+export const isNipPattern = (value: string): boolean => {
   const pattern = '^[a-zA-Z0-9\\s\\-]*$'
   return !!value.match(pattern)
 }
@@ -88,7 +88,7 @@ export const nipPattern = (value: string): boolean => {
  * @returns {boolean}
  */
 
-export const numericPattern = (value: string): boolean => {
+export const isNumericPattern = (value: string): boolean => {
   const pattern = '^[0-9]*$'
   return !!value.match(pattern)
 }
@@ -99,7 +99,7 @@ export const numericPattern = (value: string): boolean => {
  * @returns {boolean}
  */
 
-export const passwordPattern = (value: string): boolean => {
+export const isPasswordPattern = (value: string): boolean => {
   const pattern =
     '^[0-9a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ' +
     '\\s\\-\\+\\_\\\\!\\@\\#\\$\\%\\^&\\*\\|\\"\\\'\\;\\:\\,\\.\\?\\(\\)\\[\\]\\{\\}]*$'
@@ -112,7 +112,7 @@ export const passwordPattern = (value: string): boolean => {
  * @returns {boolean}
  */
 
-export const bankAccountNamePattern = (value: string): boolean => {
+export const isBankAccountNamePattern = (value: string): boolean => {
   const pattern =
     '^[0-9a-zA-Z\\u00C0-\\u017F\\xad\\xa0\\u201c\\u201d\\u201e\u201f\\u2013' +
     '\\_\\;\\\'\\@\\-\\s\\",.\\/\\-\\+\\&\\(\\)]*$'
@@ -127,7 +127,7 @@ export const bankAccountNamePattern = (value: string): boolean => {
  * @returns {boolean}
  */
 
-export const charsCompanyPattern = (value: string): boolean => {
+export const isCharsCompanyPattern = (value: string): boolean => {
   const pattern =
     '^[a-zA-Z0-9\\u00C0-\\u017F\\xad\\xa0\\u201c\\u201d\\u201e\u201f\\u2013' +
     '\\_\\;\\@\\-\\s\\.\\,\\&\\`\\\'\\:\\(\\)\\!\\*\\"\\/\\\\\\+]*$'
@@ -142,7 +142,7 @@ export const charsCompanyPattern = (value: string): boolean => {
  * @returns {boolean}
  */
 
-export const postalCodePattern = (value: string): boolean => {
+export const isPostalCodePattern = (value: string): boolean => {
   const pattern = '^[a-zA-Z0-9 \\-]*$'
   return !!value.match(pattern)
 }
@@ -153,7 +153,7 @@ export const postalCodePattern = (value: string): boolean => {
  * @returns {boolean}
  */
 
-export const streetPattern = (value: string): boolean => {
+export const isStreetPattern = (value: string): boolean => {
   const pattern = '^[0-9a-zA-Z\\u00C0-\\u017F\\-\\s\\.,\\/]*$'
   return !!value.match(pattern)
 }
