@@ -1,7 +1,7 @@
 const plus100years = (): number => new Date().getFullYear() + 100
 const minus100years = (): number => new Date().getFullYear() - 100
 
-export const idCardValidator = {
+export const idCardHelper = {
   validateExpiryDate: (date) => (
     new Date() <= new Date(date)
     && new Date(date).getFullYear() < plus100years()

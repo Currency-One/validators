@@ -1,4 +1,4 @@
-export const peselValidator = {
+export const peselHelper = {
   validatePesel: (pesel: string): boolean => {
     if (isAnonymized(pesel)) {
       return true
@@ -37,7 +37,7 @@ export const peselValidator = {
     if (isAnonymized(pesel)) {
       return true
     }
-    const dateOfBirth = peselValidator.getDateOfBirthFromPesel(pesel)
+    const dateOfBirth = peselHelper.getDateOfBirthFromPesel(pesel)
     const age = dateOfBirth.getFullYear() - new Date().getFullYear()
     return age <= -18
   },

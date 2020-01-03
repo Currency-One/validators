@@ -1,4 +1,4 @@
-export const ibanValidator = {
+export const ibanHelper = {
   getCurrentCountryCode: (iban: string): string => (
     iban && iban.substr(0, 2).replace(/\d/g, '')
   ),
@@ -12,7 +12,7 @@ export const ibanValidator = {
     // If country code is given, country code in iban should be the same as the given one
     // Or if there is no country code in iban, we add the given one
     if (countryCode) {
-      const currentCountryCode = ibanValidator.getCurrentCountryCode(iban)
+      const currentCountryCode = ibanHelper.getCurrentCountryCode(iban)
       if (currentCountryCode) {
         if (currentCountryCode !== countryCode) {
           return false
@@ -36,7 +36,7 @@ export const ibanValidator = {
         }
       }
     }
-    return ibanValidator.iso7064Mod97_10(num) === 1
+    return ibanHelper.iso7064Mod97_10(num) === 1
   },
   iso7064Mod97_10: (iban) => {
     let remainder = iban
@@ -49,11 +49,11 @@ export const ibanValidator = {
   },
   getCompleteIban: (iban: string, countryCode: string): string => {
     if (countryCode && iban) {
-      const currentCountryCode = ibanValidator.getCurrentCountryCode(iban)
+      const currentCountryCode = ibanHelper.getCurrentCountryCode(iban)
       if (!currentCountryCode) {
         iban = `${countryCode}${iban}`
       }
     }
-    return ibanValidator.sanitize(iban)
+    return ibanHelper.sanitize(iban)
   },
 }

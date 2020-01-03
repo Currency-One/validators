@@ -3,9 +3,9 @@
 import * as phoneUtils from 'libphonenumber-js/max'
 
 import { CountryCode } from 'libphonenumber-js'
-import { ibanValidator } from './helpers/iban-validator'
-import { idCardValidator } from './helpers/id-card-validator'
-import { peselValidator } from './helpers/pesel-validator'
+import { ibanHelper } from './helpers/iban-helper'
+import { idCardHelper } from './helpers/id-card-helper'
+import { peselHelper } from './helpers/pesel-helper'
 import valueOfLetter from './helpers/value-of-letter'
 
 export const isValueValidator = (value: any): boolean => !!value
@@ -226,7 +226,7 @@ export const isOtherThanValidator = (value: string, otherValue: string): boolean
  */
 
 export const isIbanValidator = (value: string, countryCode?: string): boolean => (
-  ibanValidator.checkIban(value, countryCode)
+  ibanHelper.checkIban(value, countryCode)
 )
 /**
  * Check if value is valid iban number
@@ -262,14 +262,14 @@ export const isSwiftCountryValidator = (swift: string, country: string): boolean
  * @returns {boolean}
  */
 
-export const isPeselValidator = (value: string): boolean => peselValidator.validatePesel(value)
+export const isPeselValidator = (value: string): boolean => peselHelper.validatePesel(value)
 /**
  * Check if value is valid pesel number. Also accepts *********** as anonymized pesel
  * @param {string} value - value to check.
  * @returns {boolean}
  */
 
-export const isPeselNotUnder18Validator = (value: string) => peselValidator.peselNotUnder18(value)
+export const isPeselNotUnder18Validator = (value: string) => peselHelper.peselNotUnder18(value)
 /**
  * Check if person with given pesel is above 18 years
  * @param {string} value - value to check.
@@ -299,7 +299,7 @@ export const isDateNotUnder18Validator = (date: string): boolean => (
  * @returns {boolean}
  */
 
-export const isExpiryDateValidator = (date: string): boolean => idCardValidator.validateExpiryDate(date)
+export const isExpiryDateValidator = (date: string): boolean => idCardHelper.validateExpiryDate(date)
 /**
  * Check if given expiration date of id card is valid. Checks if given date is later or equal to today and
  * if given date is smaller than current date plus 100 years. Date in format YYYY-MM-DD
@@ -308,7 +308,7 @@ export const isExpiryDateValidator = (date: string): boolean => idCardValidator.
  */
 
 export const isReleaseDateValidator = (date: string, expiryDate: string): boolean => (
-  idCardValidator.validateReleaseDate(date, expiryDate)
+  idCardHelper.validateReleaseDate(date, expiryDate)
 )
 /**
  * Check if given release date of id card is valid. Checks if given date is earlier or equal to today and

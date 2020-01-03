@@ -35,7 +35,7 @@ import {
   isAfterTodayValidator,
   isBeforeTodayValidator, isPropValidator, isIdNumberValidator, isPassportValidator,
 } from '../lib'
-import { ibanValidator } from '../lib/helpers/iban-validator'
+import { ibanHelper } from '../lib/helpers/iban-helper'
 import * as MockDate from 'mockdate'
 
 describe('Validators', () => {
@@ -296,10 +296,10 @@ describe('Validators', () => {
   })
 
   it('should getCompleteIban() return complete IBAN number', () => {
-    expect(ibanValidator.getCompleteIban('LV72NDEA0000084513319', 'LV')).toEqual('LV72NDEA0000084513319')
-    expect(ibanValidator.getCompleteIban('72NDEA0000084513319', 'LV')).toEqual('LV72NDEA0000084513319')
-    expect(ibanValidator.getCompleteIban('LV72NDEA0000084513319', 'PL')).toEqual('LV72NDEA0000084513319')
-    expect(ibanValidator.getCompleteIban('LV72NDEA0000084513319', 'PL')).toEqual('LV72NDEA0000084513319')
+    expect(ibanHelper.getCompleteIban('LV72NDEA0000084513319', 'LV')).toEqual('LV72NDEA0000084513319')
+    expect(ibanHelper.getCompleteIban('72NDEA0000084513319', 'LV')).toEqual('LV72NDEA0000084513319')
+    expect(ibanHelper.getCompleteIban('LV72NDEA0000084513319', 'PL')).toEqual('LV72NDEA0000084513319')
+    expect(ibanHelper.getCompleteIban('LV72NDEA0000084513319', 'PL')).toEqual('LV72NDEA0000084513319')
   })
 
   it('should isExpiryDateValidator() validate id_card_expiry_date correctly', () => {
