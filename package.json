@@ -1,6 +1,6 @@
 {
   "name": "@currency-one/validators",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Typescript package of validators and patterns",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
