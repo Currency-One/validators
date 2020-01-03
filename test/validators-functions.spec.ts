@@ -33,7 +33,7 @@ import {
   isNotHigherValidator,
   isMaxLengthValidator,
   isAfterTodayValidator,
-  isBeforeTodayValidator, isPropValidator,
+  isBeforeTodayValidator, isPropValidator, isIdNumberValidator, isPassportValidator,
 } from '../lib'
 import { ibanValidator } from '../lib/helpers/iban-validator'
 import * as MockDate from 'mockdate'
@@ -412,5 +412,25 @@ describe('Validators', () => {
     expect(isPropValidator({valid: undefined})).toBeFalsy()
     expect(isPropValidator({valid: false, testing: 'test'})).toBeFalsy()
     expect(isPropValidator({valid: true, test: 'test'})).toBeTruthy()
+  })
+
+  it('should isIdNumberValidator() validate value correctly', () => {
+    expect(isIdNumberValidator('APP726108')).toBeTruthy()
+    expect(isIdNumberValidator('APB880334')).toBeTruthy()
+    expect(isIdNumberValidator('AAM564559')).toBeFalsy()
+    expect(isIdNumberValidator('AZX593690')).toBeFalsy()
+    expect(isIdNumberValidator('AZX5936')).toBeFalsy()
+    expect(isIdNumberValidator('*********')).toBeFalsy()
+    expect(isIdNumberValidator('')).toBeFalsy()
+  })
+
+  it('should isPassportValidator() validate value correctly', () => {
+    expect(isPassportValidator('IO0009382')).toBeTruthy()
+    expect(isPassportValidator('AR6089406')).toBeTruthy()
+    expect(isPassportValidator('123456789')).toBeFalsy()
+    expect(isPassportValidator('987654321')).toBeFalsy()
+    expect(isPassportValidator('AZX5936')).toBeFalsy()
+    expect(isPassportValidator('*********')).toBeFalsy()
+    expect(isPassportValidator('')).toBeFalsy()
   })
 })

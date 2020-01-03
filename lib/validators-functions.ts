@@ -6,6 +6,7 @@ import { CountryCode } from 'libphonenumber-js'
 import { ibanValidator } from './helpers/iban-validator'
 import { idCardValidator } from './helpers/id-card-validator'
 import { peselValidator } from './helpers/pesel-validator'
+import valueOfLetter from './helpers/value-of-letter'
 
 export const isValueValidator = (value: any): boolean => !!value
 /**
@@ -315,6 +316,52 @@ export const isReleaseDateValidator = (date: string, expiryDate: string): boolea
  * then it is checked if expiration date is later than release date. Date in format YYYY-MM-DD
  * @param {string} date - value to check.
  * @param {string} expiryDate - acc.
+ * @returns {boolean}
+ */
+
+export const isIdNumberValidator = (value: string): boolean => {
+  const idNumberWeights = [7, 3, 1, 9, 7, 3, 1, 7, 3]
+
+  function checkIdNumber(id) {
+    let controlSum = 0
+    for (let i = 0; i < id.length; i++) {
+      controlSum += i < 3 ? valueOfLetter(id[i]) * idNumberWeights[i] : parseInt(id[i], 10) * idNumberWeights[i]
+    }
+    return controlSum % 10
+  }
+
+  function isValid(id) {
+    const parsedValue = id.replace(/ /g, '')
+    return checkIdNumber(parsedValue) === 0 && parsedValue.length === 9
+  }
+
+  return isValid(value)
+}
+/**
+ * Check if value is valid polish id number
+ * @param {string} value - value to check.
+ * @returns {boolean}
+ */
+
+export const isPassportValidator = (value: string): boolean => {
+  const passportNumberWeights = [7, 3, 9, 1, 7, 3, 1, 7, 3]
+
+  function checkPassportNumber(passport) {
+    let controlSum = 0
+    for (let i = 0; i < passport.length; i++) {
+      controlSum +=
+        i < 2
+          ? valueOfLetter(passport[i]) * passportNumberWeights[i]
+          : parseInt(passport[i], 10) * passportNumberWeights[i]
+    }
+    return controlSum % 10
+  }
+
+  return checkPassportNumber(value) === 0 && value.length === 9
+}
+/**
+ * Check if value is valid polish passport number
+ * @param {string} value - value to check.
  * @returns {boolean}
  */
 

@@ -238,6 +238,8 @@
     * [.isDateNotUnder18Validator](#module_Validators.isDateNotUnder18Validator) ⇒ <code>boolean</code>
     * [.isExpiryDateValidator](#module_Validators.isExpiryDateValidator) ⇒ <code>boolean</code>
     * [.isReleaseDateValidator](#module_Validators.isReleaseDateValidator) ⇒ <code>boolean</code>
+    * [.isIdNumberValidator](#module_Validators.isIdNumberValidator) ⇒ <code>boolean</code>
+    * [.isPassportValidator](#module_Validators.isPassportValidator) ⇒ <code>boolean</code>
     * [.isBirthDateValidator](#module_Validators.isBirthDateValidator) ⇒ <code>boolean</code>
     * [.isAfterTodayValidator](#module_Validators.isAfterTodayValidator) ⇒ <code>boolean</code>
     * [.isBeforeTodayValidator](#module_Validators.isBeforeTodayValidator) ⇒ <code>boolean</code>
@@ -614,6 +616,28 @@ then it is checked if expiration date is later than release date. Date in format
 | --- | --- | --- |
 | date | <code>string</code> | <p>value to check.</p> |
 | expiryDate | <code>string</code> | <p>acc.</p> |
+
+<a name="module_Validators.isIdNumberValidator"></a>
+
+### Validators.isIdNumberValidator ⇒ <code>boolean</code>
+<p>Check if value is valid polish id number</p>
+
+**Kind**: static property of [<code>Validators</code>](#module_Validators)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| value | <code>string</code> | <p>value to check.</p> |
+
+<a name="module_Validators.isPassportValidator"></a>
+
+### Validators.isPassportValidator ⇒ <code>boolean</code>
+<p>Check if value is valid polish passport number</p>
+
+**Kind**: static property of [<code>Validators</code>](#module_Validators)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| value | <code>string</code> | <p>value to check.</p> |
 
 <a name="module_Validators.isBirthDateValidator"></a>
 
