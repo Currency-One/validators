@@ -1,6 +1,7 @@
 # Validators
 
 [![npm version](https://img.shields.io/npm/v/@currency-one/validators.svg)](https://www.npmjs.com/package/@currency-one/validators)
+![](https://github.com/Currency-One/validators/workflows/build/badge.svg)
 [![License](https://img.shields.io/npm/l/@currency-one/validators.svg)](https://github.com/Currency-One/validators/blob/master/LICENSE.md)
 
 This is typescript package of validators and regexp patterns
