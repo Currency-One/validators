@@ -28,7 +28,7 @@ export const notEmptyValidator = (value) => {
   return !isNotEmptyStringValidator(value) ? 'This field cant be empty' : ''
 }
 
-export const accountNumberPattern = value => {
+export const accountNumberPattern = (value) => {
   return !isAccountNumberPattern(value) ? 'This field can contain only: letters, numbers and space' : ''
 }
 ```
