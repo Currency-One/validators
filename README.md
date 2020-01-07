@@ -25,7 +25,7 @@ Basic usage with React and build systems (webpack, parcel etc.):
 import { isNotEmptyStringValidator, isAccountNumberPattern } from '@currency-one/validators'
 
 export const notEmptyValidator = (value) => {
-  return !isNotEmptyStringValidator(value) ? 'This field can't be empty' : ''
+  return !isNotEmptyStringValidator(value) ? 'This field cant be empty' : ''
 }
 
 export const accountNumberPattern = value => {
