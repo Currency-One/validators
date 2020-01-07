@@ -18,6 +18,21 @@ or
 yarn add @currency-one/validators
 ```
 
+
+Basic usage with React and build systems (webpack, parcel etc.):
+
+```js
+import { isNotEmptyStringValidator, isAccountNumberPattern } from '@currency-one/validators'
+
+export const notEmptyValidator = (value) => {
+  return !isNotEmptyStringValidator(value) ? 'This field can't be empty' : ''
+}
+
+export const accountNumberPattern = value => {
+  return !isAccountNumberPattern(value) ? 'This field can contain only: letters, numbers and space' : ''
+}
+```
+
 ## Documentation
 
 See [documentation](DOCS.md) for more details
