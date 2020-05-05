@@ -1,42 +1,46 @@
+import * as MockDate from 'mockdate'
 import {
-  isEmailValidator,
-  isLatinValidator,
-  isNotEmptyUnlessValidator,
-  isNotHigherOrEqualValidator,
-  isPostalCodeValidator,
-  isSelectedValidator,
-  isValidBankTitleValidator,
-  isPasswordValidator,
-  isValueValidator,
-  isNotSmallerOrEqualValidator,
-  isSameAsValidator,
-  isOtherThanValidator,
-  isNipValidator,
-  isPhoneValidator,
-  isMobilePhoneValidator,
-  isIbanValidator,
-  isDateValidator,
-  isMinLengthValidator,
-  isPeselValidator,
-  isPeselNotUnder18Validator,
-  isDateNotUnder18Validator,
-  isExpiryDateValidator,
-  isReleaseDateValidator,
-  isNotSmallerValidator,
+  isAfterTodayValidator,
   isAllKeysValidator,
+  isBeforeTodayValidator,
   isBirthDateValidator,
+  isDateNotUnder18Validator,
+  isDateValidator,
+  isEmailValidator,
+  isExpiryDateValidator,
+  isIbanValidator,
+  isIdNumberValidator,
   isLanNumberValidator,
-  isSwiftValidator,
-  isSwiftCountryValidator,
+  isLatinValidator,
+  isMaxLengthValidator,
+  isMinLengthValidator,
+  isMobilePhoneValidator,
+  isNipValidator,
   isNotEmptyStringValidator,
   isNotEmptyTrimmedStringValidator,
+  isNotEmptyUnlessValidator,
+  isNotHigherOrEqualValidator,
   isNotHigherValidator,
-  isMaxLengthValidator,
-  isAfterTodayValidator,
-  isBeforeTodayValidator, isPropValidator, isIdNumberValidator, isPassportValidator,
+  isNotSmallerOrEqualValidator,
+  isNotSmallerValidator,
+  isOtherThanValidator,
+  isPassportValidator,
+  isPasswordValidator,
+  isPeselNotUnder18Validator,
+  isPeselValidator,
+  isPhoneValidator,
+  isPostalCodeValidator,
+  isPropValidator,
+  isReleaseDateValidator,
+  isSameAsValidator,
+  isSelectedValidator,
+  isSwiftCountryValidator, isSwiftValidator, isValidBankTitleValidator, isValueValidator,
 } from '../lib'
 import { ibanHelper } from '../lib/helpers/iban-helper'
-import * as MockDate from 'mockdate'
+
+function lanWithLength(length: number): string {
+  return '1'.repeat(length)
+}
 
 describe('Validators', () => {
   beforeEach(() => {
@@ -370,20 +374,49 @@ describe('Validators', () => {
     expect(isBeforeTodayValidator('2000-03-15')).toBeTruthy()
   })
 
-  it('should isLanNumberValidator() validate value correctly', () => {
-    expect(isLanNumberValidator('TEST12345678341')).toBeTruthy()
-    expect(isLanNumberValidator('test12345678341')).toBeTruthy()
-    expect(isLanNumberValidator('TEST1234 5678341')).toBeTruthy()
-    expect(isLanNumberValidator('1'.repeat(12))).toBeTruthy()
-    expect(isLanNumberValidator('1'.repeat(22))).toBeTruthy()
-    expect(isLanNumberValidator('1')).toBeTruthy()
-    expect(isLanNumberValidator('1'.repeat(23))).toBeFalsy()
-    expect(isLanNumberValidator('TEST12345678341;')).toBeFalsy()
-    expect(isLanNumberValidator('TEST12345678341Ą')).toBeFalsy()
-    expect(isLanNumberValidator('')).toBeFalsy()
-    expect(isLanNumberValidator(' ')).toBeFalsy()
-    expect(isLanNumberValidator(';')).toBeFalsy()
-  })
+  ;
+  [
+    { country: 'AU', min: 12, max: 16 },
+    { country: 'CA', min: 9, max: 15 },
+    { country: 'CN', min: 1, max: 22 },
+    { country: 'JP', min: 8, max: 14 },
+    { country: 'KR', min: 11, max: 16 },
+    { country: 'NZ', min: 15, max: 16 },
+    { country: 'SG', min: 1, max: 14 },
+    { country: 'TW', min: 1, max: 22 },
+    { country: 'US', min: 10, max: 30 },
+    { country: 'OTHER', min: 1, max: 22 },
+    { country: undefined, min: 1, max: 22 },
+  ].forEach(({country, min, max}) => describe(`isLanNumberValidator() validation behaviour for ${country} country code`, () => {
+    it('should return true for valid lan number', () => {
+      expect(isLanNumberValidator(lanWithLength(min), country)).toBeTruthy()
+      expect(isLanNumberValidator(lanWithLength(max), country)).toBeTruthy()
+      expect(isLanNumberValidator('A'.repeat(min), country)).toBeTruthy()
+      expect(isLanNumberValidator('A'.repeat(max), country)).toBeTruthy()
+      expect(isLanNumberValidator('a'.repeat(min), country)).toBeTruthy()
+      expect(isLanNumberValidator('a'.repeat(max), country)).toBeTruthy()
+    })
+
+    it.only('should return false when lan number is empty', () => {
+      expect(isLanNumberValidator('', country)).toBeFalsy()
+      expect(isLanNumberValidator(' ', country)).toBeFalsy()
+    })
+
+    it(`should return false when lan number shorter than ${min} characters`, () => {
+      expect(isLanNumberValidator(lanWithLength(min - 1), country)).toBeFalsy()
+    })
+
+    it(`should return false when lan number is longer than ${max} characters`, () => {
+      expect(isLanNumberValidator(lanWithLength(max + 1), country)).toBeFalsy()
+    })
+
+    it('should return error when lan number contains characters other than letters and numbers', () => {
+      const validPart = lanWithLength(max - 1)
+      expect(isLanNumberValidator(`${validPart};`, country)).toBeFalsy()
+      expect(isLanNumberValidator(`${validPart}Ą`, country)).toBeFalsy()
+      expect(isLanNumberValidator(`${validPart}$`, country)).toBeFalsy()
+    })
+  }))
 
   it('should isSwiftValidator() validate value correctly', () => {
     expect(isSwiftValidator('TEST0123')).toBeTruthy()

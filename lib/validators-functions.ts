@@ -235,7 +235,21 @@ export const isIbanValidator = (value: string, countryCode?: string): boolean =>
  * @returns {boolean}
  */
 
-export const isLanNumberValidator = (value: string): boolean => !!value.replace(/ /g, '').match(/^[A-Za-z0-9]{1,22}$/)
+export const isLanNumberValidator = (value: string, country?: string): boolean => {
+  const lanCountriesRules = {
+    AU: /^[A-Za-z0-9]{12,16}$/,
+    CA: /^[A-Za-z0-9]{9,15}$/,
+    CN: /^[A-Za-z0-9]{1,22}$/,
+    JP: /^[A-Za-z0-9]{8,14}$/,
+    KR: /^[A-Za-z0-9]{11,16}$/,
+    NZ: /^[A-Za-z0-9]{15,16}$/,
+    SG: /^[A-Za-z0-9]{1,14}$/,
+    TW: /^[A-Za-z0-9]{1,22}$/,
+    US: /^[A-Za-z0-9]{10,30}$/,
+  }
+  const defaultRule = /^[A-Za-z0-9]{1,22}$/
+  return !!value.replace(/ /g, '').match(lanCountriesRules[country] ? lanCountriesRules[country] : defaultRule)
+}
 /**
  * Checks if value is valid non-iban account number
  * @param {string} value - value to check.
