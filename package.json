@@ -1,6 +1,6 @@
 {
   "name": "@currency-one/validators",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "Typescript collection of validators and regexp patterns",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
