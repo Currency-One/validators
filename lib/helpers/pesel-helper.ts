@@ -27,7 +27,7 @@ export const peselHelper = {
     const month = (peselArr[2] % 2) * 10 + peselArr[3]
     const day = peselArr[4] * 10 + peselArr[5]
 
-    return new Date(`${year}-${month}-${day}`)
+    return new Date(`${year}-${getFormatted(month)}-${getFormatted(day)}`)
   },
   peselNotUnder18: (pesel: string): boolean => {
     if (!pesel) {
@@ -45,4 +45,8 @@ export const peselHelper = {
 
 function isAnonymized(pesel: string): boolean {
   return /^[*]{11}$/.test(pesel)
+}
+
+function getFormatted(value: number): string {
+  return value <= 9 ? `0${value}` : value.toString()
 }
