@@ -1,6 +1,7 @@
 /** @module Validators */
 
 import * as phoneUtils from 'libphonenumber-js/max'
+import moment from 'moment'
 
 import { CountryCode } from 'libphonenumber-js'
 import { ibanHelper } from './helpers/iban-helper'
@@ -290,14 +291,7 @@ export const isPeselNotUnder18Validator = (value: string) => peselHelper.peselNo
  * @returns {boolean}
  */
 
-export const isDateValidator = (value: string): boolean => {
-  const [year, month, day] = value.split('-')
-  const date = new Date(value)
-  return date.getFullYear() === parseFloat(year)
-    && date.getMonth() === (parseFloat(month) - 1) // bloody 0-indexed month
-    && date.getDate() === parseFloat(day)
-    && !!value.match(/\d{4}-\d{2}-\d{2}/)
-}
+export const isDateValidator = (value: string): boolean => moment(value, 'YYYY-MM-DD', true).isValid()
 /**
  * Checks if value is valid date in format YYYY-MM-DD. Validates also number of days per month
  * @param {string} value - value to check.
@@ -305,7 +299,7 @@ export const isDateValidator = (value: string): boolean => {
  */
 
 export const isDateNotUnder18Validator = (date: string): boolean => (
-  new Date(date).getFullYear() - new Date().getFullYear() <= -18
+  moment(date, 'YYYY-MM-DD').diff(moment(), 'years') <= -18
 )
 /**
  * Checks if person with given birthday is above 18 years. Date in format YYYY-MM-DD
@@ -380,9 +374,9 @@ export const isPassportValidator = (value: string): boolean => {
  */
 
 export const isBirthDateValidator = (date: string): boolean => {
-  const now = new Date().getFullYear()
-  const yearsToCheck = new Date(date).getFullYear()
-  return now - yearsToCheck <= 150 && new Date(date) <= new Date()
+  const dateFormatted = moment(date, 'YYYY-MM-DD')
+  return moment().diff(dateFormatted, 'years') <= 150
+    && dateFormatted.isSameOrBefore(moment(), 'day')
 }
 /**
  * Checks if value is valid birth date. Assumes that human cannot be older than 150 years. Date in format YYYY-MM-DD
@@ -390,14 +384,14 @@ export const isBirthDateValidator = (date: string): boolean => {
  * @returns {boolean}
  */
 
-export const isAfterTodayValidator = (date: string): boolean => new Date(date) > new Date()
+export const isAfterTodayValidator = (date: string): boolean => moment(date).isAfter(moment())
 /**
  * Checks if given date is after today. Date in format YYYY-MM-DD
  * @param {string} date - value to check.
  * @returns {boolean}
  */
 
-export const isBeforeTodayValidator = (date: string): boolean => new Date(date) < new Date()
+export const isBeforeTodayValidator = (date: string): boolean => moment(date).isBefore(moment())
 /**
  * Checks if given date is before today. Date in format YYYY-MM-DD
  * @param {string} date - value to check.

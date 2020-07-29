@@ -1,3 +1,5 @@
+import moment from 'moment'
+
 export const peselHelper = {
   validatePesel: (pesel: string): boolean => {
     if (isAnonymized(pesel)) {
@@ -13,7 +15,7 @@ export const peselHelper = {
     control = 10 - (control === 0 ? 10 : control)
     return parts[10] === control
   },
-  getDateOfBirthFromPesel: (pesel: string): Date => {
+  getDateOfBirthFromPesel: (pesel: string): moment.Moment => {
     const peselArr = pesel.split('').map((x) => parseInt(x, 10))
 
     let year = 1900 + peselArr[0] * 10 + peselArr[1]
@@ -27,7 +29,7 @@ export const peselHelper = {
     const month = (peselArr[2] % 2) * 10 + peselArr[3]
     const day = peselArr[4] * 10 + peselArr[5]
 
-    return new Date(`${year}-${getFormatted(month)}-${getFormatted(day)}`)
+    return moment(`${year}-${month}-${day}`, 'YYYY-MM-DD')
   },
   peselNotUnder18: (pesel: string): boolean => {
     if (!pesel) {
@@ -38,7 +40,7 @@ export const peselHelper = {
       return true
     }
     const dateOfBirth = peselHelper.getDateOfBirthFromPesel(pesel)
-    const age = dateOfBirth.getFullYear() - new Date().getFullYear()
+    const age = dateOfBirth.diff(moment(), 'years')
     return age <= -18
   },
 }
