@@ -13,7 +13,7 @@
     "clean": "rimraf ./dist",
     "fix": "npm run lint --fix",
     "publish-package": "npm run all && npm version patch && npm publish --access public",
-    "build:doc": "jsdoc2md --files ./lib/*.ts --configure ./jsdoc2md.json > ./DOCS.md"
+    "build:doc": "jsdoc2md --files ./lib/**/*.ts --configure ./jsdoc2md.json > ./DOCS.md"
   },
   "keywords": [
     "validator",

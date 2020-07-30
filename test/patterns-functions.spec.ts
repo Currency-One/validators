@@ -12,8 +12,8 @@ import {
   isNumericPattern,
   isPasswordPattern,
   isPostalCodePattern,
-  isStreetPattern
-} from '../lib'
+  isStreetPattern,
+} from '../lib/patterns'
 
 describe('pattern functions', () => {
   it('isAccountNumberPattern should validate correctly', () => {
