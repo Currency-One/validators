@@ -30,8 +30,17 @@
     "url": "git+https://github.com/Currency-One/validators.git"
   },
   "license": "MIT",
-  "dependencies": {
-    "libphonenumber-js": "^1.7.24"
+  "peerDependencies": {
+    "libphonenumber-js": "1.7.x",
+    "moment": "2.x"
+  },
+  "peerDependenciesMeta": {
+    "libphonenumber-js": {
+      "optional": true
+    },
+    "moment": {
+      "optional": true
+    }
   },
   "devDependencies": {
     "@babel/cli": "^7.7.7",
@@ -42,7 +51,9 @@
     "jest": "^24.9.0",
     "jsdoc-babel": "^0.5.0",
     "jsdoc-to-markdown": "^5.0.3",
+    "libphonenumber-js": "^1.7.55",
     "mockdate": "^2.0.5",
+    "moment": "^2.27.0",
     "ts-jest": "^24.2.0",
     "tslint": "^5.20.1",
     "typescript": "^3.7.4"
