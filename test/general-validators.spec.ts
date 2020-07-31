@@ -1,20 +1,12 @@
-import * as MockDate from 'mockdate'
 import {
-  isAfterTodayValidator,
   isAllKeysValidator,
-  isBeforeTodayValidator,
-  isBirthDateValidator,
-  isDateNotUnder18Validator,
-  isDateValidator,
   isEmailValidator,
-  isExpiryDateValidator,
   isIbanValidator,
   isIdNumberValidator,
   isLanNumberValidator,
   isLatinValidator,
   isMaxLengthValidator,
   isMinLengthValidator,
-  isMobilePhoneValidator,
   isNipValidator,
   isNotEmptyStringValidator,
   isNotEmptyTrimmedStringValidator,
@@ -26,16 +18,12 @@ import {
   isOtherThanValidator,
   isPassportValidator,
   isPasswordValidator,
-  isPeselNotUnder18Validator,
-  isPeselValidator,
-  isPhoneValidator,
   isPostalCodeValidator,
   isPropValidator,
-  isReleaseDateValidator,
   isSameAsValidator,
   isSelectedValidator,
   isSwiftCountryValidator, isSwiftValidator, isValidBankTitleValidator, isValueValidator,
-} from '../lib'
+} from '../lib/general-validators'
 import { ibanHelper } from '../lib/helpers/iban-helper'
 
 function lanWithLength(length: number): string {
@@ -43,10 +31,6 @@ function lanWithLength(length: number): string {
 }
 
 describe('Validators', () => {
-  beforeEach(() => {
-    MockDate.set('2017-04-01T00:00:00.000Z')
-  })
-
   it('should isValueValidator() find empty values correctly', () => {
     expect(isValueValidator('asd')).toBeTruthy()
     expect(isValueValidator([])).toBeTruthy()
@@ -208,18 +192,6 @@ describe('Validators', () => {
     expect(isNipValidator('void')).toBeFalsy()
   })
 
-  it('should isPhoneValidator() validate value correctly', () => {
-    expect(isPhoneValidator('500500500', 'PL')).toBeTruthy()
-    expect(isPhoneValidator('221101010', 'PL')).toBeTruthy()
-    expect(isPhoneValidator('12345', 'PL')).toBeFalsy()
-  })
-
-  it('should isMobilePhoneValidator() validate value correctly', () => {
-    expect(isMobilePhoneValidator('500500500', 'PL')).toBeTruthy()
-    expect(isMobilePhoneValidator('60000000', 'DK')).toBeTruthy()
-    expect(isMobilePhoneValidator('221101010', 'PL')).toBeFalsy()
-  })
-
   it('should isIbanValidator() validate value correctly', () => {
     expect(isIbanValidator('CZ 52 2554 3385 1391 1493 6948')).toBeTruthy()
     expect(isIbanValidator('CZ5225543385139114936948')).toBeTruthy()
@@ -231,19 +203,6 @@ describe('Validators', () => {
     expect(isIbanValidator('LV72NDEA0000084513319', 'LV')).toBeTruthy()
     expect(isIbanValidator('72NDEA0000084513319', 'LV')).toBeTruthy()
     expect(isIbanValidator('LV72NDEA0000084513319', 'PL')).toBeFalsy()
-  })
-
-  it('should isDateValidator() validate value correctly', () => {
-    expect(isDateValidator('2015-05-01')).toBeTruthy()
-    expect(isDateValidator('1920-11-01')).toBeTruthy()
-    expect(isDateValidator('1966-06-12')).toBeTruthy()
-    expect(isDateValidator('2012-02-29')).toBeTruthy()
-    expect(isDateValidator('1970-06-6')).toBeFalsy()
-    expect(isDateValidator('1970-6-6')).toBeFalsy()
-    expect(isDateValidator('70-06-06')).toBeFalsy()
-    expect(isDateValidator('2020-06-31')).toBeFalsy()
-    expect(isDateValidator('2013-02-29')).toBeFalsy()
-    expect(isDateValidator('2020-20-20')).toBeFalsy()
   })
 
   it('should isMinLengthValidator() validate correctly', () => {
@@ -260,67 +219,11 @@ describe('Validators', () => {
     expect(isMaxLengthValidator('ash5hh54hdss', 7)).toBeFalsy()
   })
 
-  it('should isPeselValidator() validate value correctly', () => {
-    expect(isPeselValidator('87103009246')).toBeTruthy()
-    expect(isPeselValidator('87103009245')).toBeFalsy()
-    expect(isPeselValidator('92112716180')).toBeTruthy()
-    expect(isPeselValidator('33011901514')).toBeTruthy()
-    expect(isPeselValidator('69101711057')).toBeTruthy()
-    expect(isPeselValidator('69101711052')).toBeFalsy()
-  })
-
-  it('should isPeselValidator() pass when value is masked', () => {
-    expect(isPeselValidator('***********')).toBeTruthy()
-    expect(isPeselValidator('**********')).toBeFalsy()
-    expect(isPeselValidator('************')).toBeFalsy()
-  })
-
-  it('should isPeselNotUnder18Validator() validate value correctly', () => {
-    expect(isPeselNotUnder18Validator('87103009246')).toBeTruthy()
-    expect(isPeselNotUnder18Validator('87103009245')).toBeTruthy()
-    expect(isPeselNotUnder18Validator('92112716180')).toBeTruthy()
-    expect(isPeselNotUnder18Validator('33011901514')).toBeTruthy()
-    expect(isPeselNotUnder18Validator('69101711057')).toBeTruthy()
-    expect(isPeselNotUnder18Validator('69101711052')).toBeTruthy()
-    expect(isPeselNotUnder18Validator('05281917360')).toBeFalsy()
-    expect(isPeselNotUnder18Validator('03280305315')).toBeFalsy()
-  })
-
-  it('should isPeselNotUnder18Validator() pass when value is masked', () => {
-    expect(isPeselNotUnder18Validator('***********')).toBeTruthy()
-    expect(isPeselNotUnder18Validator('**********')).toBeFalsy()
-    expect(isPeselNotUnder18Validator('************')).toBeFalsy()
-  })
-
-  it('should isDateNotUnder18Validator() validate value correctly', () => {
-    expect(isDateNotUnder18Validator('2015-01-01')).toBeFalsy()
-    expect(isDateNotUnder18Validator('2012-10-10')).toBeFalsy()
-    expect(isDateNotUnder18Validator('1986-01-01')).toBeTruthy()
-    expect(isDateNotUnder18Validator('1950-10-10')).toBeTruthy()
-  })
-
   it('should getCompleteIban() return complete IBAN number', () => {
     expect(ibanHelper.getCompleteIban('LV72NDEA0000084513319', 'LV')).toEqual('LV72NDEA0000084513319')
     expect(ibanHelper.getCompleteIban('72NDEA0000084513319', 'LV')).toEqual('LV72NDEA0000084513319')
     expect(ibanHelper.getCompleteIban('LV72NDEA0000084513319', 'PL')).toEqual('LV72NDEA0000084513319')
     expect(ibanHelper.getCompleteIban('LV72NDEA0000084513319', 'PL')).toEqual('LV72NDEA0000084513319')
-  })
-
-  it('should isExpiryDateValidator() validate id_card_expiry_date correctly', () => {
-    expect(isExpiryDateValidator('2001-01-01')).toBeFalsy()
-    expect(isExpiryDateValidator('2301-01-01')).toBeFalsy()
-    expect(isExpiryDateValidator('2017-04-01')).toBeTruthy()
-    expect(isExpiryDateValidator('2021-01-01')).toBeTruthy()
-  })
-
-  it('should isReleaseDateValidator() validate id_card_release_date correctly', () => {
-    expect(isReleaseDateValidator('3017-04-01', undefined)).toBeFalsy()
-    expect(isReleaseDateValidator('1017-04-01', undefined)).toBeFalsy()
-    expect(isReleaseDateValidator('1917-04-01', '2017-04-01')).toBeFalsy()
-    expect(isReleaseDateValidator('2017-04-01', '2017-04-01')).toBeFalsy()
-    expect(isReleaseDateValidator('2017-04-01', '2017-03-01')).toBeFalsy()
-    expect(isReleaseDateValidator('2017-04-01', undefined)).toBeTruthy()
-    expect(isReleaseDateValidator('2017-04-01', '2017-05-01')).toBeTruthy()
   })
 
   it('should isNotSmallerValidator() validate value correctly', () => {
@@ -342,38 +245,6 @@ describe('Validators', () => {
     expect(isAllKeysValidator(invalidObject, expectedKeys)).toBeFalsy()
   })
 
-  it('should isBirthDateValidator() validate value correctly', () => {
-    expect(isBirthDateValidator('1000-01-01')).toBeFalsy()
-    expect(isBirthDateValidator('3016-05-23')).toBeFalsy()
-    expect(isBirthDateValidator('0000-12-21')).toBeFalsy()
-    expect(isBirthDateValidator('9999-03-15')).toBeFalsy()
-    expect(isBirthDateValidator('2017-04-01')).toBeTruthy()
-    expect(isBirthDateValidator('1867-04-01')).toBeTruthy()
-    expect(isBirthDateValidator('2000-03-15')).toBeTruthy()
-  })
-
-  it('should isAfterTodayValidator() validate value correctly', () => {
-    expect(isAfterTodayValidator('3016-05-23')).toBeTruthy()
-    expect(isAfterTodayValidator('9999-03-15')).toBeTruthy()
-    expect(isAfterTodayValidator('2017-04-02')).toBeTruthy()
-    expect(isAfterTodayValidator('1000-01-01')).toBeFalsy()
-    expect(isAfterTodayValidator('0000-12-21')).toBeFalsy()
-    expect(isAfterTodayValidator('2017-04-01')).toBeFalsy()
-    expect(isAfterTodayValidator('1867-04-01')).toBeFalsy()
-    expect(isAfterTodayValidator('2000-03-15')).toBeFalsy()
-  })
-
-  it('should isBeforeTodayValidator() validate value correctly', () => {
-    expect(isBeforeTodayValidator('3016-05-23')).toBeFalsy()
-    expect(isBeforeTodayValidator('9999-03-15')).toBeFalsy()
-    expect(isBeforeTodayValidator('2017-04-01')).toBeFalsy()
-    expect(isBeforeTodayValidator('2017-03-31')).toBeTruthy()
-    expect(isBeforeTodayValidator('1000-01-01')).toBeTruthy()
-    expect(isBeforeTodayValidator('0000-12-21')).toBeTruthy()
-    expect(isBeforeTodayValidator('1867-04-01')).toBeTruthy()
-    expect(isBeforeTodayValidator('2000-03-15')).toBeTruthy()
-  })
-
   ;
   [
     { country: 'AU', min: 12, max: 16 },
@@ -387,36 +258,38 @@ describe('Validators', () => {
     { country: 'US', min: 10, max: 30 },
     { country: 'OTHER', min: 1, max: 22 },
     { country: undefined, min: 1, max: 22 },
-  ].forEach(({country, min, max}) => describe(`isLanNumberValidator() validation behaviour for ${country} country code`, () => {
-    it('should return true for valid lan number', () => {
-      expect(isLanNumberValidator(lanWithLength(min), country)).toBeTruthy()
-      expect(isLanNumberValidator(lanWithLength(max), country)).toBeTruthy()
-      expect(isLanNumberValidator('A'.repeat(min), country)).toBeTruthy()
-      expect(isLanNumberValidator('A'.repeat(max), country)).toBeTruthy()
-      expect(isLanNumberValidator('a'.repeat(min), country)).toBeTruthy()
-      expect(isLanNumberValidator('a'.repeat(max), country)).toBeTruthy()
-    })
+  ].forEach(({ country, min, max }) =>
+    describe(`isLanNumberValidator() validation behaviour for ${country} country code`, () => {
+      it('should return true for valid lan number', () => {
+        expect(isLanNumberValidator(lanWithLength(min), country)).toBeTruthy()
+        expect(isLanNumberValidator(lanWithLength(max), country)).toBeTruthy()
+        expect(isLanNumberValidator('A'.repeat(min), country)).toBeTruthy()
+        expect(isLanNumberValidator('A'.repeat(max), country)).toBeTruthy()
+        expect(isLanNumberValidator('a'.repeat(min), country)).toBeTruthy()
+        expect(isLanNumberValidator('a'.repeat(max), country)).toBeTruthy()
+      })
 
-    it.only('should return false when lan number is empty', () => {
-      expect(isLanNumberValidator('', country)).toBeFalsy()
-      expect(isLanNumberValidator(' ', country)).toBeFalsy()
-    })
+      it.only('should return false when lan number is empty', () => {
+        expect(isLanNumberValidator('', country)).toBeFalsy()
+        expect(isLanNumberValidator(' ', country)).toBeFalsy()
+      })
 
-    it(`should return false when lan number shorter than ${min} characters`, () => {
-      expect(isLanNumberValidator(lanWithLength(min - 1), country)).toBeFalsy()
-    })
+      it(`should return false when lan number shorter than ${min} characters`, () => {
+        expect(isLanNumberValidator(lanWithLength(min - 1), country)).toBeFalsy()
+      })
 
-    it(`should return false when lan number is longer than ${max} characters`, () => {
-      expect(isLanNumberValidator(lanWithLength(max + 1), country)).toBeFalsy()
-    })
+      it(`should return false when lan number is longer than ${max} characters`, () => {
+        expect(isLanNumberValidator(lanWithLength(max + 1), country)).toBeFalsy()
+      })
 
-    it('should return error when lan number contains characters other than letters and numbers', () => {
-      const validPart = lanWithLength(max - 1)
-      expect(isLanNumberValidator(`${validPart};`, country)).toBeFalsy()
-      expect(isLanNumberValidator(`${validPart}Ą`, country)).toBeFalsy()
-      expect(isLanNumberValidator(`${validPart}$`, country)).toBeFalsy()
-    })
-  }))
+      it('should return error when lan number contains characters other than letters and numbers', () => {
+        const validPart = lanWithLength(max - 1)
+        expect(isLanNumberValidator(`${validPart};`, country)).toBeFalsy()
+        expect(isLanNumberValidator(`${validPart}Ą`, country)).toBeFalsy()
+        expect(isLanNumberValidator(`${validPart}$`, country)).toBeFalsy()
+      })
+    }),
+  )
 
   it('should isSwiftValidator() validate value correctly', () => {
     expect(isSwiftValidator('TEST0123')).toBeTruthy()
