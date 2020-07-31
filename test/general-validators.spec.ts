@@ -23,7 +23,7 @@ import {
   isSameAsValidator,
   isSelectedValidator,
   isSwiftCountryValidator, isSwiftValidator, isValidBankTitleValidator, isValueValidator,
-} from '../lib/general-validators'
+} from '../lib'
 import { ibanHelper } from '../lib/helpers/iban-helper'
 
 function lanWithLength(length: number): string {

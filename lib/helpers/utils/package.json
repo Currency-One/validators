@@ -1,0 +1,5 @@
+{
+  "name": "@currency-one/validators/utils",
+  "typings": "./index.d.ts",
+  "main": "./index.js"
+}
