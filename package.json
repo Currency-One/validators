@@ -72,7 +72,9 @@
     "DOCS.md",
     "tsconfig.json",
     "LICENSE.txt",
-    "package.json"
+    "package.json",
+    "index.js",
+    "index.d.ts"
   ],
   "jest": {
     "preset": "ts-jest",
