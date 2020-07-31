@@ -1,5 +1,13 @@
 node_modules
 coverage
-dist
 .cache
 .idea
+
+# Import location artifacts
+/date-validators/
+/pesel-validators/
+/phone-validators/
+/helpers/
+/main/
+index.js
+index.d.ts

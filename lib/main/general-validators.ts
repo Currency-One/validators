@@ -1,8 +1,7 @@
 /** @module General Validators */
 
-import { CountryCode } from 'libphonenumber-js'
 import { ibanHelper } from '../helpers/iban-helper'
-import valueOfLetter from '../helpers/value-of-letter'
+import valueOfLetter from '../helpers/utils/value-of-letter'
 
 export const isValueValidator = (value: any): boolean => !!value
 /**

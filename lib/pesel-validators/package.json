@@ -1,0 +1,5 @@
+{
+  "name": "@currency-one/validators/pesel-validators",
+  "typings": "./index.d.ts",
+  "main": "./index.js"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "@currency-one/validators/iban-helper",
+  "typings": "./index.d.ts",
+  "main": "./index.js"
+}
