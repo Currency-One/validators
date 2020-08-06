@@ -129,7 +129,7 @@ export const isNotSmallerOrEqualValidator = (value: string, minValue: string): b
  */
 
 export const isNotHigherValidator = (value: string, maxValue: string): boolean => (
-  value && parseFloat(value) < parseFloat(maxValue)
+  value && parseFloat(value) <= parseFloat(maxValue)
 )
 /**
  * Checks if value is higher than given maximal value
@@ -139,7 +139,7 @@ export const isNotHigherValidator = (value: string, maxValue: string): boolean =
  */
 
 export const isNotHigherOrEqualValidator = (value: string, maxValue: string): boolean => (
-  value && parseFloat(value) <= parseFloat(maxValue)
+  value && parseFloat(value) < parseFloat(maxValue)
 )
 /**
  * Checks if value is higher or equal than given maximal value

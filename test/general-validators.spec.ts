@@ -118,7 +118,7 @@ describe('Validators', () => {
 
   it('should isNotHigherOrEqualValidator() validate number correctly', () => {
     expect(isNotHigherOrEqualValidator('10', '11')).toBeTruthy()
-    expect(isNotHigherOrEqualValidator('10', '10')).toBeTruthy()
+    expect(isNotHigherOrEqualValidator('10', '10')).toBeFalsy()
     expect(isNotHigherOrEqualValidator('10.00', '10.11')).toBeTruthy()
     expect(isNotHigherOrEqualValidator('10', '9')).toBeFalsy()
     expect(isNotHigherOrEqualValidator('10.9', '10.1')).toBeFalsy()
@@ -126,7 +126,7 @@ describe('Validators', () => {
 
   it('should isNotHigherValidator() validate number correctly', () => {
     expect(isNotHigherValidator('10', '11')).toBeTruthy()
-    expect(isNotHigherValidator('10', '10')).toBeFalsy()
+    expect(isNotHigherValidator('10', '10')).toBeTruthy()
     expect(isNotHigherValidator('10.00', '10.11')).toBeTruthy()
     expect(isNotHigherValidator('10', '9')).toBeFalsy()
     expect(isNotHigherValidator('10.9', '10.1')).toBeFalsy()
