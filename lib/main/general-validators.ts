@@ -223,7 +223,7 @@ export const isLanNumberValidator = (value: string, country?: string): boolean =
  * @returns {boolean}
  */
 
-export const isSwiftValidator = (value: string): boolean => !!value.match(/^[A-Za-z0-9]{8,11}$/)
+export const isSwiftValidator = (value: string): boolean => !!value.match(/^(?=[A-Za-z0-9]*$)(?:.{8}|.{11})$/)
 /**
  * Checks if value is valid swift number
  * @param {string} value - value to check.
