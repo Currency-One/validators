@@ -22,7 +22,10 @@ import {
   isPropValidator,
   isSameAsValidator,
   isSelectedValidator,
-  isSwiftCountryValidator, isSwiftValidator, isValidBankTitleValidator, isValueValidator,
+  isSwiftCountryValidator,
+  isSwiftValidator,
+  isValidBankTitleValidator,
+  isValueValidator,
 } from '../lib'
 import { ibanHelper } from '../lib/helpers/iban-helper'
 
@@ -269,7 +272,7 @@ describe('Validators', () => {
         expect(isLanNumberValidator('a'.repeat(max), country)).toBeTruthy()
       })
 
-      it.only('should return false when lan number is empty', () => {
+      it('should return false when lan number is empty', () => {
         expect(isLanNumberValidator('', country)).toBeFalsy()
         expect(isLanNumberValidator(' ', country)).toBeFalsy()
       })
@@ -292,14 +295,21 @@ describe('Validators', () => {
   )
 
   it('should isSwiftValidator() validate value correctly', () => {
-    expect(isSwiftValidator('TEST0123')).toBeTruthy()
-    expect(isSwiftValidator('TEST0123456')).toBeTruthy()
-    expect(isSwiftValidator('test01234')).toBeTruthy()
+    expect(isSwiftValidator('Test0123')).toBeTruthy()
+    expect(isSwiftValidator('Test0123XXX')).toBeTruthy()
+    expect(isSwiftValidator('A'.repeat(8))).toBeTruthy()
+    expect(isSwiftValidator('A'.repeat(11))).toBeTruthy()
+    expect(isSwiftValidator('a'.repeat(8))).toBeTruthy()
+    expect(isSwiftValidator('a'.repeat(11))).toBeTruthy()
+    expect(isSwiftValidator('1'.repeat(8))).toBeTruthy()
+    expect(isSwiftValidator('1'.repeat(11))).toBeTruthy()
     expect(isSwiftValidator('A'.repeat(7))).toBeFalsy()
+    expect(isSwiftValidator('A'.repeat(9))).toBeFalsy()
+    expect(isSwiftValidator('A'.repeat(10))).toBeFalsy()
     expect(isSwiftValidator('A'.repeat(12))).toBeFalsy()
-    expect(isSwiftValidator('TEST0123;')).toBeFalsy()
-    expect(isSwiftValidator('TEST0123.')).toBeFalsy()
-    expect(isSwiftValidator('TEST0123Ą')).toBeFalsy()
+    expect(isSwiftValidator('TEST012;')).toBeFalsy()
+    expect(isSwiftValidator('TEST012.')).toBeFalsy()
+    expect(isSwiftValidator('TEST012Ą')).toBeFalsy()
   })
 
   it('should isSwiftCountryValidator() validate value correctly', () => {
