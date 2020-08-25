@@ -295,14 +295,14 @@ describe('Validators', () => {
   )
 
   it('should isSwiftValidator() validate value correctly', () => {
-    expect(isSwiftValidator('Test0123')).toBeTruthy()
-    expect(isSwiftValidator('Test0123XXX')).toBeTruthy()
+    expect(isSwiftValidator('Testzz01')).toBeTruthy()
+    expect(isSwiftValidator('Testzz23XXX')).toBeTruthy()
+    expect(isSwiftValidator('11111123')).toBeFalsy()
+    expect(isSwiftValidator('11111123456')).toBeFalsy()
     expect(isSwiftValidator('A'.repeat(8))).toBeTruthy()
     expect(isSwiftValidator('A'.repeat(11))).toBeTruthy()
     expect(isSwiftValidator('a'.repeat(8))).toBeTruthy()
     expect(isSwiftValidator('a'.repeat(11))).toBeTruthy()
-    expect(isSwiftValidator('1'.repeat(8))).toBeTruthy()
-    expect(isSwiftValidator('1'.repeat(11))).toBeTruthy()
     expect(isSwiftValidator('A'.repeat(7))).toBeFalsy()
     expect(isSwiftValidator('A'.repeat(9))).toBeFalsy()
     expect(isSwiftValidator('A'.repeat(10))).toBeFalsy()
