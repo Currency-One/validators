@@ -1,6 +1,7 @@
 import {
   isAllKeysValidator,
   isEmailValidator,
+  isIbanLengthValidator,
   isIbanValidator,
   isIdNumberValidator,
   isLanNumberValidator,
@@ -206,6 +207,19 @@ describe('Validators', () => {
     expect(isIbanValidator('LV72NDEA0000084513319', 'LV')).toBeTruthy()
     expect(isIbanValidator('72NDEA0000084513319', 'LV')).toBeTruthy()
     expect(isIbanValidator('LV72NDEA0000084513319', 'PL')).toBeFalsy()
+  })
+
+  it('should isIbanLengthValidator() validate length correctly', () => {
+    expect(isIbanLengthValidator('PL 51 1030 0006 7121 3369 7996 0532', 'PL')).toBeTruthy()
+    expect(isIbanLengthValidator('51103000067121336979960532', 'PL')).toBeTruthy()
+    expect(isIbanLengthValidator('51103000067121336979960532', 'CZ')).toBeTruthy()
+    expect(isIbanLengthValidator('asdasdsad', 'CZ')).toBeFalsy()
+    expect(isIbanLengthValidator('', undefined)).toBeFalsy()
+    expect(isIbanLengthValidator('void', null)).toBeFalsy()
+    expect(isIbanLengthValidator('LV72NDEA0000084513319', '')).toBeTruthy()
+    expect(isIbanLengthValidator('LV72NDEA0000084513319', 'LV')).toBeTruthy()
+    expect(isIbanLengthValidator('72NDEA0000084513319', 'LV')).toBeTruthy()
+    expect(isIbanLengthValidator('LV72NDEA0000084513319', 'PL')).toBeFalsy()
   })
 
   it('should isMinLengthValidator() validate correctly', () => {

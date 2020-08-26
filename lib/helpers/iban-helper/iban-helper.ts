@@ -3,6 +3,13 @@ export const ibanHelper = {
     iban && iban.substr(0, 2).replace(/\d/g, '')
   ),
   sanitize: (iban) => iban ? iban.replace(/\s/g, '') : null,
+  checkIbanLength: (accountNumber: string, countryCode: string) => {
+    const sanitizedNumber = accountNumber.replace(/ /g, '')
+    const isPrefix = sanitizedNumber.substr(0, 2).match(/[A-Z]/i)
+    return (countryCode === 'PL' && isPrefix && sanitizedNumber.length === 28)
+      || (countryCode === 'PL' && !isPrefix && sanitizedNumber.length === 26)
+      || (countryCode !== 'PL' && sanitizedNumber.length > 14)
+  },
   checkIban: (iban, countryCode): boolean => {
     iban = iban.toUpperCase().replace(/ /g, '')
     if (iban.length < 4) {
