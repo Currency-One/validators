@@ -202,6 +202,16 @@ export const isIbanValidator = (value: string, countryCode?: string): boolean =>
  * @returns {boolean}
  */
 
+export const isIbanLengthValidator = (value: string, countryCode: string): boolean => (
+  ibanHelper.checkIbanLength(value, countryCode)
+)
+/**
+ * Checks if value is valid iban number
+ * @param {string} value - value to check.
+ * @param {CountryCode} countryCode - country code.
+ * @returns {boolean}
+ */
+
 export const isLanNumberValidator = (value: string, country?: string): boolean => {
   const lanCountriesRules = {
     AU: /^[A-Za-z0-9]{12,16}$/,
