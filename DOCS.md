@@ -133,6 +133,7 @@ then it is checked if expiration date is later than release date. Date in format
     * [.isSameAsValidator](#module_General Validators.isSameAsValidator) ⇒ <code>boolean</code>
     * [.isOtherThanValidator](#module_General Validators.isOtherThanValidator) ⇒ <code>boolean</code>
     * [.isIbanValidator](#module_General Validators.isIbanValidator) ⇒ <code>boolean</code>
+    * [.isIbanLengthValidator](#module_General Validators.isIbanLengthValidator) ⇒ <code>boolean</code>
     * [.isLanNumberValidator](#module_General Validators.isLanNumberValidator) ⇒ <code>boolean</code>
     * [.isSwiftValidator](#module_General Validators.isSwiftValidator) ⇒ <code>boolean</code>
     * [.isSwiftCountryValidator](#module_General Validators.isSwiftCountryValidator) ⇒ <code>boolean</code>
@@ -375,6 +376,18 @@ then it is checked if expiration date is later than release date. Date in format
 <a name="module_General Validators.isIbanValidator"></a>
 
 ### General Validators.isIbanValidator ⇒ <code>boolean</code>
+<p>Checks if value is valid iban number</p>
+
+**Kind**: static property of [<code>General Validators</code>](#module_General Validators)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| value | <code>string</code> | <p>value to check.</p> |
+| countryCode | <code>CountryCode</code> | <p>country code.</p> |
+
+<a name="module_General Validators.isIbanLengthValidator"></a>
+
+### General Validators.isIbanLengthValidator ⇒ <code>boolean</code>
 <p>Checks if value is valid iban number</p>
 
 **Kind**: static property of [<code>General Validators</code>](#module_General Validators)  
