@@ -308,6 +308,30 @@ describe('Validators', () => {
     }),
   )
 
+  describe('isLanNumberValidator() validation behaviour for CN accounts with prefix', () => {
+    const rawNumber = lanWithLength(22)
+
+    it('should allow OSA/NRA/FTN prefix to the account number', async () => {
+      expect(isLanNumberValidator(`OSA${rawNumber}`, 'CN')).toBeTruthy()
+      expect(isLanNumberValidator(`osa${rawNumber}`, 'CN')).toBeTruthy()
+      expect(isLanNumberValidator(`NRA${rawNumber}`, 'CN')).toBeTruthy()
+      expect(isLanNumberValidator(`nra${rawNumber}`, 'CN')).toBeTruthy()
+      expect(isLanNumberValidator(`FTN${rawNumber}`, 'CN')).toBeTruthy()
+      expect(isLanNumberValidator(`ftn${rawNumber}`, 'CN')).toBeTruthy()
+    })
+
+    it('should not allow other prefixes', async () => {
+      expect(isLanNumberValidator(`ZZZ${rawNumber}`, 'CN')).toBeFalsy()
+      expect(isLanNumberValidator(`111${rawNumber}`, 'CN')).toBeFalsy()
+    })
+
+    it('should not allow prefixes for other countries', async () => {
+      expect(isLanNumberValidator(`OSA${rawNumber}`, 'XX')).toBeFalsy()
+      expect(isLanNumberValidator(`NRA${rawNumber}`, 'XX')).toBeFalsy()
+      expect(isLanNumberValidator(`FTN${rawNumber}`, 'XX')).toBeFalsy()
+    })
+  })
+
   it('should isSwiftValidator() validate value correctly', () => {
     expect(isSwiftValidator('Testzz01')).toBeTruthy()
     expect(isSwiftValidator('Testzz23XXX')).toBeTruthy()
