@@ -63,8 +63,28 @@ describe('Validators', () => {
   })
 
   it('should isLatinValidator() find not latin values correctly', () => {
-    expect(isLatinValidator('asd')).toBeTruthy()
-    expect(isLatinValidator('Привіт')).toBeFalsy()
+    expect(isLatinValidator('ASdFHKLsd')).toBeTruthy() // Simple Latin
+    expect(isLatinValidator('ASdFHKLsdasd123')).toBeTruthy() // Simple Latin
+    expect(isLatinValidator('ęóąśłżźć')).toBeTruthy() // Polish Latin
+    expect(isLatinValidator('ęóąśłżźćasd123')).toBeTruthy() // Polish Latin
+    expect(isLatinValidator('AaÁáÄäBbČčĎď')).toBeTruthy() // Czech Latin
+    expect(isLatinValidator('AaÁáÄäBbČčĎďasd123')).toBeTruthy() // Czech Latin
+    expect(isLatinValidator('DdEeÉéÊêÈèËëFfGg')).toBeTruthy() // French Latin
+    expect(isLatinValidator('DdEeÉéÊêÈèËëFfGgasd123')).toBeTruthy() // French Latin
+    expect(isLatinValidator('oOöÖpPqQrRsSßẞtTuUüÜ')).toBeTruthy() // German Latin
+    expect(isLatinValidator('oOöÖpPqQrRsSßẞtTuUüÜasd123')).toBeTruthy() // German Latin
+    expect(isLatinValidator('£!@#$%^&*()_+{}:"|<>?~§1234567890-=[];\'\\`,./')).toBeTruthy() // Special signs
+    expect(isLatinValidator('£!@#$%^&*()_+{}:"|<>?~§1234567890-=[];\'\\`,./asd123')).toBeTruthy() // Special signs
+    expect(isLatinValidator('Привіт')).toBeFalsy() // Russian
+    expect(isLatinValidator('Привітasd123')).toBeFalsy() // Russian
+    expect(isLatinValidator('приклад')).toBeFalsy() // Ukrainian
+    expect(isLatinValidator('прикладasd123')).toBeFalsy() // Ukrainian
+    expect(isLatinValidator('你叫什么名字')).toBeFalsy() // Chinese
+    expect(isLatinValidator('你叫什么名字asd123')).toBeFalsy() // Chinese
+    expect(isLatinValidator('おねがいします')).toBeFalsy() // Japanese
+    expect(isLatinValidator('おねがいしますasd123')).toBeFalsy() // Japanese
+    expect(isLatinValidator('يتحدّث بلغة  المؤتمر الدولي العاشر ليونيكو')).toBeFalsy() // Arabic
+    expect(isLatinValidator('asd123يتحدّث بلغة  المؤتمر الدولي العاشر ليونيكو')).toBeFalsy() // Arabic
   })
 
   it('should isSelectedValidator() validate element correctly', () => {

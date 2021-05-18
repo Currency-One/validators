@@ -316,9 +316,11 @@ export const isAllKeysValidator = (object: object, expectedKeys: string[]): bool
  * @returns {boolean}
  */
 
-export const isLatinValidator = (value: string): boolean => !value.match(/[а-яА-ЯЁё]/ig)
+export const isLatinValidator = (value: string): boolean => !value.match(/[^\p{P}\p{S}a-zA-Z0-9À-ž]/ui)
 /**
- * Checks if value has not any cyrillic letters
+ * Checks if value is in Latin alphabet
+ * or matches any kind of punctuation character
+ * or matches any math symbols, currency signs, dingbats, box-drawing characters, etc
  * @param {string} value - value to check.
  * @returns {boolean}
  */
