@@ -479,7 +479,9 @@ then it is checked if expiration date is later than release date. Date in format
 <a name="module_General Validators.isLatinValidator"></a>
 
 ### General Validators.isLatinValidator ⇒ <code>boolean</code>
-<p>Checks if value has not any cyrillic letters</p>
+<p>Checks if value is in Latin alphabet
+or matches any kind of punctuation character
+or matches any math symbols, currency signs, dingbats, box-drawing characters, etc</p>
 
 **Kind**: static property of [<code>General Validators</code>](#module_General Validators)  
 
