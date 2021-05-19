@@ -25,7 +25,6 @@ import {
   isSelectedValidator,
   isSwiftCountryValidator,
   isSwiftValidator,
-  isValidBankTitleValidator,
   isValueValidator,
 } from '../lib'
 import { ibanHelper } from '../lib/helpers/iban-helper'
@@ -98,18 +97,6 @@ describe('Validators', () => {
     expect(isSelectedValidator('? string: ?')).toBeFalsy()
     expect(isSelectedValidator('? boolean: ?')).toBeFalsy()
     expect(isSelectedValidator('? undefined:undefined ?')).toBeFalsy()
-  })
-
-  it('should isValidBankTitleValidator() validate value correctly', () => {
-    expect(isValidBankTitleValidator('aAa')).toBeTruthy()
-    expect(isValidBankTitleValidator('aa22')).toBeTruthy()
-    expect(isValidBankTitleValidator('2222')).toBeTruthy()
-    expect(isValidBankTitleValidator('22AA')).toBeTruthy()
-    expect(isValidBankTitleValidator('.,/()- ')).toBeTruthy()
-    expect(isValidBankTitleValidator('$%&.,/()- !@#')).toBeFalsy()
-    expect(isValidBankTitleValidator('!@#$%^&*()_&*%$@#')).toBeFalsy()
-    expect(isValidBankTitleValidator('ęóąśłżźćń')).toBeTruthy()
-    expect(isValidBankTitleValidator('Γεώργιος Αποστολίδης')).toBeFalsy()
   })
 
   it('should isPostalCodeValidator() validate postal code correctly', () => {
