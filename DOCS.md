@@ -119,7 +119,6 @@ then it is checked if expiration date is later than release date. Date in format
     * [.isNotEmptyStringValidator](#module_General Validators.isNotEmptyStringValidator) ⇒ <code>boolean</code>
     * [.isNotEmptyTrimmedStringValidator](#module_General Validators.isNotEmptyTrimmedStringValidator) ⇒ <code>boolean</code>
     * [.isSelectedValidator](#module_General Validators.isSelectedValidator) ⇒ <code>boolean</code>
-    * [.isValidBankTitleValidator](#module_General Validators.isValidBankTitleValidator) ⇒ <code>boolean</code>
     * [.isNipValidator](#module_General Validators.isNipValidator) ⇒ <code>boolean</code>
     * [.isPostalCodeValidator](#module_General Validators.isPostalCodeValidator) ⇒ <code>boolean</code>
     * [.isPasswordValidator](#module_General Validators.isPasswordValidator) ⇒ <code>boolean</code>
@@ -220,17 +219,6 @@ then it is checked if expiration date is later than release date. Date in format
 | Param | Type | Description |
 | --- | --- | --- |
 | value | <code>string</code> \| <code>boolean</code> | <p>value to check.</p> |
-
-<a name="module_General Validators.isValidBankTitleValidator"></a>
-
-### General Validators.isValidBankTitleValidator ⇒ <code>boolean</code>
-<p>Checks if value is valid bank title</p>
-
-**Kind**: static property of [<code>General Validators</code>](#module_General Validators)  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| value | <code>string</code> | <p>value to check.</p> |
 
 <a name="module_General Validators.isNipValidator"></a>
 

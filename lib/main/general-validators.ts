@@ -61,15 +61,6 @@ export const isSelectedValidator = (value: string | boolean): boolean => (
  * @returns {boolean}
  */
 
-export const isValidBankTitleValidator = (value: string): boolean => (
-  !!value.match(/^[A-Za-z0-9\.\ \,\/\(\)\:\-ąćęłńóśźżĄĆĘŁŃÓŚŹŻ]*$/)
-)
-/**
- * Checks if value is valid bank title
- * @param {string} value - value to check.
- * @returns {boolean}
- */
-
 export const isNipValidator = (value: string): boolean => {
   const weights = [6, 5, 7, 2, 3, 4, 5, 6, 7]
   const nip = value.replace(/[\s-]|PL/g, '')
