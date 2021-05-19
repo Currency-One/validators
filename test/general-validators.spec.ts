@@ -63,28 +63,29 @@ describe('Validators', () => {
   })
 
   it('should isLatinValidator() find not latin values correctly', () => {
-    expect(isLatinValidator('ASdFHKLsd')).toBeTruthy() // Simple Latin
-    expect(isLatinValidator('ASdFHKLsdasd123')).toBeTruthy() // Simple Latin
-    expect(isLatinValidator('ęóąśłżźć')).toBeTruthy() // Polish Latin
-    expect(isLatinValidator('ęóąśłżźćasd123')).toBeTruthy() // Polish Latin
-    expect(isLatinValidator('AaÁáÄäBbČčĎď')).toBeTruthy() // Czech Latin
-    expect(isLatinValidator('AaÁáÄäBbČčĎďasd123')).toBeTruthy() // Czech Latin
-    expect(isLatinValidator('DdEeÉéÊêÈèËëFfGg')).toBeTruthy() // French Latin
-    expect(isLatinValidator('DdEeÉéÊêÈèËëFfGgasd123')).toBeTruthy() // French Latin
-    expect(isLatinValidator('oOöÖpPqQrRsSßẞtTuUüÜ')).toBeTruthy() // German Latin
-    expect(isLatinValidator('oOöÖpPqQrRsSßẞtTuUüÜasd123')).toBeTruthy() // German Latin
-    expect(isLatinValidator('£!@#$%^&*()_+{}:"|<>?~§1234567890-=[];\'\\`,./')).toBeTruthy() // Special signs
-    expect(isLatinValidator('£!@#$%^&*()_+{}:"|<>?~§1234567890-=[];\'\\`,./asd123')).toBeTruthy() // Special signs
-    expect(isLatinValidator('Привіт')).toBeFalsy() // Russian
-    expect(isLatinValidator('Привітasd123')).toBeFalsy() // Russian
-    expect(isLatinValidator('приклад')).toBeFalsy() // Ukrainian
-    expect(isLatinValidator('прикладasd123')).toBeFalsy() // Ukrainian
-    expect(isLatinValidator('你叫什么名字')).toBeFalsy() // Chinese
-    expect(isLatinValidator('你叫什么名字asd123')).toBeFalsy() // Chinese
-    expect(isLatinValidator('おねがいします')).toBeFalsy() // Japanese
-    expect(isLatinValidator('おねがいしますasd123')).toBeFalsy() // Japanese
-    expect(isLatinValidator('يتحدّث بلغة  المؤتمر الدولي العاشر ليونيكو')).toBeFalsy() // Arabic
-    expect(isLatinValidator('asd123يتحدّث بلغة  المؤتمر الدولي العاشر ليونيكو')).toBeFalsy() // Arabic
+    expect(isLatinValidator('Przelew z walutomatu')).toBeTruthy()
+    expect(isLatinValidator('ASdFH KLsd')).toBeTruthy() // Simple Latin
+    expect(isLatinValidator('ASdFHKLs dasd123')).toBeTruthy() // Simple Latin
+    expect(isLatinValidator('ęóą śłżźć')).toBeTruthy() // Polish Latin
+    expect(isLatinValidator('ęóąśł żźć asd123')).toBeTruthy() // Polish Latin
+    expect(isLatinValidator('AaÁá ÄäBbČ čĎď')).toBeTruthy() // Czech Latin
+    expect(isLatinValidator('AaÁáÄä BbČčĎ ďas d123')).toBeTruthy() // Czech Latin
+    expect(isLatinValidator('DdEe ÉéÊêÈèË ëFfGg')).toBeTruthy() // French Latin
+    expect(isLatinValidator('DdEeÉ éÊêÈèË ëFfG gasd123')).toBeTruthy() // French Latin
+    expect(isLatinValidator('oOöÖ pPqQrRsS ßẞtTuU üÜ')).toBeTruthy() // German Latin
+    expect(isLatinValidator('oOöÖpP qQr RsSßẞtTuUüÜ asd123')).toBeTruthy() // German Latin
+    expect(isLatinValidator('£!@#$ %^&*() _+{}:"|<>?~ §123456789 0-=[];\'\\`,./')).toBeTruthy() // Special signs
+    expect(isLatinValidator('£!@#$ %^&* ()_+{}:" |<>?~§1234 567890 -=[];\'\\`,./asd123')).toBeTruthy() // Special signs
+    expect(isLatinValidator('При віт')).toBeFalsy() // Russian
+    expect(isLatinValidator('При вітasd 123')).toBeFalsy() // Russian
+    expect(isLatinValidator('п рик лад')).toBeFalsy() // Ukrainian
+    expect(isLatinValidator('прик ладa sd1 23')).toBeFalsy() // Ukrainian
+    expect(isLatinValidator('你 叫什 么名 字')).toBeFalsy() // Chinese
+    expect(isLatinValidator('你叫什 么名字 asd12 3')).toBeFalsy() // Chinese
+    expect(isLatinValidator('お ねが いし ます')).toBeFalsy() // Japanese
+    expect(isLatinValidator('おねがい しま すas d123')).toBeFalsy() // Japanese
+    expect(isLatinValidator('يتحدّث بل غة  المؤ تمر الدولي  العاشر ليو نيكو')).toBeFalsy() // Arabic
+    expect(isLatinValidator('as d123يتحدّث بلغة  المؤتمر الدولي العاشر ليونيكو')).toBeFalsy() // Arabic
   })
 
   it('should isSelectedValidator() validate element correctly', () => {

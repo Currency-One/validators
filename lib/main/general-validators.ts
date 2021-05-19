@@ -316,7 +316,7 @@ export const isAllKeysValidator = (object: object, expectedKeys: string[]): bool
  * @returns {boolean}
  */
 
-export const isLatinValidator = (value: string): boolean => !value.match(/[^\p{P}\p{S}a-zA-Z0-9À-ž]/ui)
+export const isLatinValidator = (value: string): boolean => !!value.match(/^[\s\p{P}\p{S}a-zA-Z0-9À-ž]+$/ui)
 /**
  * Checks if value is in Latin alphabet
  * or matches any kind of punctuation character
