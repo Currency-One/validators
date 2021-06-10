@@ -32,6 +32,7 @@
   },
   "license": "MIT",
   "peerDependencies": {
+    "core-js": "3.x",
     "libphonenumber-js": "1.9.x",
     "moment": "2.x"
   },
