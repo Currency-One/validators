@@ -11,7 +11,7 @@
           "ie": "10"
         },
         "useBuiltIns": "usage",
-        "modules": false,
+        "modules": "cjs",
         "corejs": 3
       }
     ]
