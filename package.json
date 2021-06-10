@@ -6,14 +6,15 @@
   "types": "./index.d.ts",
   "scripts": {
     "all": "npm install && npm run lint && npm run test && npm run build && npm run build:doc",
-    "build": "npm run clean && npm run tsc",
+    "build": "npm run clean && npm run tsc && npm run babel",
     "tsc": "tsc",
     "lint": "tslint -p . -t codeFrame",
     "test": "jest --coverage",
     "clean": "rimraf ./helpers ./date-validators ./main ./pesel-validators ./phone-validators ./index.*",
     "fix": "npm run lint --fix",
     "publish-package": "npm run all && npm version patch && npm publish --access public",
-    "build:doc": "jsdoc2md --files ./lib/**/*.ts --configure ./jsdoc2md.json > ./DOCS.md"
+    "build:doc": "jsdoc2md --files ./lib/**/*.ts --configure ./jsdoc2md.json > ./DOCS.md",
+    "babel": "babel ./**/*.js --relative --out-dir ./ --ignore ./node_modules"
   },
   "keywords": [
     "validator",
