@@ -10,9 +10,7 @@
           "safari": "11.1",
           "ie": "10"
         },
-        "useBuiltIns": "usage",
-        "modules": "cjs",
-        "corejs": 3
+        "modules": "cjs"
       }
     ]
   ]
