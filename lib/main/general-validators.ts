@@ -205,7 +205,7 @@ export const isIbanLengthValidator = (value: string, countryCode: string): boole
 
 export const isLanNumberValidator = (value: string, country?: string): boolean => {
   const lanCountriesRules = {
-    AU: /^[A-Za-z0-9]{12,16}$/,
+    AU: /^[A-Za-z0-9]{6,30}$/,
     CA: /^[A-Za-z0-9]{7,15}$/,
     CN: /^(?:OSA|NRA|FTN)?[A-Z0-9]{1,22}$/i,
     JP: /^[A-Za-z0-9]{8,14}$/,
