@@ -273,7 +273,7 @@ describe('Validators', () => {
   ;
   [
     { country: 'AU', min: 12, max: 16 },
-    { country: 'CA', min: 9, max: 15 },
+    { country: 'CA', min: 7, max: 15 },
     { country: 'CN', min: 1, max: 22 },
     { country: 'JP', min: 8, max: 14 },
     { country: 'KR', min: 11, max: 16 },
