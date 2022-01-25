@@ -8,7 +8,7 @@ export const ibanHelper = {
     const isPrefix = sanitizedNumber.substr(0, 2).match(/[A-Z]/i)
     return (countryCode === 'PL' && isPrefix && sanitizedNumber.length === 28)
       || (countryCode === 'PL' && !isPrefix && sanitizedNumber.length === 26)
-      || (countryCode !== 'PL' && sanitizedNumber.length > 14)
+      || (countryCode !== 'PL' && sanitizedNumber.length > 12)
   },
   checkIban: (iban, countryCode): boolean => {
     iban = iban.toUpperCase().replace(/ /g, '')
