@@ -215,6 +215,8 @@ describe('Validators', () => {
     expect(isIbanValidator('LV72NDEA0000084513319', 'LV')).toBeTruthy()
     expect(isIbanValidator('72NDEA0000084513319', 'LV')).toBeTruthy()
     expect(isIbanValidator('LV72NDEA0000084513319', 'PL')).toBeFalsy()
+    expect(isIbanValidator('08629925650196')).toBeFalsy()
+    expect(isIbanValidator('Z43290097581402188578030642')).toBeFalsy()
   })
 
   it('should isIbanLengthValidator() validate length correctly', () => {
