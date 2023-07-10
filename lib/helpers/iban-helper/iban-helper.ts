@@ -28,6 +28,9 @@ export const ibanHelper = {
         iban = `${countryCode}${iban}`
       }
     }
+    if (!/^[A-Z]{2}/.test(iban)) {
+      return false
+    }
 
     iban = iban.substr(4) + iban.substr(0, 4)
     let num = ''
