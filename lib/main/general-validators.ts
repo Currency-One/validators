@@ -208,7 +208,7 @@ export const isLanNumberValidator = (value: string, country?: string): boolean =
     AU: /^[A-Za-z0-9]{6,30}$/,
     CA: /^[A-Za-z0-9]{7,15}$/,
     CN: /^(?:OSA|NRA|FTN)?[A-Z0-9]{1,22}$/i,
-    JP: /^[A-Za-z0-9]{8,14}$/,
+    JP: /^[A-Za-z0-9]{7,14}$/,
     KR: /^[A-Za-z0-9]{11,16}$/,
     NZ: /^[A-Za-z0-9]{15,16}$/,
     SG: /^[A-Za-z0-9]{1,14}$/,
