@@ -282,7 +282,7 @@ describe('Validators', () => {
     { country: 'NZ', min: 15, max: 16 },
     { country: 'SG', min: 1, max: 14 },
     { country: 'TW', min: 1, max: 22 },
-    { country: 'US', min: 10, max: 30 },
+    { country: 'US', min: 9, max: 30 },
     { country: 'OTHER', min: 1, max: 22 },
     { country: undefined, min: 1, max: 22 },
   ].forEach(({ country, min, max }) =>
