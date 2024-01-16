@@ -11,6 +11,7 @@ import {
   isNipPattern,
   isNumericPattern,
   isPasswordPattern,
+  isPolishStreetPattern,
   isPostalCodePattern,
   isStreetPattern,
 } from '../lib'
@@ -133,5 +134,15 @@ describe('pattern functions', () => {
     expect(isStreetPattern('ul#$Lecha')).toBeFalsy()
     expect(isStreetPattern('Pyk?')).toBeFalsy()
     expect(isStreetPattern('*Cyk*Cyk*Cyk*')).toBeFalsy()
+  })
+
+  it('isPolishStreetPattern should validate correctly', () => {
+    expect(isPolishStreetPattern('Klonowa 32')).toBeTruthy()
+    expect(isPolishStreetPattern('klonowa 32')).toBeTruthy()
+    expect(isPolishStreetPattern('KLONOWA 32')).toBeTruthy()
+    expect(isPolishStreetPattern('ul. Klonował 32')).toBeTruthy()
+    expect(isPolishStreetPattern('32 Klonowa')).toBeFalsy()
+    expect(isPolishStreetPattern('Klonowa')).toBeFalsy()
+    expect(isPolishStreetPattern('32')).toBeFalsy()
   })
 })
