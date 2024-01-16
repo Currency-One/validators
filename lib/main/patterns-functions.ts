@@ -163,3 +163,14 @@ export const isStreetPattern = (value: string): boolean => {
  * @param {string} value - value to check.
  * @returns {boolean}
  */
+
+export const isPolishStreetPattern = (value: string): boolean => {
+  const pattern = '[a-zA-Z\\u00C0-\\u017F]+\\s\\d.*$'
+  return !!value.match(pattern)
+}
+/**
+ * Checks if value matches <street><number> pattern
+ * <pre> /[a-zA-Z\\u00C0-\\u017F]+\\s\\d.*$/ </pre>
+ * @param {string} value - value to check.
+ * @returns {boolean}
+ */

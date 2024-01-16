@@ -496,6 +496,7 @@ or matches any math symbols, currency signs, dingbats, box-drawing characters, e
     * [.isCharsCompanyPattern](#module_Patterns.isCharsCompanyPattern) ⇒ <code>boolean</code>
     * [.isPostalCodePattern](#module_Patterns.isPostalCodePattern) ⇒ <code>boolean</code>
     * [.isStreetPattern](#module_Patterns.isStreetPattern) ⇒ <code>boolean</code>
+    * [.isPolishStreetPattern](#module_Patterns.isPolishStreetPattern) ⇒ <code>boolean</code>
 
 <a name="module_Patterns.isAccountNumberPattern"></a>
 
@@ -664,6 +665,18 @@ or matches any math symbols, currency signs, dingbats, box-drawing characters, e
 ### Patterns.isStreetPattern ⇒ <code>boolean</code>
 <p>Checks if value matches street name pattern</p>
 <pre> /^[0-9a-zA-Z\u00C0-\u017F\-\s\.,\/]*$/ </pre>
+
+**Kind**: static property of [<code>Patterns</code>](#module_Patterns)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| value | <code>string</code> | <p>value to check.</p> |
+
+<a name="module_Patterns.isPolishStreetPattern"></a>
+
+### Patterns.isPolishStreetPattern ⇒ <code>boolean</code>
+<p>Checks if value matches <street><number> pattern</p>
+<pre> /[a-zA-Z\\u00C0-\\u017F]+\\s\\d.*$/ </pre>
 
 **Kind**: static property of [<code>Patterns</code>](#module_Patterns)  
 
