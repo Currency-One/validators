@@ -134,6 +134,8 @@ then it is checked if expiration date is later than release date. Date in format
     * [.isIbanValidator](#module_General Validators.isIbanValidator) ⇒ <code>boolean</code>
     * [.isIbanLengthValidator](#module_General Validators.isIbanLengthValidator) ⇒ <code>boolean</code>
     * [.isLanNumberValidator](#module_General Validators.isLanNumberValidator) ⇒ <code>boolean</code>
+    * [.isRoutingCodeValidator](#module_General Validators.isRoutingCodeValidator) ⇒ <code>boolean</code>
+    * [.isTaxNumberValidator](#module_General Validators.isTaxNumberValidator) ⇒ <code>boolean</code>
     * [.isSwiftValidator](#module_General Validators.isSwiftValidator) ⇒ <code>boolean</code>
     * [.isSwiftCountryValidator](#module_General Validators.isSwiftCountryValidator) ⇒ <code>boolean</code>
     * [.isIdNumberValidator](#module_General Validators.isIdNumberValidator) ⇒ <code>boolean</code>
@@ -395,6 +397,32 @@ then it is checked if expiration date is later than release date. Date in format
 | Param | Type | Description |
 | --- | --- | --- |
 | value | <code>string</code> | <p>value to check.</p> |
+| [country] | <code>string</code> | <p>optional country to check.</p> |
+
+<a name="module_General Validators.isRoutingCodeValidator"></a>
+
+### General Validators.isRoutingCodeValidator ⇒ <code>boolean</code>
+<p>Checks if value is valid routing code</p>
+
+**Kind**: static property of [<code>General Validators</code>](#module_General Validators)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| value | <code>string</code> | <p>value to check.</p> |
+| [country] | <code>string</code> | <p>optional country to check.</p> |
+
+<a name="module_General Validators.isTaxNumberValidator"></a>
+
+### General Validators.isTaxNumberValidator ⇒ <code>boolean</code>
+<p>Checks if value is valid tax number</p>
+
+**Kind**: static property of [<code>General Validators</code>](#module_General Validators)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| value | <code>string</code> | <p>value to check.</p> |
+| [country] | <code>string</code> | <p>optional country to check.</p> |
+| [isCompany] | <code>boolean</code> | <p>optional isCompany to check.</p> |
 
 <a name="module_General Validators.isSwiftValidator"></a>
 

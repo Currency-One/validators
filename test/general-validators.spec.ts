@@ -26,6 +26,8 @@ import {
   isSwiftCountryValidator,
   isSwiftValidator,
   isValueValidator,
+  isRoutingCodeValidator,
+  isTaxNumberValidator,
 } from '../lib'
 import { ibanHelper } from '../lib/helpers/iban-helper'
 
@@ -340,6 +342,22 @@ describe('Validators', () => {
       expect(isLanNumberValidator(`NRA${rawNumber}`, 'XX')).toBeFalsy()
       expect(isLanNumberValidator(`FTN${rawNumber}`, 'XX')).toBeFalsy()
     })
+  })
+
+  it('should isRoutingCodeValidator() validate value correctly', () => {
+    expect(isRoutingCodeValidator('123', 'CL')).toBeTruthy()
+    expect(isRoutingCodeValidator('12', 'CO')).toBeTruthy()
+    expect(isRoutingCodeValidator('12345', 'CO')).toBeTruthy()
+    expect(isRoutingCodeValidator('123', 'CO')).toBeFalsy()
+    expect(isRoutingCodeValidator('123')).toBeTruthy()
+  })
+
+  it('should isTaxNumberValidator() validate value correctly', () => {
+    expect(isTaxNumberValidator('123456789', 'CO')).toBeTruthy()
+    expect(isTaxNumberValidator('12-12345678-1', 'AR')).toBeTruthy()
+    expect(isTaxNumberValidator('123.123.123-12', 'BR')).toBeTruthy()
+    expect(isTaxNumberValidator('12.123.123/1234-12', 'BR', true)).toBeTruthy()
+    expect(isTaxNumberValidator('123')).toBeTruthy()
   })
 
   it('should isSwiftValidator() validate value correctly', () => {

@@ -205,15 +205,20 @@ export const isIbanLengthValidator = (value: string, countryCode: string): boole
 
 export const isLanNumberValidator = (value: string, country?: string): boolean => {
   const lanCountriesRules = {
+    AR: /^[0-9]{22}$/,
     AU: /^[A-Za-z0-9]{6,30}$/,
+    BR: /^[0-9]{2,15}$/,
     CA: /^[A-Za-z0-9]{7,30}$/,
     CN: /^(?:OSA|NRA|FTN)?[A-Z0-9]{1,22}$/i,
     JP: /^[A-Za-z0-9]{7,14}$/,
     KR: /^[A-Za-z0-9]{11,16}$/,
+    MX: /^[0-9]{18}$/,
     NZ: /^[A-Za-z0-9]{15,16}$/,
+    PE: /^[0-9]{20}$/,
     SG: /^[A-Za-z0-9]{1,14}$/,
     TW: /^[A-Za-z0-9]{1,22}$/,
     US: /^[A-Za-z0-9]{9,30}$/,
+    UY: /^[0-9]{7,14}$/,
   }
   const defaultRule = /^[A-Za-z0-9]{1,22}$/
   return !!value.replace(/ /g, '').match(lanCountriesRules[country] ? lanCountriesRules[country] : defaultRule)
@@ -221,6 +226,44 @@ export const isLanNumberValidator = (value: string, country?: string): boolean =
 /**
  * Checks if value is valid non-iban account number
  * @param {string} value - value to check.
+ * @param {string} [country] - optional country to check.
+ * @returns {boolean}
+ */
+
+export const isRoutingCodeValidator = (value: string, country?: string): boolean => {
+  const countries = {
+    BR: /^[0-9]{3}[0-9]{4,5}$/,
+    CL: /^\d{3}$/,
+    CO: /^(\d{2}|\d{5})$/,
+    PE: /^[0-9]{3}$/,
+    UY: /^[0-9]{4}$/,
+  }
+  return !countries[country] || !!value.replace(/ /g, '').match(countries[country])
+}
+/**
+ * Checks if value is valid routing code
+ * @param {string} value - value to check.
+ * @param {string} [country] - optional country to check.
+ * @returns {boolean}
+ */
+
+export const isTaxNumberValidator = (value: string, country?: string, isCompany?: boolean): boolean => {
+  const countries = {
+    AR: /^[0-9]{2}-?[0-9]{8}-?[0-9]{1}$/,
+    BR: !isCompany ? /^[0-9]{3}[.]?[0-9]{3}[.]?[0-9]{3}[-]?[0-9]{2}$/ : /^[0-9]{2}[.]?[0-9]{3}[.]?[0-9]{3}[/]?[0-9]{4}[-]?[0-9]{2}$/,
+    CL: /^(\d{1,3}(?:\.\d{1,3}){2}-[\dkK])$/,
+    CO: /^\d{9}$/i,
+    MX: /^[A-Za-z]{3,4}[ |\\-]{0,1}[0-9]{6}[ |\\-]{0,1}([0-9A-Za-z]{3})?$/,
+    PE: /^[0-9]{6,9}$|^[0-9]{8}$|^[0-9]{11}$/,
+    UY: /(^.{8,12}$)|(^[0-9]{2}[-]?[0-9]{6}[-]?[0-9]{3}[-]?[0-9]{1}$)|(^[0-9]{1}[\\.]?[0-9]{3}[\\.]?[0-9]{3}[-]?[0-9]$)/,
+  }
+  return !countries[country] || !!value.replace(/ /g, '').match(countries[country])
+}
+/**
+ * Checks if value is valid tax number
+ * @param {string} value - value to check.
+ * @param {string} [country] - optional country to check.
+ * @param {boolean} [isCompany] - optional isCompany to check.
  * @returns {boolean}
  */
 
