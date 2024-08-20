@@ -220,7 +220,7 @@ export const isLanNumberValidator = (value: string, country?: string): boolean =
     US: /^[A-Za-z0-9]{9,30}$/,
     UY: /^[0-9]{7,14}$/,
   }
-  const defaultRule = /^[A-Za-z0-9]{1,22}$/
+  const defaultRule = /^[A-Za-z0-9]{1,30}$/
   return !!value.replace(/ /g, '').match(lanCountriesRules[country] ? lanCountriesRules[country] : defaultRule)
 }
 /**
