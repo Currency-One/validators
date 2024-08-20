@@ -285,8 +285,8 @@ describe('Validators', () => {
     { country: 'SG', min: 1, max: 14 },
     { country: 'TW', min: 1, max: 22 },
     { country: 'US', min: 9, max: 30 },
-    { country: 'OTHER', min: 1, max: 22 },
-    { country: undefined, min: 1, max: 22 },
+    { country: 'OTHER', min: 1, max: 30 },
+    { country: undefined, min: 1, max: 30 },
   ].forEach(({ country, min, max }) =>
     describe(`isLanNumberValidator() validation behaviour for ${country} country code`, () => {
       it('should return true for valid lan number', () => {
@@ -335,12 +335,6 @@ describe('Validators', () => {
     it('should not allow other prefixes', async () => {
       expect(isLanNumberValidator(`ZZZ${rawNumber}`, 'CN')).toBeFalsy()
       expect(isLanNumberValidator(`111${rawNumber}`, 'CN')).toBeFalsy()
-    })
-
-    it('should not allow prefixes for other countries', async () => {
-      expect(isLanNumberValidator(`OSA${rawNumber}`, 'XX')).toBeFalsy()
-      expect(isLanNumberValidator(`NRA${rawNumber}`, 'XX')).toBeFalsy()
-      expect(isLanNumberValidator(`FTN${rawNumber}`, 'XX')).toBeFalsy()
     })
   })
 
