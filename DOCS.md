@@ -136,6 +136,7 @@ then it is checked if expiration date is later than release date. Date in format
     * [.isLanNumberValidator](#module_General Validators.isLanNumberValidator) ⇒ <code>boolean</code>
     * [.isRoutingCodeValidator](#module_General Validators.isRoutingCodeValidator) ⇒ <code>boolean</code>
     * [.isTaxNumberValidator](#module_General Validators.isTaxNumberValidator) ⇒ <code>boolean</code>
+    * [.isCnapsCodeValidator](#module_General Validators.isCnapsCodeValidator) ⇒ <code>boolean</code>
     * [.isSwiftValidator](#module_General Validators.isSwiftValidator) ⇒ <code>boolean</code>
     * [.isSwiftCountryValidator](#module_General Validators.isSwiftCountryValidator) ⇒ <code>boolean</code>
     * [.isIdNumberValidator](#module_General Validators.isIdNumberValidator) ⇒ <code>boolean</code>
@@ -423,6 +424,17 @@ then it is checked if expiration date is later than release date. Date in format
 | value | <code>string</code> | <p>value to check.</p> |
 | [country] | <code>string</code> | <p>optional country to check.</p> |
 | [isCompany] | <code>boolean</code> | <p>optional isCompany to check.</p> |
+
+<a name="module_General Validators.isCnapsCodeValidator"></a>
+
+### General Validators.isCnapsCodeValidator ⇒ <code>boolean</code>
+<p>Checks if value is valid cnaps code</p>
+
+**Kind**: static property of [<code>General Validators</code>](#module_General Validators)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| value | <code>string</code> | <p>value to check.</p> |
 
 <a name="module_General Validators.isSwiftValidator"></a>
 

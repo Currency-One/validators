@@ -267,6 +267,13 @@ export const isTaxNumberValidator = (value: string, country?: string, isCompany?
  * @returns {boolean}
  */
 
+export const isCnapsCodeValidator = (value: string): boolean => !!value.match(/^\d{12}$/)
+/**
+ * Checks if value is valid cnaps code
+ * @param {string} value - value to check.
+ * @returns {boolean}
+ */
+
 export const isSwiftValidator = (value: string): boolean => !!value.match(/^[A-Z]{6}[A-Z0-9]{2}([A-Z0-9]{3})?$/i)
 /**
  * Checks if value is valid swift number
