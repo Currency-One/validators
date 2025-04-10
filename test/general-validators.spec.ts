@@ -28,6 +28,7 @@ import {
   isValueValidator,
   isRoutingCodeValidator,
   isTaxNumberValidator,
+  isCnapsCodeValidator,
 } from '../lib'
 import { ibanHelper } from '../lib/helpers/iban-helper'
 
@@ -352,6 +353,15 @@ describe('Validators', () => {
     expect(isTaxNumberValidator('123.123.123-12', 'BR')).toBeTruthy()
     expect(isTaxNumberValidator('12.123.123/1234-12', 'BR', true)).toBeTruthy()
     expect(isTaxNumberValidator('123')).toBeTruthy()
+  })
+
+  it('should isCnapsCodeValidator() validate value correctly', () => {
+    expect(isCnapsCodeValidator('123456789012')).toBeTruthy()
+    expect(isCnapsCodeValidator('12-12345678-1')).toBeFalsy()
+    expect(isCnapsCodeValidator('123.123.123-12')).toBeFalsy()
+    expect(isCnapsCodeValidator('12.123.123/1234-12')).toBeFalsy()
+    expect(isCnapsCodeValidator('123')).toBeFalsy()
+    expect(isCnapsCodeValidator('abcdefghijkl')).toBeFalsy()
   })
 
   it('should isSwiftValidator() validate value correctly', () => {
